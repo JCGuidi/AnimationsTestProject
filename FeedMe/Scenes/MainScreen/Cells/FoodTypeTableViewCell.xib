@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FoodTypeTableViewCell" rowHeight="163" id="KGk-i7-Jjw" customClass="FoodTypeTableViewCell" customModule="FeedMe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="156"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="156"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pasta0" translatesAutoresizingMaskIntoConstraints="NO" id="mPM-aC-xMe">
+                        <rect key="frame" x="20" y="8" width="280" height="140"/>
+                        <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="mPM-aC-xMe" secondAttribute="height" multiplier="2:1" id="ocW-HB-iAn"/>
+                        </constraints>
+                    </imageView>
+                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1XE-UD-AHZ">
+                        <rect key="frame" x="196" y="101" width="104" height="47"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lEI-7u-Rts">
+                            <rect key="frame" x="0.0" y="0.0" width="104" height="47"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gelato" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhZ-F4-W3I">
+                                    <rect key="frame" x="8" y="0.0" width="88" height="47"/>
+                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="34"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="yhZ-F4-W3I" secondAttribute="bottom" id="6o6-w9-1hX"/>
+                                <constraint firstItem="yhZ-F4-W3I" firstAttribute="centerX" secondItem="lEI-7u-Rts" secondAttribute="centerX" id="MDN-P9-0GF"/>
+                                <constraint firstItem="yhZ-F4-W3I" firstAttribute="top" secondItem="lEI-7u-Rts" secondAttribute="top" id="Omb-Df-Pf0"/>
+                            </constraints>
+                        </view>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="104" id="F1X-ir-Bjd"/>
+                        </constraints>
+                        <blurEffect style="light"/>
+                    </visualEffectView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="mPM-aC-xMe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="NyL-De-QpQ"/>
+                    <constraint firstAttribute="bottom" secondItem="mPM-aC-xMe" secondAttribute="bottom" constant="8" id="TR9-eG-W1K"/>
+                    <constraint firstAttribute="trailing" secondItem="1XE-UD-AHZ" secondAttribute="trailing" constant="20" id="WyO-NZ-qPM"/>
+                    <constraint firstAttribute="trailing" secondItem="mPM-aC-xMe" secondAttribute="trailing" constant="20" id="chF-hL-Wzn"/>
+                    <constraint firstAttribute="bottom" secondItem="1XE-UD-AHZ" secondAttribute="bottom" constant="8" id="dSg-nF-EOy"/>
+                    <constraint firstItem="mPM-aC-xMe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="gqm-H0-DDh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cellTitle" destination="yhZ-F4-W3I" id="xxj-ka-CT4"/>
+                <outlet property="titleBackgroundView" destination="1XE-UD-AHZ" id="fn3-9c-axm"/>
+                <outlet property="titleImageView" destination="mPM-aC-xMe" id="FZ0-MM-64w"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="192.1875"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="pasta0" width="900" height="1200"/>
+    </resources>
+</document>

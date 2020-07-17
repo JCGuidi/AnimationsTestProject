@@ -8,12 +8,14 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class LogInViewController: UIViewController {
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var logInButton: UIButton!
     @IBOutlet private weak var userTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var logInWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var loaderImageView: UIImageView!
     
     private enum Constants {
         static let pathCornerRadius: CGFloat = 8
@@ -26,6 +28,7 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         
         logInButton.layer.cornerRadius = 8
+        loaderImageView.isHidden = true
         
         markerShapeLayer.strokeColor = UIColor.red.cgColor
         markerShapeLayer.fillColor = UIColor.clear.cgColor
@@ -37,8 +40,8 @@ final class ViewController: UIViewController {
     }
     
     @IBAction func handleLogInTap(_ sender: UIButton) {
-        sender.setTitle("Loading", for: .normal)
-        
+        view.endEditing(true)
+        view.isUserInteractionEnabled = false
         let markerPath = UIBezierPath()
         markerPath.move(to: CGPoint(x: passwordTextField.frame.minX, y: passwordTextField.frame.minY))
         markerPath.addLine(to: CGPoint(x: passwordTextField.frame.minX, y: sender.frame.maxY - Constants.pathCornerRadius))
@@ -56,19 +59,68 @@ final class ViewController: UIViewController {
         
         let strokeEndAnimation = CABasicAnimation(keyPath: "strokeEnd")
         strokeEndAnimation.fromValue = startValue
-        strokeEndAnimation.toValue = 1.0
+        strokeEndAnimation.toValue = 1
         let strokeStartAnimation = CABasicAnimation(keyPath: "strokeStart")
         strokeStartAnimation.fromValue = -0.5
-        strokeStartAnimation.toValue = 0.4
+        strokeStartAnimation.toValue = 1
         let strokeAnimationGroup = CAAnimationGroup()
         strokeAnimationGroup.duration = 0.3
         strokeAnimationGroup.animations = [strokeEndAnimation, strokeStartAnimation]
         strokeAnimationGroup.delegate = self
-        strokeAnimationGroup.setValue("textField", forKey: "name")
-        strokeAnimationGroup.setValue(sender, forKey: "textField")
-        markerShapeLayer.add(strokeAnimationGroup, forKey: "EnterAnimation")
+        strokeAnimationGroup.setValue("button", forKey: "name")
+        markerShapeLayer.add(strokeAnimationGroup, forKey: nil)
         animationFromHeader = false
         markerShapeLayer.path = markerPath.cgPath
+        
+        setUpLoader()
+        logInWidthConstraint.constant = 40
+        UIView.animate(withDuration: 0.4, delay: 0.15, animations: {
+            sender.setTitle("", for: .normal)
+            self.loaderImageView.alpha = 1
+            self.logInButton.backgroundColor = UIColor(red: 1, green: 0.42, blue: 0.24, alpha: 1)
+            self.logInButton.layer.cornerRadius = 20
+            self.view.layoutSubviews()
+        })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.stopLoader()
+        }
+    }
+    
+    func setUpLoader() {
+        guard let image = UIImage(named: "loader") else { return }
+        loaderImageView.image = image
+        loaderImageView.tintColor = .white
+        loaderImageView.isHidden = false
+        loaderImageView.alpha = 0
+        
+        animateLoader()
+    }
+    
+    func animateLoader() {
+        if loaderImageView.layer.animation(forKey: "kSpinnerAnimation") == nil {
+            let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
+            rotationAnimation.fromValue = 0
+            rotationAnimation.toValue = -Float.pi * 2
+            rotationAnimation.duration = 1
+            rotationAnimation.repeatCount = .infinity
+            
+            loaderImageView.layer.add(rotationAnimation, forKey: "kSpinnerAnimation")
+        }
+    }
+    
+    func stopLoaderAnimation() {
+        guard loaderImageView.layer.animation(forKey: "kSpinnerAnimation") != nil else { return }
+        loaderImageView.layer.removeAnimation(forKey: "kSpinnerAnimation")
+    }
+    
+    func stopLoader() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.loaderImageView.alpha = 0
+        }) { _ in
+            self.stopLoaderAnimation()
+            print("changeScreens")
+        }
     }
     
     @IBAction func TextFieldEditBegun(_ sender: UITextField) {
@@ -126,7 +178,7 @@ final class ViewController: UIViewController {
     }
 }
 
-private extension ViewController {
+private extension LogInViewController {
     func animateEnterLine() {
         let startingPoint = CGPoint(x: -10, y: titleLabel.frame.maxY)
         let endPoint = CGPoint(x: titleLabel.frame.maxX * 0.95, y: titleLabel.frame.maxY)
@@ -149,7 +201,7 @@ private extension ViewController {
     }
 }
 
-extension ViewController: CAAnimationDelegate {
+extension LogInViewController: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         guard let name = anim.value(forKey: "name") as? String else {
             return
@@ -172,6 +224,8 @@ extension ViewController: CAAnimationDelegate {
             finalMarkerPath.move(to: CGPoint(x: textField.frame.minX, y: textField.frame.minY))
             finalMarkerPath.addLine(to: CGPoint(x: textField.frame.minX, y: textField.frame.maxY))
             markerShapeLayer.path = finalMarkerPath.cgPath
+        case "button":
+            markerShapeLayer.removeFromSuperlayer()
         default:
             return
         }

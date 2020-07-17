@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BadgedButton" customModule="FeedMe" customModuleProvider="target">
+            <connections>
+                <outlet property="badgetLabel" destination="KD4-2t-sNG" id="XUu-eu-Jna"/>
+                <outlet property="badgetView" destination="p8T-UX-QiG" id="Wsj-T6-kWe"/>
+                <outlet property="buttonImageView" destination="Lme-gn-EMR" id="nqr-hM-ddt"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="kP8-SV-r98"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plate" translatesAutoresizingMaskIntoConstraints="NO" id="Lme-gn-EMR">
+                    <rect key="frame" x="5" y="5" width="30" height="30"/>
+                    <color key="tintColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="VYm-IV-15i"/>
+                        <constraint firstAttribute="height" constant="30" id="dLq-VG-ze9"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8T-UX-QiG">
+                    <rect key="frame" x="23" y="1" width="16" height="16"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KD4-2t-sNG">
+                            <rect key="frame" x="5" y="2.5" width="6" height="11"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="16" id="52D-wN-Dhz"/>
+                        <constraint firstItem="KD4-2t-sNG" firstAttribute="centerX" secondItem="p8T-UX-QiG" secondAttribute="centerX" id="Gig-he-EYh"/>
+                        <constraint firstAttribute="height" constant="16" id="RHL-t8-vJT"/>
+                        <constraint firstItem="KD4-2t-sNG" firstAttribute="centerY" secondItem="p8T-UX-QiG" secondAttribute="centerY" id="j0I-Lb-uH2"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Lme-gn-EMR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7tV-Nh-1a0"/>
+                <constraint firstItem="p8T-UX-QiG" firstAttribute="top" secondItem="Lme-gn-EMR" secondAttribute="top" constant="-4" id="Nc7-ec-OZs"/>
+                <constraint firstItem="Lme-gn-EMR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nc9-qT-9Ns"/>
+                <constraint firstItem="p8T-UX-QiG" firstAttribute="trailing" secondItem="Lme-gn-EMR" secondAttribute="trailing" constant="4" id="s49-Zf-bab"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="26.086956521739133" y="-135.9375"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="plate" width="32" height="32"/>
+    </resources>
+</document>

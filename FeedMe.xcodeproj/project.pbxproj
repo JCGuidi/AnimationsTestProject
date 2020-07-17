@@ -9,23 +9,75 @@
 /* Begin PBXBuildFile section */
 		671A370A24BE15DE00A66FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671A370924BE15DE00A66FED /* AppDelegate.swift */; };
 		671A370C24BE15DE00A66FED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671A370B24BE15DE00A66FED /* SceneDelegate.swift */; };
-		671A370E24BE15DE00A66FED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671A370D24BE15DE00A66FED /* ViewController.swift */; };
+		671A370E24BE15DE00A66FED /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671A370D24BE15DE00A66FED /* LogInViewController.swift */; };
 		671A371124BE15DF00A66FED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 671A370F24BE15DF00A66FED /* Main.storyboard */; };
 		671A371324BE15E200A66FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 671A371224BE15E200A66FED /* Assets.xcassets */; };
 		671A371624BE15E200A66FED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 671A371424BE15E200A66FED /* LaunchScreen.storyboard */; };
 		671A371F24BE724900A66FED /* FloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671A371E24BE724900A66FED /* FloatingTextField.swift */; };
+		671B1DF324BF8C5F009CF6E6 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671B1DF224BF8C5F009CF6E6 /* UIColor.swift */; };
+		671B1DF524BF946A009CF6E6 /* BadgedButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671B1DF424BF946A009CF6E6 /* BadgedButton.xib */; };
+		671B1DF724BF9482009CF6E6 /* BadgedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671B1DF624BF9482009CF6E6 /* BadgedButton.swift */; };
+		678F381424BFE3810069ADEC /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F381324BFE3810069ADEC /* Food.swift */; };
+		67A492CA24BF2EAB0049490D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492C924BF2EAB0049490D /* AppCoordinator.swift */; };
+		67A492CC24BF2F210049490D /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492CB24BF2F210049490D /* LogInCoordinator.swift */; };
+		67A492CF24BF2F6F0049490D /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492CE24BF2F6F0049490D /* UIViewController.swift */; };
+		67A492D124BF2F8F0049490D /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492D024BF2F8F0049490D /* AppConstants.swift */; };
+		67A492D624BF34C80049490D /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492D524BF34C80049490D /* LogInViewModel.swift */; };
+		67A492D824BF376E0049490D /* MainViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492D724BF376E0049490D /* MainViewCoordinator.swift */; };
+		67A492DA24BF37880049490D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492D924BF37880049490D /* MainViewController.swift */; };
+		67A492DD24BF37AD0049490D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492DC24BF37AD0049490D /* MainViewModel.swift */; };
+		67A492DF24BF3F980049490D /* CircularTransitionToMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492DE24BF3F980049490D /* CircularTransitionToMain.swift */; };
+		67A492E124BF48B10049490D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492E024BF48B10049490D /* Router.swift */; };
+		67A492E324BF606C0049490D /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492E224BF606C0049490D /* UIDevice.swift */; };
+		67AC50BE24C07B24005F34AA /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC50BD24C07B24005F34AA /* MenuDetailViewController.swift */; };
+		67AC50C024C0831E005F34AA /* PresentDetailTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC50BF24C0831E005F34AA /* PresentDetailTransition.swift */; };
+		67AC50C224C08AB7005F34AA /* FoodCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC50C124C08AB7005F34AA /* FoodCellViewModel.swift */; };
+		67AC50C424C09B21005F34AA /* MenuDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC50C324C09B21005F34AA /* MenuDetailViewModel.swift */; };
+		67AC50C824C0B164005F34AA /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC50C624C0B164005F34AA /* DetailTableViewCell.swift */; };
+		67AC50C924C0B164005F34AA /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67AC50C724C0B164005F34AA /* DetailTableViewCell.xib */; };
+		67AC50CD24C0BAB3005F34AA /* DetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC50CC24C0BAB3005F34AA /* DetailCellViewModel.swift */; };
+		67AC50D024C111AB005F34AA /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC50CF24C111AB005F34AA /* Cart.swift */; };
+		67AC50D224C118DF005F34AA /* AddRemoveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC50D124C118DE005F34AA /* AddRemoveButton.swift */; };
+		67B6E47024BF9E6B005CD3E8 /* FoodTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B6E46E24BF9E6B005CD3E8 /* FoodTypeTableViewCell.swift */; };
+		67B6E47124BF9E6B005CD3E8 /* FoodTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67B6E46F24BF9E6B005CD3E8 /* FoodTypeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		671A370624BE15DE00A66FED /* FeedMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		671A370624BE15DE00A66FED /* Guidi's.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Guidi's.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		671A370924BE15DE00A66FED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		671A370B24BE15DE00A66FED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		671A370D24BE15DE00A66FED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		671A370D24BE15DE00A66FED /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		671A371024BE15DF00A66FED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		671A371224BE15E200A66FED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		671A371524BE15E200A66FED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		671A371724BE15E200A66FED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		671A371E24BE724900A66FED /* FloatingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingTextField.swift; sourceTree = "<group>"; };
+		671B1DF224BF8C5F009CF6E6 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		671B1DF424BF946A009CF6E6 /* BadgedButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgedButton.xib; sourceTree = "<group>"; };
+		671B1DF624BF9482009CF6E6 /* BadgedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgedButton.swift; sourceTree = "<group>"; };
+		678F381324BFE3810069ADEC /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		67A492C924BF2EAB0049490D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		67A492CB24BF2F210049490D /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
+		67A492CE24BF2F6F0049490D /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		67A492D024BF2F8F0049490D /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		67A492D524BF34C80049490D /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
+		67A492D724BF376E0049490D /* MainViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCoordinator.swift; sourceTree = "<group>"; };
+		67A492D924BF37880049490D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		67A492DC24BF37AD0049490D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		67A492DE24BF3F980049490D /* CircularTransitionToMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransitionToMain.swift; sourceTree = "<group>"; };
+		67A492E024BF48B10049490D /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		67A492E224BF606C0049490D /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		67AC50BD24C07B24005F34AA /* MenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailViewController.swift; sourceTree = "<group>"; };
+		67AC50BF24C0831E005F34AA /* PresentDetailTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentDetailTransition.swift; sourceTree = "<group>"; };
+		67AC50C124C08AB7005F34AA /* FoodCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCellViewModel.swift; sourceTree = "<group>"; };
+		67AC50C324C09B21005F34AA /* MenuDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailViewModel.swift; sourceTree = "<group>"; };
+		67AC50C624C0B164005F34AA /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		67AC50C724C0B164005F34AA /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
+		67AC50CC24C0BAB3005F34AA /* DetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCellViewModel.swift; sourceTree = "<group>"; };
+		67AC50CF24C111AB005F34AA /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		67AC50D124C118DE005F34AA /* AddRemoveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemoveButton.swift; sourceTree = "<group>"; };
+		67B6E46E24BF9E6B005CD3E8 /* FoodTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTypeTableViewCell.swift; sourceTree = "<group>"; };
+		67B6E46F24BF9E6B005CD3E8 /* FoodTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodTypeTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +102,7 @@
 		671A370724BE15DE00A66FED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				671A370624BE15DE00A66FED /* FeedMe.app */,
+				671A370624BE15DE00A66FED /* Guidi's.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,24 +110,130 @@
 		671A370824BE15DE00A66FED /* FeedMe */ = {
 			isa = PBXGroup;
 			children = (
-				671A371D24BE71D000A66FED /* CustomViews */,
 				671A370924BE15DE00A66FED /* AppDelegate.swift */,
 				671A370B24BE15DE00A66FED /* SceneDelegate.swift */,
-				671A370D24BE15DE00A66FED /* ViewController.swift */,
-				671A370F24BE15DF00A66FED /* Main.storyboard */,
-				671A371224BE15E200A66FED /* Assets.xcassets */,
-				671A371424BE15E200A66FED /* LaunchScreen.storyboard */,
 				671A371724BE15E200A66FED /* Info.plist */,
+				67A492E024BF48B10049490D /* Router.swift */,
+				67A492CD24BF2F600049490D /* Extensions */,
+				67A492C824BF2E9D0049490D /* Coordinators */,
+				67A492D324BF347B0049490D /* Scenes */,
+				671A371D24BE71D000A66FED /* CustomControls */,
+				678F381524BFE3860069ADEC /* Models */,
+				67A492D224BF2FBC0049490D /* Resources */,
 			);
 			path = FeedMe;
 			sourceTree = "<group>";
 		};
-		671A371D24BE71D000A66FED /* CustomViews */ = {
+		671A371D24BE71D000A66FED /* CustomControls */ = {
 			isa = PBXGroup;
 			children = (
 				671A371E24BE724900A66FED /* FloatingTextField.swift */,
+				671B1DF424BF946A009CF6E6 /* BadgedButton.xib */,
+				671B1DF624BF9482009CF6E6 /* BadgedButton.swift */,
+				67AC50D124C118DE005F34AA /* AddRemoveButton.swift */,
 			);
-			path = CustomViews;
+			path = CustomControls;
+			sourceTree = "<group>";
+		};
+		678F381524BFE3860069ADEC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				678F381324BFE3810069ADEC /* Food.swift */,
+				67AC50CF24C111AB005F34AA /* Cart.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		67A492C824BF2E9D0049490D /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				67A492C924BF2EAB0049490D /* AppCoordinator.swift */,
+				67A492CB24BF2F210049490D /* LogInCoordinator.swift */,
+				67A492D724BF376E0049490D /* MainViewCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		67A492CD24BF2F600049490D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				67A492CE24BF2F6F0049490D /* UIViewController.swift */,
+				67A492E224BF606C0049490D /* UIDevice.swift */,
+				671B1DF224BF8C5F009CF6E6 /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		67A492D224BF2FBC0049490D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				671A371224BE15E200A66FED /* Assets.xcassets */,
+				67A492D024BF2F8F0049490D /* AppConstants.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		67A492D324BF347B0049490D /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				671A371424BE15E200A66FED /* LaunchScreen.storyboard */,
+				671A370F24BE15DF00A66FED /* Main.storyboard */,
+				67A492D424BF34940049490D /* LogIn */,
+				67A492DB24BF378D0049490D /* MainScreen */,
+				67AC50BC24C07AF0005F34AA /* MenuDetail */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		67A492D424BF34940049490D /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				671A370D24BE15DE00A66FED /* LogInViewController.swift */,
+				67A492D524BF34C80049490D /* LogInViewModel.swift */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		67A492DB24BF378D0049490D /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				67A492DE24BF3F980049490D /* CircularTransitionToMain.swift */,
+				67A492D924BF37880049490D /* MainViewController.swift */,
+				67A492DC24BF37AD0049490D /* MainViewModel.swift */,
+				67B6E47224BFC91C005CD3E8 /* Cells */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		67AC50BC24C07AF0005F34AA /* MenuDetail */ = {
+			isa = PBXGroup;
+			children = (
+				67AC50BF24C0831E005F34AA /* PresentDetailTransition.swift */,
+				67AC50C324C09B21005F34AA /* MenuDetailViewModel.swift */,
+				67AC50BD24C07B24005F34AA /* MenuDetailViewController.swift */,
+				67AC50C524C0B150005F34AA /* Cells */,
+			);
+			path = MenuDetail;
+			sourceTree = "<group>";
+		};
+		67AC50C524C0B150005F34AA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				67AC50CC24C0BAB3005F34AA /* DetailCellViewModel.swift */,
+				67AC50C624C0B164005F34AA /* DetailTableViewCell.swift */,
+				67AC50C724C0B164005F34AA /* DetailTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		67B6E47224BFC91C005CD3E8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				67AC50C124C08AB7005F34AA /* FoodCellViewModel.swift */,
+				67B6E46E24BF9E6B005CD3E8 /* FoodTypeTableViewCell.swift */,
+				67B6E46F24BF9E6B005CD3E8 /* FoodTypeTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,7 +253,7 @@
 			);
 			name = FeedMe;
 			productName = FeedMe;
-			productReference = 671A370624BE15DE00A66FED /* FeedMe.app */;
+			productReference = 671A370624BE15DE00A66FED /* Guidi's.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -136,8 +294,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				671B1DF524BF946A009CF6E6 /* BadgedButton.xib in Resources */,
 				671A371624BE15E200A66FED /* LaunchScreen.storyboard in Resources */,
+				67B6E47124BF9E6B005CD3E8 /* FoodTypeTableViewCell.xib in Resources */,
 				671A371324BE15E200A66FED /* Assets.xcassets in Resources */,
+				67AC50C924C0B164005F34AA /* DetailTableViewCell.xib in Resources */,
 				671A371124BE15DF00A66FED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,10 +310,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				671A370E24BE15DE00A66FED /* ViewController.swift in Sources */,
+				67A492CF24BF2F6F0049490D /* UIViewController.swift in Sources */,
+				67A492DF24BF3F980049490D /* CircularTransitionToMain.swift in Sources */,
+				67A492DA24BF37880049490D /* MainViewController.swift in Sources */,
+				67AC50D024C111AB005F34AA /* Cart.swift in Sources */,
+				671A370E24BE15DE00A66FED /* LogInViewController.swift in Sources */,
+				678F381424BFE3810069ADEC /* Food.swift in Sources */,
+				67AC50C024C0831E005F34AA /* PresentDetailTransition.swift in Sources */,
+				67A492D824BF376E0049490D /* MainViewCoordinator.swift in Sources */,
+				671B1DF324BF8C5F009CF6E6 /* UIColor.swift in Sources */,
 				671A370A24BE15DE00A66FED /* AppDelegate.swift in Sources */,
+				67A492D124BF2F8F0049490D /* AppConstants.swift in Sources */,
+				67A492D624BF34C80049490D /* LogInViewModel.swift in Sources */,
+				67A492CC24BF2F210049490D /* LogInCoordinator.swift in Sources */,
+				67AC50D224C118DF005F34AA /* AddRemoveButton.swift in Sources */,
+				67A492CA24BF2EAB0049490D /* AppCoordinator.swift in Sources */,
+				67A492E324BF606C0049490D /* UIDevice.swift in Sources */,
+				67AC50C224C08AB7005F34AA /* FoodCellViewModel.swift in Sources */,
+				67A492E124BF48B10049490D /* Router.swift in Sources */,
+				67B6E47024BF9E6B005CD3E8 /* FoodTypeTableViewCell.swift in Sources */,
 				671A370C24BE15DE00A66FED /* SceneDelegate.swift in Sources */,
+				67AC50C824C0B164005F34AA /* DetailTableViewCell.swift in Sources */,
+				67AC50BE24C07B24005F34AA /* MenuDetailViewController.swift in Sources */,
+				671B1DF724BF9482009CF6E6 /* BadgedButton.swift in Sources */,
 				671A371F24BE724900A66FED /* FloatingTextField.swift in Sources */,
+				67A492DD24BF37AD0049490D /* MainViewModel.swift in Sources */,
+				67AC50C424C09B21005F34AA /* MenuDetailViewModel.swift in Sources */,
+				67AC50CD24C0BAB3005F34AA /* DetailCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,12 +483,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7KM58CYLUC;
 				INFOPLIST_FILE = FeedMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jcguidi.FeedMe;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Guidi's";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -317,12 +502,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7KM58CYLUC;
 				INFOPLIST_FILE = FeedMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jcguidi.FeedMe;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Guidi's";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
