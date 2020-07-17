@@ -72,6 +72,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 private extension MainViewController {
     func configureUI() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
         titleLabel.isHidden = true
         headerView.backgroundColor = .customGreen
         headerHeightConstraint.constant = UIScreen.main.bounds.height

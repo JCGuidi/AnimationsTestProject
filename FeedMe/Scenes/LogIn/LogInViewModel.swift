@@ -10,11 +10,11 @@ import Foundation
 
 final class LogInViewModel {
     var coordinator: LogInCoordinator?
-    var onLogInSuccess: (()->Void)? = nil
-    var onValidInputs: (()->Void)? = nil
+    var onLogInSuccess: (() -> Void)? = nil
+    var onValidInputs: ((Bool) -> Void)? = nil
     var validInputs: Bool = false {
         didSet {
-            onValidInputs?()
+            onValidInputs?(validInputs)
         }
     }
     

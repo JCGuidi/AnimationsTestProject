@@ -87,8 +87,8 @@ private extension MenuDetailViewController {
         headerBlurView.alpha = 0.25
         headerTitle.alpha = 0
         dismissButton.alpha = 0
-        
         let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
+        headerView.addGestureRecognizer(pan)
         navigationView.addGestureRecognizer(pan)
     }
     

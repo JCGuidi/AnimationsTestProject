@@ -12,7 +12,7 @@ final class LogInViewController: UIViewController {
 
     @IBOutlet private weak var topImage: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var logInButton: UIButton!
+    @IBOutlet private(set) weak var logInButton: UIButton!
     @IBOutlet private weak var userTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var logInWidthConstraint: NSLayoutConstraint!
@@ -35,8 +35,11 @@ final class LogInViewController: UIViewController {
         viewModel.onLogInSuccess = {
             self.stopLoader()
         }
-        viewModel.onValidInputs = { [unowned self] in
-            self.logInButton.isEnabled = true
+        viewModel.onValidInputs = { [unowned self] (valid) in
+            self.logInButton.isEnabled = valid
+            UIView.animate(withDuration: 0.3) {
+                self.logInButton.backgroundColor = valid ? .customYellow : .silver
+            }
         }
         view.layer.speed = 1
     }

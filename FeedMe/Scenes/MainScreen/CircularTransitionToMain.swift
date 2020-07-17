@@ -37,6 +37,7 @@ extension CircularTransitionToMain: UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
         guard let presentedView = transitionContext.view(forKey: UITransitionContextViewKey.to) else { return }
+        startingPoint = (transitionContext.viewController(forKey: .from) as? LogInViewController)?.logInButton.center ?? startingPoint
         let viewCenter = presentedView.center
         let viewSize = presentedView.frame.size
         
@@ -48,7 +49,7 @@ extension CircularTransitionToMain: UIViewControllerAnimatedTransitioning {
         circle.layer.cornerRadius = circle.frame.size.height / 2
         circle.center = startingPoint
         circle.backgroundColor = circleColor
-        circle.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        circle.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
         containerView.addSubview(circle)
         
         UIView.animateKeyframes(withDuration: duration,
