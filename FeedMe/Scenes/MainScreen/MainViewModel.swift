@@ -48,6 +48,10 @@ final class MainViewModel {
         }
     }
     
+    func handleCartTap(on viewController: UIViewController) {
+        coordinator?.presentChechout(over: viewController)
+    }
+    
     func handleRowTapFor(cell: FoodTypeTableViewCell, on viewController: UIViewController, withImageFrame frame: CGRect) {
         guard
             let information = cell.viewModel,

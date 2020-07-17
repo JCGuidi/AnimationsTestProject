@@ -15,6 +15,7 @@ final class DetailTableViewCell: UITableViewCell {
     @IBOutlet private weak var foodTitle: UILabel!
     @IBOutlet private weak var ingredientsLabel: UILabel!
     @IBOutlet private weak var foodIngredients: UILabel!
+    @IBOutlet private weak var cellButton: AddRemoveButton!
     
     var viewModel: DetailCellViewModel?
     var shouldAdd = true
@@ -35,15 +36,21 @@ final class DetailTableViewCell: UITableViewCell {
             return
         }
         foodIngredients.text = viewModel.ingredients
+        if viewModel.isOnCart {
+            cellButton.setTitle("Remove", for: .normal)
+            shouldAdd = false
+        }
     }
     
     @IBAction func addButtonTapped(_ sender: AddRemoveButton) {
         if shouldAdd {
             sender.setTitle("Remove", for: .normal)
             viewModel?.addActionHandler?()
+            viewModel?.isOnCart = true
         } else {
             sender.setTitle("Add", for: .normal)
-            viewModel?.addActionHandler?()
+            viewModel?.removeActionHandler?()
+            viewModel?.isOnCart = false
         }
         shouldAdd.toggle()
     }

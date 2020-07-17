@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		670C28F124C20177000368C5 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C28F024C20177000368C5 /* CheckoutViewController.swift */; };
+		670C28F724C22991000368C5 /* CheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C28F624C22991000368C5 /* CheckoutViewModel.swift */; };
+		670C28F924C23E22000368C5 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 670C28F824C23E22000368C5 /* CardView.xib */; };
+		670C28FB24C241B5000368C5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C28FA24C241B5000368C5 /* CardView.swift */; };
 		671A370A24BE15DE00A66FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671A370924BE15DE00A66FED /* AppDelegate.swift */; };
 		671A370C24BE15DE00A66FED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671A370B24BE15DE00A66FED /* SceneDelegate.swift */; };
 		671A370E24BE15DE00A66FED /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671A370D24BE15DE00A66FED /* LogInViewController.swift */; };
@@ -44,6 +48,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		670C28F024C20177000368C5 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		670C28F624C22991000368C5 /* CheckoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewModel.swift; sourceTree = "<group>"; };
+		670C28F824C23E22000368C5 /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		670C28FA24C241B5000368C5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		671A370624BE15DE00A66FED /* Guidi's.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Guidi's.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		671A370924BE15DE00A66FED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		671A370B24BE15DE00A66FED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +101,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		670C28EF24C20145000368C5 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				670C28F024C20177000368C5 /* CheckoutViewController.swift */,
+				670C28F624C22991000368C5 /* CheckoutViewModel.swift */,
+			);
+			path = Checkout;
+			sourceTree = "<group>";
+		};
+		670C28FC24C244E6000368C5 /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				670C28F824C23E22000368C5 /* CardView.xib */,
+				670C28FA24C241B5000368C5 /* CardView.swift */,
+			);
+			path = CardView;
+			sourceTree = "<group>";
+		};
 		671A36FD24BE15DE00A66FED = {
 			isa = PBXGroup;
 			children = (
@@ -119,22 +145,23 @@
 				67A492CD24BF2F600049490D /* Extensions */,
 				67A492C824BF2E9D0049490D /* Coordinators */,
 				67A492D324BF347B0049490D /* Scenes */,
-				671A371D24BE71D000A66FED /* CustomControls */,
+				671A371D24BE71D000A66FED /* CustomElements */,
 				678F381524BFE3860069ADEC /* Models */,
 				67A492D224BF2FBC0049490D /* Resources */,
 			);
 			path = FeedMe;
 			sourceTree = "<group>";
 		};
-		671A371D24BE71D000A66FED /* CustomControls */ = {
+		671A371D24BE71D000A66FED /* CustomElements */ = {
 			isa = PBXGroup;
 			children = (
+				670C28FC24C244E6000368C5 /* CardView */,
 				671A371E24BE724900A66FED /* FloatingTextField.swift */,
 				671B1DF424BF946A009CF6E6 /* BadgedButton.xib */,
 				671B1DF624BF9482009CF6E6 /* BadgedButton.swift */,
 				67AC50D124C118DE005F34AA /* AddRemoveButton.swift */,
 			);
-			path = CustomControls;
+			path = CustomElements;
 			sourceTree = "<group>";
 		};
 		678F381524BFE3860069ADEC /* Models */ = {
@@ -183,6 +210,7 @@
 				67A492D424BF34940049490D /* LogIn */,
 				67A492DB24BF378D0049490D /* MainScreen */,
 				67AC50BC24C07AF0005F34AA /* MenuDetail */,
+				670C28EF24C20145000368C5 /* Checkout */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -300,6 +328,7 @@
 				671B1DF524BF946A009CF6E6 /* BadgedButton.xib in Resources */,
 				671A371624BE15E200A66FED /* LaunchScreen.storyboard in Resources */,
 				67B6E47124BF9E6B005CD3E8 /* FoodTypeTableViewCell.xib in Resources */,
+				670C28F924C23E22000368C5 /* CardView.xib in Resources */,
 				671A371324BE15E200A66FED /* Assets.xcassets in Resources */,
 				67AC50C924C0B164005F34AA /* DetailTableViewCell.xib in Resources */,
 				671A371124BE15DF00A66FED /* Main.storyboard in Resources */,
@@ -322,8 +351,10 @@
 				67AC50C024C0831E005F34AA /* PresentDetailTransition.swift in Sources */,
 				67A492D824BF376E0049490D /* MainViewCoordinator.swift in Sources */,
 				671B1DF324BF8C5F009CF6E6 /* UIColor.swift in Sources */,
+				670C28FB24C241B5000368C5 /* CardView.swift in Sources */,
 				671A370A24BE15DE00A66FED /* AppDelegate.swift in Sources */,
 				67A492D124BF2F8F0049490D /* AppConstants.swift in Sources */,
+				670C28F124C20177000368C5 /* CheckoutViewController.swift in Sources */,
 				67A492D624BF34C80049490D /* LogInViewModel.swift in Sources */,
 				67A492CC24BF2F210049490D /* LogInCoordinator.swift in Sources */,
 				67AC50D224C118DF005F34AA /* AddRemoveButton.swift in Sources */,
@@ -332,6 +363,7 @@
 				67AC50C224C08AB7005F34AA /* FoodCellViewModel.swift in Sources */,
 				67A492E124BF48B10049490D /* Router.swift in Sources */,
 				67B6E47024BF9E6B005CD3E8 /* FoodTypeTableViewCell.swift in Sources */,
+				670C28F724C22991000368C5 /* CheckoutViewModel.swift in Sources */,
 				671A370C24BE15DE00A66FED /* SceneDelegate.swift in Sources */,
 				67AC50C824C0B164005F34AA /* DetailTableViewCell.swift in Sources */,
 				67AC50BE24C07B24005F34AA /* MenuDetailViewController.swift in Sources */,

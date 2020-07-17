@@ -31,11 +31,12 @@ final class Router: NSObject {
     
     func present(_ viewController: UIViewController,
                  over presenter: UIViewController,
+                 presentationStyle: UIModalPresentationStyle = .fullScreen,
                  withAnimation animation: UIViewControllerAnimatedTransitioning? = nil,
                  interactor: TransitionInteractor? = nil) {
         self.interactor = interactor
         transition = animation
-        viewController.modalPresentationStyle = .fullScreen
+        viewController.modalPresentationStyle = presentationStyle
         viewController.transitioningDelegate = self
         presenter.present(viewController, animated: true, completion: nil)
     }

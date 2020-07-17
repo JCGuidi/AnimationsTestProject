@@ -193,6 +193,121 @@
             </objects>
             <point key="canvasLocation" x="818.84057971014499" y="137.94642857142856"/>
         </scene>
+        <!--Checkout View Controller-->
+        <scene sceneID="NPm-Vk-oXc">
+            <objects>
+                <viewController storyboardIdentifier="CheckoutViewController" id="KyF-EH-I0f" customClass="CheckoutViewController" customModule="Guidi_s" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WEq-Tc-B14">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spaghetti" translatesAutoresizingMaskIntoConstraints="NO" id="hd2-JG-z6j">
+                                <rect key="frame" x="147" y="56" width="120" height="90"/>
+                                <color key="tintColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="MKb-1G-xX5"/>
+                                    <constraint firstAttribute="height" constant="90" id="ihL-Hf-Yf1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBv-EX-6Dx">
+                                <rect key="frame" x="124" y="146" width="166" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Oh0-2F-tqH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="34"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pot-98-feD">
+                                <rect key="frame" x="20" y="204" width="112" height="25"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="18"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTW-Tm-y24">
+                                <rect key="frame" x="169.5" y="824" width="75" height="30"/>
+                                <state key="normal" title="Order Now"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJ8-lC-PpV">
+                                <rect key="frame" x="0.0" y="237" width="414" height="200"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LH1-sA-zI0" customClass="CardView" customModule="Guidi_s" customModuleProvider="target">
+                                        <rect key="frame" x="77" y="24" width="260" height="152"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="LH1-sA-zI0" secondAttribute="height" multiplier="65:38" id="EGq-Qj-fBr"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="LH1-sA-zI0" firstAttribute="centerX" secondItem="XJ8-lC-PpV" secondAttribute="centerX" id="BSU-zk-eZn"/>
+                                    <constraint firstAttribute="height" constant="200" id="dnS-hD-uyk"/>
+                                    <constraint firstAttribute="bottom" secondItem="LH1-sA-zI0" secondAttribute="bottom" constant="24" id="jtd-6j-jhu"/>
+                                    <constraint firstItem="LH1-sA-zI0" firstAttribute="top" secondItem="XJ8-lC-PpV" secondAttribute="top" constant="24" id="uiY-Ie-yKc"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Holder:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGg-ya-nHZ">
+                                <rect key="frame" x="20" y="445" width="374" height="29"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="21"/>
+                                <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y4F-O7-re3">
+                                <rect key="frame" x="8" y="49" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="D6K-cM-NSF"/>
+                                    <constraint firstAttribute="width" constant="40" id="fMV-ed-5BZ"/>
+                                </constraints>
+                                <color key="tintColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="dissmisButtonTap:" destination="KyF-EH-I0f" eventType="touchUpInside" id="TVS-GX-kub"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMd-tT-WQf">
+                                <rect key="frame" x="24" y="478" width="370" height="0.0"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Italic" family="Avenir Next Condensed" pointSize="19"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.98431372549999996" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="y4F-O7-re3" firstAttribute="top" secondItem="Lcd-pD-yxl" secondAttribute="top" constant="5" id="02A-DK-Qb6"/>
+                            <constraint firstItem="XJ8-lC-PpV" firstAttribute="leading" secondItem="Lcd-pD-yxl" secondAttribute="leading" id="8xW-JL-ZUH"/>
+                            <constraint firstItem="Lcd-pD-yxl" firstAttribute="bottom" secondItem="CTW-Tm-y24" secondAttribute="bottom" constant="8" id="Eit-ay-Khc"/>
+                            <constraint firstItem="pMd-tT-WQf" firstAttribute="leading" secondItem="MGg-ya-nHZ" secondAttribute="leading" constant="4" id="I97-mU-vnb"/>
+                            <constraint firstItem="BBv-EX-6Dx" firstAttribute="top" secondItem="hd2-JG-z6j" secondAttribute="bottom" id="JTD-8M-Da5"/>
+                            <constraint firstItem="MGg-ya-nHZ" firstAttribute="leading" secondItem="Lcd-pD-yxl" secondAttribute="leading" constant="20" id="Lpz-cV-t93"/>
+                            <constraint firstItem="XJ8-lC-PpV" firstAttribute="top" secondItem="pot-98-feD" secondAttribute="bottom" constant="8" id="O5u-Ft-A8W"/>
+                            <constraint firstItem="hd2-JG-z6j" firstAttribute="centerX" secondItem="Lcd-pD-yxl" secondAttribute="centerX" id="QH1-mb-JbA"/>
+                            <constraint firstItem="pot-98-feD" firstAttribute="leading" secondItem="Lcd-pD-yxl" secondAttribute="leading" constant="20" id="V97-fw-v9x"/>
+                            <constraint firstItem="BBv-EX-6Dx" firstAttribute="centerX" secondItem="hd2-JG-z6j" secondAttribute="centerX" id="WYc-dq-UDu"/>
+                            <constraint firstItem="pot-98-feD" firstAttribute="top" secondItem="BBv-EX-6Dx" secondAttribute="bottom" constant="8" id="gGq-fI-n14"/>
+                            <constraint firstItem="XJ8-lC-PpV" firstAttribute="trailing" secondItem="Lcd-pD-yxl" secondAttribute="trailing" id="hg1-Nb-EaG"/>
+                            <constraint firstItem="CTW-Tm-y24" firstAttribute="centerX" secondItem="Lcd-pD-yxl" secondAttribute="centerX" id="iln-La-uMi"/>
+                            <constraint firstItem="Lcd-pD-yxl" firstAttribute="trailing" secondItem="MGg-ya-nHZ" secondAttribute="trailing" constant="20" id="j1Q-uq-mw4"/>
+                            <constraint firstItem="MGg-ya-nHZ" firstAttribute="top" secondItem="XJ8-lC-PpV" secondAttribute="bottom" constant="8" id="k8V-Gn-e31"/>
+                            <constraint firstItem="y4F-O7-re3" firstAttribute="leading" secondItem="Lcd-pD-yxl" secondAttribute="leading" constant="8" id="kVt-3w-f3o"/>
+                            <constraint firstItem="pMd-tT-WQf" firstAttribute="top" secondItem="MGg-ya-nHZ" secondAttribute="bottom" constant="4" id="mje-bX-8ch"/>
+                            <constraint firstItem="hd2-JG-z6j" firstAttribute="top" secondItem="Lcd-pD-yxl" secondAttribute="top" constant="12" id="rym-LE-C2x"/>
+                            <constraint firstItem="Lcd-pD-yxl" firstAttribute="trailing" secondItem="pMd-tT-WQf" secondAttribute="trailing" constant="20" id="wIZ-ap-DGV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Lcd-pD-yxl"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardView" destination="LH1-sA-zI0" id="b3x-55-7tC"/>
+                        <outlet property="infoDescription" destination="pMd-tT-WQf" id="hA7-zD-6BC"/>
+                        <outlet property="infoTitle" destination="MGg-ya-nHZ" id="cmw-Ra-siC"/>
+                        <outlet property="paymentMethodView" destination="XJ8-lC-PpV" id="Uzf-gg-6PB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W7A-CI-Tzj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="818.84057971014499" y="803.57142857142856"/>
+        </scene>
         <!--Menu Detail View Controller-->
         <scene sceneID="QIU-qs-DbG">
             <objects>
@@ -286,6 +401,7 @@
     </scenes>
     <resources>
         <image name="pizza" width="128" height="128"/>
+        <image name="spaghetti" width="128" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>

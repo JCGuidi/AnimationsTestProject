@@ -25,6 +25,14 @@ final class MainViewCoordinator: CoordinatorProtocol {
         router.set(mainViewController, withAnimation: CircularTransitionToMain())
     }
 
+    func presentChechout(over viewController: UIViewController) {
+        let checkoutViewController: CheckoutViewController = .instantiate()
+        let checkoutViewModel = CheckoutViewModel()
+        checkoutViewModel.coordinator = self
+        checkoutViewController.viewModel = checkoutViewModel
+        router.present(checkoutViewController, over: viewController)
+    }
+    
     func presentDetail(for foodCategory: FoodCategory,
                        over viewController: UIViewController,
                        withAnimation animation: PresentDetailTransition,
@@ -45,6 +53,10 @@ final class MainViewCoordinator: CoordinatorProtocol {
     func dismissDetail() {
         guard let animation  = animation as? PresentDetailTransition else { return }
         animation.presenting = false
+        router.dismiss()
+    }
+    
+    func dismiss() {
         router.dismiss()
     }
     

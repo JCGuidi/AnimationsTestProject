@@ -41,7 +41,7 @@ final class MainViewController: UIViewController {
     }
     
     @IBAction func handleCartTap(_ sender: UIButton) {
-        print("go to cart")
+        viewModel.handleCartTap(on: self)
     }
 }
 

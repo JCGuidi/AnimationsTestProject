@@ -27,6 +27,7 @@ final class MenuDetailViewModel {
             foodToDisplay.append(DetailCellViewModel(name: plate.name,
                                                      imageName: plate.imageName,
                                                      ingredients: plate.ingredients,
+                                                     isOnCart: cart.orders.contains(plate.name),
                                                      addActionHandler: { cart.add(newOrder: plate.name) },
                                                      removeActionHandler: { cart.remove(order: plate.name)}))
         }

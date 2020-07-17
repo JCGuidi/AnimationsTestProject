@@ -92,6 +92,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="cellButton" destination="47Z-y5-IUW" id="h7G-wz-koc"/>
                 <outlet property="foodImageView" destination="07M-ey-SF5" id="j3D-et-AyV"/>
                 <outlet property="foodIngredients" destination="b3L-kK-rpp" id="rwl-Ja-E8p"/>
                 <outlet property="foodTitle" destination="BSW-kr-DSE" id="2dj-5z-yVw"/>

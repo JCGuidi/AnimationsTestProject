@@ -24,9 +24,10 @@ final class AppCoordinator: NSObject, CoordinatorProtocol {
     }
     
     func start() {
-        let logInCoordinator = LogInCoordinator(router: router, parentCoordinator: self)
-        childCoordinators.append(logInCoordinator)
-        logInCoordinator.start()
+        startMainFlow()
+//        let logInCoordinator = LogInCoordinator(router: router, parentCoordinator: self)
+//        childCoordinators.append(logInCoordinator)
+//        logInCoordinator.start()
     }
     
     func startMainFlow() {
