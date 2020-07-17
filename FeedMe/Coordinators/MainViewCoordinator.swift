@@ -27,14 +27,18 @@ final class MainViewCoordinator: CoordinatorProtocol {
 
     func presentDetail(for foodCategory: FoodCategory,
                        over viewController: UIViewController,
-                       withAnimation animation: UIViewControllerAnimatedTransitioning) {
+                       withAnimation animation: PresentDetailTransition,
+                       interactor: TransitionInteractor = TransitionInteractor()) {
         let detailViewController: MenuDetailViewController = .instantiate()
         let detailViewModel = MenuDetailViewModel(selectedFoodCategory: foodCategory)
         detailViewModel.coordinator = self
+        detailViewModel.interactor = interactor
+        detailViewModel.transition = animation
         detailViewController.viewModel = detailViewModel
+        animation.interactor = interactor
         self.animation = animation
         DispatchQueue.main.async {
-            self.router.present(detailViewController, over: viewController, withAnimation: animation)
+            self.router.present(detailViewController, over: viewController, withAnimation: animation, interactor: interactor)
         }
     }
     

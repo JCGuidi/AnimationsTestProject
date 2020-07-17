@@ -17,6 +17,7 @@
 		671B1DF324BF8C5F009CF6E6 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671B1DF224BF8C5F009CF6E6 /* UIColor.swift */; };
 		671B1DF524BF946A009CF6E6 /* BadgedButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671B1DF424BF946A009CF6E6 /* BadgedButton.xib */; };
 		671B1DF724BF9482009CF6E6 /* BadgedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671B1DF624BF9482009CF6E6 /* BadgedButton.swift */; };
+		6787278024C1C9FC00FE7C66 /* TransitionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6787277F24C1C9FC00FE7C66 /* TransitionInteractor.swift */; };
 		678F381424BFE3810069ADEC /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F381324BFE3810069ADEC /* Food.swift */; };
 		67A492CA24BF2EAB0049490D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492C924BF2EAB0049490D /* AppCoordinator.swift */; };
 		67A492CC24BF2F210049490D /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492CB24BF2F210049490D /* LogInCoordinator.swift */; };
@@ -55,6 +56,7 @@
 		671B1DF224BF8C5F009CF6E6 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		671B1DF424BF946A009CF6E6 /* BadgedButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgedButton.xib; sourceTree = "<group>"; };
 		671B1DF624BF9482009CF6E6 /* BadgedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgedButton.swift; sourceTree = "<group>"; };
+		6787277F24C1C9FC00FE7C66 /* TransitionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionInteractor.swift; sourceTree = "<group>"; };
 		678F381324BFE3810069ADEC /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		67A492C924BF2EAB0049490D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		67A492CB24BF2F210049490D /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				67AC50BF24C0831E005F34AA /* PresentDetailTransition.swift */,
+				6787277F24C1C9FC00FE7C66 /* TransitionInteractor.swift */,
 				67AC50C324C09B21005F34AA /* MenuDetailViewModel.swift */,
 				67AC50BD24C07B24005F34AA /* MenuDetailViewController.swift */,
 				67AC50C524C0B150005F34AA /* Cells */,
@@ -333,6 +336,7 @@
 				67AC50C824C0B164005F34AA /* DetailTableViewCell.swift in Sources */,
 				67AC50BE24C07B24005F34AA /* MenuDetailViewController.swift in Sources */,
 				671B1DF724BF9482009CF6E6 /* BadgedButton.swift in Sources */,
+				6787278024C1C9FC00FE7C66 /* TransitionInteractor.swift in Sources */,
 				671A371F24BE724900A66FED /* FloatingTextField.swift in Sources */,
 				67A492DD24BF37AD0049490D /* MainViewModel.swift in Sources */,
 				67AC50C424C09B21005F34AA /* MenuDetailViewModel.swift in Sources */,

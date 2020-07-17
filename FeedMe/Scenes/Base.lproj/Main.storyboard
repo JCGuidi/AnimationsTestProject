@@ -40,6 +40,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="TextFieldEditBegun:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="kIw-7D-n59"/>
+                                    <action selector="textFieldEditing:" destination="BYZ-38-t0r" eventType="editingChanged" id="3Lv-xg-8fN"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4qG-CU-TPn" customClass="FloatingTextField" customModule="Guidi_s" customModuleProvider="target">
@@ -57,6 +58,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="TextFieldEditBegun:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="hAZ-TT-kpF"/>
+                                    <action selector="textFieldEditing:" destination="BYZ-38-t0r" eventType="editingChanged" id="v11-AS-6pC"/>
                                 </connections>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pizza" translatesAutoresizingMaskIntoConstraints="NO" id="u1d-ko-K1u">
@@ -199,29 +201,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ed1-my-fJb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgi-g4-qUr">
-                                        <rect key="frame" x="8" y="5" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Rbd-mS-EP8"/>
-                                            <constraint firstAttribute="width" constant="40" id="i66-h8-74Q"/>
-                                        </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="xmark" catalog="system"/>
-                                        <connections>
-                                            <action selector="dismiss:" destination="9IC-xt-STG" eventType="touchUpInside" id="1JF-p2-Uwx"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c8X-p7-0uk">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="8oS-XP-eNG"/>
-                                    <constraint firstItem="jgi-g4-qUr" firstAttribute="centerY" secondItem="Ed1-my-fJb" secondAttribute="centerY" constant="-3" id="BrS-Xt-KCd"/>
-                                    <constraint firstItem="jgi-g4-qUr" firstAttribute="leading" secondItem="Ed1-my-fJb" secondAttribute="leading" constant="8" id="ppE-rJ-BWr"/>
-                                </constraints>
-                            </view>
+                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsC-Lc-foF">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                 <subviews>
@@ -258,10 +241,29 @@
                                     <constraint firstAttribute="height" priority="999" constant="200" id="lga-kq-0Cf"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c8X-p7-0uk">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ed1-my-fJb">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgi-g4-qUr">
+                                        <rect key="frame" x="8" y="5" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Rbd-mS-EP8"/>
+                                            <constraint firstAttribute="width" constant="40" id="i66-h8-74Q"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="xmark" catalog="system"/>
+                                        <connections>
+                                            <action selector="dismiss:" destination="9IC-xt-STG" eventType="touchUpInside" id="1JF-p2-Uwx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="8oS-XP-eNG"/>
+                                    <constraint firstItem="jgi-g4-qUr" firstAttribute="centerY" secondItem="Ed1-my-fJb" secondAttribute="centerY" constant="-3" id="BrS-Xt-KCd"/>
+                                    <constraint firstItem="jgi-g4-qUr" firstAttribute="leading" secondItem="Ed1-my-fJb" secondAttribute="leading" constant="8" id="ppE-rJ-BWr"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.98431372549019602" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>

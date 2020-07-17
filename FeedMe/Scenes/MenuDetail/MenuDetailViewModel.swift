@@ -13,6 +13,8 @@ final class MenuDetailViewModel {
     let title: String!
     let selectedFoodCategory: FoodCategory!
     var coordinator: MainViewCoordinator?
+    var transition: PresentDetailTransition?
+    var interactor: TransitionInteractor?
     
     func handleDismissTap() {
         coordinator?.dismissDetail()

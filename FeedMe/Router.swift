@@ -11,6 +11,7 @@ import UIKit
 final class Router: NSObject {
     private let navigationController: UINavigationController
     private var transition: UIViewControllerAnimatedTransitioning?
+    private var interactor: TransitionInteractor?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -30,7 +31,9 @@ final class Router: NSObject {
     
     func present(_ viewController: UIViewController,
                  over presenter: UIViewController,
-                 withAnimation animation: UIViewControllerAnimatedTransitioning? = nil) {
+                 withAnimation animation: UIViewControllerAnimatedTransitioning? = nil,
+                 interactor: TransitionInteractor? = nil) {
+        self.interactor = interactor
         transition = animation
         viewController.modalPresentationStyle = .fullScreen
         viewController.transitioningDelegate = self
@@ -65,4 +68,11 @@ extension Router: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return transition
     }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        guard let interactor = interactor, interactor.hasStarted else { return nil }
+        return interactor
+    }
+    
+    
 }

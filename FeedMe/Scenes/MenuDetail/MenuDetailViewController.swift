@@ -46,6 +46,8 @@ final class MenuDetailViewController: UIViewController {
     }
     
     @IBAction func dismiss(_ sender: UIButton) {
+        viewModel.interactor?.shouldFinish = true
+        viewModel.transition?.finalFrame = headerView.frame
         UIView.animate(withDuration: 0.15, animations: {
             self.headerBlurView.alpha = 0
             self.headerTitle.alpha = 0
@@ -74,15 +76,6 @@ extension MenuDetailViewController: UITableViewDelegate, UITableViewDataSource {
         let roundedOffset = (scrollView.contentOffset.y).rounded()
         let offset = roundedOffset + Constants.headerHeight + Constants.initialOffset
         updateHeader(offset: offset)
-
-        if headerHeightConstraint.constant <= Constants.navBarHeightSize {
-            view.sendSubviewToBack(detailTableView)
-            view.bringSubviewToFront(navigationView)
-        } else {
-            view.bringSubviewToFront(detailTableView)
-            view.bringSubviewToFront(navigationView)
-        }
-        
     }
 }
 
@@ -109,7 +102,32 @@ private extension MenuDetailViewController {
     
     @objc
     func didPan(_ recognizer: UIPanGestureRecognizer) {
-        
+        let threshold: CGFloat = 0.4
+        let translation = recognizer.translation(in: headerView)
+        let verticalMovement = translation.y / Constants.headerHeight
+        let downwardMovement = max(verticalMovement, 0)
+        let progress = min(downwardMovement, 0.99)
+
+        guard let interactor = viewModel.interactor else { return }
+        headerTitle.alpha = 0.5 - progress
+        dismissButton.alpha = 0.5 - progress
+        switch recognizer.state {
+        case .began:
+            interactor.hasStarted = true
+            viewModel.transition?.finalFrame = headerView.frame
+            viewModel.handleDismissTap()
+        case .changed:
+            interactor.update(progress)
+            interactor.shouldFinish = progress > threshold
+        case .cancelled:
+            interactor.hasStarted = false
+            interactor.cancel()
+        case .ended:
+            interactor.hasStarted = false
+            interactor.shouldFinish ? interactor.finish() : interactor.cancel()
+        default:
+            break
+        }
     }
     
     func updateHeader(offset: CGFloat) {

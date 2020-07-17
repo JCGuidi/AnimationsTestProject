@@ -35,6 +35,9 @@ final class LogInViewController: UIViewController {
         viewModel.onLogInSuccess = {
             self.stopLoader()
         }
+        viewModel.onValidInputs = { [unowned self] in
+            self.logInButton.isEnabled = true
+        }
         view.layer.speed = 1
     }
     
@@ -93,6 +96,10 @@ final class LogInViewController: UIViewController {
         viewModel.logIn()
     }
     
+    @IBAction func textFieldEditing(_ sender: UITextField) {
+        viewModel.validate(username: userTextField.text ?? "", password: passwordTextField.text ?? "")
+    }
+    
     @IBAction func TextFieldEditBegun(_ sender: UITextField) {
         if animationFromHeader {
             animateLineFromHeader(to: sender)
@@ -112,6 +119,7 @@ private extension LogInViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         logInButton.layer.cornerRadius = Constants.pathCornerRadius
+        logInButton.isEnabled = false
         loaderImageView.isHidden = true
         
         markerShapeLayer.strokeColor = UIColor.red.cgColor

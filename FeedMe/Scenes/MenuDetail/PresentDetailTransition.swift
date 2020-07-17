@@ -12,11 +12,13 @@ final class PresentDetailTransition: NSObject, UIViewControllerAnimatedTransitio
     private let offset: CGFloat = UIDevice.current.hasNotch ? 60 : 20
     private let originalCornerRadius: CGFloat = 12.0
     private let duration = 0.6
-    private let finalFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200)
     private var image: UIImage?
+    
+    weak var interactor: TransitionInteractor?
     
     var presenting = true
     var originFrame = CGRect.zero
+    var finalFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200)
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
@@ -40,9 +42,12 @@ final class PresentDetailTransition: NSObject, UIViewControllerAnimatedTransitio
         if presenting {
             toView.center = CGPoint(x: originFrame.midX, y: originFrame.midY)
         } else {
-            toView.center = CGPoint(x: originFrame.midX, y: (toView.frame.height - originFrame.midY) / 2 - offset)
+            toView.center = CGPoint(x: originFrame.midX, y: finalFrame.midY + offset)
         }
-        toView.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
+        toView.transform = presenting ?
+            CGAffineTransform(scaleX: 0.4, y: 0.4) :
+            CGAffineTransform(scaleX: 0.4 * finalFrame.height / 200, y: 0.4 * finalFrame.height / 200)
+        
         containerView.addSubview(toView)
         
         let cornerRadius = presenting ? 0 : originalCornerRadius
@@ -99,10 +104,13 @@ final class PresentDetailTransition: NSObject, UIViewControllerAnimatedTransitio
                                         transitionContext.completeTransition(true)
             })
         } else {
-            imageView.alpha = 1
+            
             UIView.animateKeyframes(withDuration: duration,
                                     delay: 0,
                                     animations: {
+                                        UIView.addKeyframe(withRelativeStartTime: 0.01, relativeDuration: 0.01) {
+                                            imageView.alpha = 1
+                                        }
                                         UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.8) {
                                             imageView.frame = endFrame
                                         }
@@ -125,7 +133,8 @@ final class PresentDetailTransition: NSObject, UIViewControllerAnimatedTransitio
                                         toViewController?.imageHeader.alpha = 1
                                         imageView.removeFromSuperview()
                                         backgroundView.removeFromSuperview()
-                                        transitionContext.completeTransition(true)
+                                        let finish = self.interactor?.shouldFinish ?? true
+                                        transitionContext.completeTransition(finish)
             })
         }
     }
