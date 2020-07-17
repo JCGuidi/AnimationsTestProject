@@ -14,7 +14,6 @@ final class MenuDetailViewController: UIViewController {
     @IBOutlet private(set) weak var headerBlurView: UIVisualEffectView!
     @IBOutlet private(set) weak var detailTableView: UITableView!
     @IBOutlet private weak var headerView: UIView!
-    @IBOutlet private weak var navigationView: UIView!
     @IBOutlet private weak var headerTitle: UILabel!
     @IBOutlet private weak var dismissButton: UIButton!
     
@@ -89,7 +88,6 @@ private extension MenuDetailViewController {
         dismissButton.alpha = 0
         let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
         headerView.addGestureRecognizer(pan)
-        navigationView.addGestureRecognizer(pan)
     }
     
     func configureTableView() {

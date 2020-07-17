@@ -241,43 +241,30 @@
                                     <constraint firstAttribute="height" priority="999" constant="200" id="lga-kq-0Cf"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ed1-my-fJb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgi-g4-qUr">
-                                        <rect key="frame" x="8" y="5" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Rbd-mS-EP8"/>
-                                            <constraint firstAttribute="width" constant="40" id="i66-h8-74Q"/>
-                                        </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="xmark" catalog="system"/>
-                                        <connections>
-                                            <action selector="dismiss:" destination="9IC-xt-STG" eventType="touchUpInside" id="1JF-p2-Uwx"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgi-g4-qUr">
+                                <rect key="frame" x="8" y="49" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="8oS-XP-eNG"/>
-                                    <constraint firstItem="jgi-g4-qUr" firstAttribute="centerY" secondItem="Ed1-my-fJb" secondAttribute="centerY" constant="-3" id="BrS-Xt-KCd"/>
-                                    <constraint firstItem="jgi-g4-qUr" firstAttribute="leading" secondItem="Ed1-my-fJb" secondAttribute="leading" constant="8" id="ppE-rJ-BWr"/>
+                                    <constraint firstAttribute="height" constant="40" id="Rbd-mS-EP8"/>
+                                    <constraint firstAttribute="width" constant="40" id="i66-h8-74Q"/>
                                 </constraints>
-                            </view>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="dismiss:" destination="9IC-xt-STG" eventType="touchUpInside" id="1JF-p2-Uwx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.98431372549019602" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jsC-Lc-foF" firstAttribute="top" secondItem="iG6-yO-HnT" secondAttribute="top" id="3HH-B0-lug"/>
-                            <constraint firstItem="Ed1-my-fJb" firstAttribute="top" secondItem="H15-li-leb" secondAttribute="top" id="7Al-yT-1B7"/>
                             <constraint firstItem="c8X-p7-0uk" firstAttribute="trailing" secondItem="H15-li-leb" secondAttribute="trailing" id="Anp-rU-tHS"/>
                             <constraint firstItem="jsC-Lc-foF" firstAttribute="trailing" secondItem="H15-li-leb" secondAttribute="trailing" id="H0G-D0-hYo"/>
+                            <constraint firstItem="jgi-g4-qUr" firstAttribute="leading" secondItem="H15-li-leb" secondAttribute="leading" constant="8" id="Lej-ho-ymQ"/>
                             <constraint firstAttribute="bottom" secondItem="c8X-p7-0uk" secondAttribute="bottom" id="T2h-bp-vVM"/>
                             <constraint firstItem="c8X-p7-0uk" firstAttribute="leading" secondItem="H15-li-leb" secondAttribute="leading" id="WvK-Fy-E0I"/>
+                            <constraint firstItem="jgi-g4-qUr" firstAttribute="top" secondItem="H15-li-leb" secondAttribute="top" constant="5" id="YAA-fM-caS"/>
                             <constraint firstItem="jsC-Lc-foF" firstAttribute="leading" secondItem="H15-li-leb" secondAttribute="leading" id="Yu1-02-5dw"/>
                             <constraint firstItem="c8X-p7-0uk" firstAttribute="top" secondItem="iG6-yO-HnT" secondAttribute="top" id="klJ-wB-lGe"/>
-                            <constraint firstItem="Ed1-my-fJb" firstAttribute="leading" secondItem="H15-li-leb" secondAttribute="leading" id="kof-Pl-HG4"/>
-                            <constraint firstItem="Ed1-my-fJb" firstAttribute="trailing" secondItem="H15-li-leb" secondAttribute="trailing" id="sd0-J0-Svv"/>
-                            <constraint firstItem="Ed1-my-fJb" firstAttribute="top" secondItem="H15-li-leb" secondAttribute="top" id="w1b-mb-AzS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H15-li-leb"/>
                     </view>
@@ -290,7 +277,6 @@
                         <outlet property="headerTitleCenterConstraint" destination="4OI-K7-u7u" id="sEB-Sz-CvP"/>
                         <outlet property="headerView" destination="jsC-Lc-foF" id="l4I-zr-DXY"/>
                         <outlet property="imageHeader" destination="FoP-Hn-5b0" id="EEh-Tp-kD8"/>
-                        <outlet property="navigationView" destination="Ed1-my-fJb" id="oZ4-OX-rH2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7za-zJ-1eu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
