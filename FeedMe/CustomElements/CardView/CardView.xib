@@ -9,7 +9,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardView" customModule="Guidi_s" customModuleProvider="target">
             <connections>
                 <outlet property="cardBackgroundView" destination="o3y-zP-XJb" id="hlM-P4-aH4"/>
-                <outlet property="cardNumber" destination="cqd-2R-6eU" id="489-Sl-OHG"/>
+                <outlet property="cardHolder" destination="cqd-2R-6eU" id="Afv-hY-2uz"/>
+                <outlet property="cardNumber" destination="UmM-g1-rS3" id="rqW-nK-8pf"/>
                 <outlet property="cardTitle" destination="Hru-ZB-RkO" id="03M-Mx-kTV"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="wqa-8V-tdv"/>
             </connections>
@@ -28,8 +29,14 @@
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqd-2R-6eU">
-                            <rect key="frame" x="20" y="148.5" width="296" height="23.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqd-2R-6eU">
+                            <rect key="frame" x="20" y="151.5" width="296" height="20.5"/>
+                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234 5678 9101 1121" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmM-g1-rS3">
+                            <rect key="frame" x="12" y="128" width="304" height="23.5"/>
                             <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -37,12 +44,15 @@
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.98431372549999996" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="cqd-2R-6eU" firstAttribute="top" secondItem="UmM-g1-rS3" secondAttribute="bottom" id="1n3-yl-YBV"/>
                         <constraint firstAttribute="trailing" secondItem="cqd-2R-6eU" secondAttribute="trailing" constant="12" id="MJI-0k-pit"/>
+                        <constraint firstItem="UmM-g1-rS3" firstAttribute="leading" secondItem="o3y-zP-XJb" secondAttribute="leading" constant="12" id="dDE-b9-gUf"/>
                         <constraint firstItem="cqd-2R-6eU" firstAttribute="leading" secondItem="o3y-zP-XJb" secondAttribute="leading" constant="20" id="fmc-Ih-rq4"/>
                         <constraint firstAttribute="bottom" secondItem="cqd-2R-6eU" secondAttribute="bottom" constant="12" id="hLM-YG-NWb"/>
                         <constraint firstItem="Hru-ZB-RkO" firstAttribute="leading" secondItem="o3y-zP-XJb" secondAttribute="leading" constant="12" id="hkF-zY-8ec"/>
                         <constraint firstAttribute="trailing" secondItem="Hru-ZB-RkO" secondAttribute="trailing" constant="20" id="rZE-a9-Y3x"/>
                         <constraint firstItem="Hru-ZB-RkO" firstAttribute="top" secondItem="o3y-zP-XJb" secondAttribute="top" constant="12" id="tJa-Da-Y9R"/>
+                        <constraint firstAttribute="trailing" secondItem="UmM-g1-rS3" secondAttribute="trailing" constant="12" id="xlw-b5-b4F"/>
                     </constraints>
                 </view>
             </subviews>

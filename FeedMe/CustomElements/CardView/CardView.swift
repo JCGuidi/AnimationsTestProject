@@ -8,12 +8,21 @@
 
 import UIKit
 
+struct CardViewModel {
+    let type: PaymentMethod
+    let startColor: UIColor
+    let endColor: UIColor
+    let textColor: UIColor
+}
+
+@IBDesignable
 final class CardView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet private weak var cardBackgroundView: UIView!
     @IBOutlet private weak var cardTitle: UILabel!
     @IBOutlet private weak var cardNumber: UILabel!
-    
+    @IBOutlet private weak var cardHolder: UILabel!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -24,9 +33,37 @@ final class CardView: UIView {
         commonInit()
     }
     
-    func set(title: String, number: String) {
-        cardTitle.text = title
-        cardNumber.text = number
+    func configure(for cardViewModel: CardViewModel) {
+        
+        switch cardViewModel.type {
+        case .cash:
+            cardTitle.text = "Cash"
+            cardTitle.textColor = cardViewModel.textColor
+            cardNumber.text = ""
+            cardHolder.text = ""
+        case .card(let viewModel):
+            cardTitle.text = viewModel.name
+            cardTitle.textColor = cardViewModel.textColor
+            cardNumber.text = viewModel.number
+            cardNumber.textColor = cardViewModel.textColor
+            cardHolder.text = viewModel.holder
+            cardHolder.textColor = cardViewModel.textColor
+        }
+        
+        setGradient(withStartColor: cardViewModel.startColor, endColor: cardViewModel.endColor)
+    }
+}
+
+private extension CardView {
+    func commonInit() {
+        Bundle(for: type(of: self)).loadNibNamed("CardView", owner: self, options: nil)
+        addSubview(contentView)
+        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        contentView.frame = self.bounds
+        contentView.isUserInteractionEnabled = false
+        
+        cardBackgroundView.layer.cornerRadius = 12
+        cardBackgroundView.clipsToBounds = true
     }
     
     func setGradient(withStartColor startColor: UIColor, endColor: UIColor) {
@@ -48,18 +85,5 @@ final class CardView: UIView {
         }
         
         cardBackgroundView.layer.insertSublayer(gradientLayer, at: 0)
-    }
-}
-
-private extension CardView {
-    func commonInit() {
-        Bundle(for: type(of: self)).loadNibNamed("CardView", owner: self, options: nil)
-        addSubview(contentView)
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        contentView.frame = self.bounds
-        contentView.isUserInteractionEnabled = false
-        
-        cardBackgroundView.layer.cornerRadius = 12
-        cardBackgroundView.clipsToBounds = true
     }
 }
