@@ -24,7 +24,7 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kJC-D1-Okx" customClass="FloatingTextField" customModule="Guidi_s" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kJC-D1-Okx" customClass="FloatingTextField" customModule="FloatingLabelTextField">
                                 <rect key="frame" x="107" y="236" width="200" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="2mw-8V-jS8"/>
@@ -43,7 +43,7 @@
                                     <action selector="textFieldEditing:" destination="BYZ-38-t0r" eventType="editingChanged" id="3Lv-xg-8fN"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4qG-CU-TPn" customClass="FloatingTextField" customModule="Guidi_s" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4qG-CU-TPn" customClass="FloatingTextField" customModule="FloatingLabelTextField">
                                 <rect key="frame" x="107" y="310" width="200" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="8uT-l8-02d"/>

@@ -37,6 +37,7 @@ public final class CardOusel: UIView {
     }
     
     public func show() {
+        guard viewModel != nil else { fatalError("No data was set to show on the CardOusel - use `configure(for:)`") }
         show(card: centralCard)
         show(card: leftCard)
         show(card: rightCard)
@@ -68,6 +69,7 @@ private extension CardOusel {
     //MARK: UI Update Methods
     
     func update(for option: Int, direction: Direction) {
+        guard viewModel != nil else { fatalError("No data was set to show on the CardOusel - use `configure(for:)`") }
         currentOption = option
         delegate?.cardOusel(self, didChangeTo: option, withDirection: direction)
         
