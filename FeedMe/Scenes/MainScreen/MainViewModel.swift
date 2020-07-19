@@ -37,11 +37,16 @@ final class MainViewModel {
         FoodCategory(title: "Gelato", imageName: "gelato0", food: gelatos)
     ]
     
+    private let cart: Cart
+    private let coordinator: MainViewCoordinator
     private(set) var foodToDisplay: [FoodCellViewModel] = []
-    let cart: Cart
-    var coordinator: MainViewCoordinator?
+  
+    var numberOfItems: Int {
+        return cart.orders.count
+    }
     
-    init(cart: Cart = .shared) {
+    init(coordinator: MainViewCoordinator, cart: Cart = .shared) {
+        self.coordinator = coordinator
         self.cart = cart
         MainViewModel.categories.forEach { (category) in
             foodToDisplay.append(FoodCellViewModel(title: category.title, imageName: category.imageName))
@@ -49,7 +54,7 @@ final class MainViewModel {
     }
     
     func handleCartTap(on viewController: UIViewController) {
-        coordinator?.presentChechout(over: viewController)
+        coordinator.presentChechout(over: viewController)
     }
     
     func handleRowTapFor(cell: FoodTypeTableViewCell, on viewController: UIViewController, withImageFrame frame: CGRect) {
@@ -61,6 +66,6 @@ final class MainViewModel {
         let transition = PresentDetailTransition()
         transition.originFrame = frame
         
-        coordinator?.presentDetail(for: foodCategory, over: viewController, withAnimation: transition)
+        coordinator.presentDetail(for: foodCategory, over: viewController, withAnimation: transition)
     }
 }

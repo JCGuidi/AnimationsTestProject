@@ -23,6 +23,8 @@ final class MainViewController: UIViewController {
     
     var viewModel: MainViewModel!
     
+    //MARK: ViewController Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -32,13 +34,15 @@ final class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         titleLabel.isHidden = false
         headerHeightConstraint.constant = Constants.navBarHeightSize
-        UIView.animate(withDuration: 0.6) {
+        UIView.animate(withDuration: 0.4) {
             self.badgedButton.alpha = 1
             self.titleLabel.alpha = 1
             self.view.layoutSubviews()
         }
-        badgedButton.badgetNumber = viewModel.cart.orders.count
+        badgedButton.badgetNumber = viewModel.numberOfItems
     }
+    
+    //MARK: IBActions
     
     @IBAction func handleCartTap(_ sender: UIButton) {
         viewModel.handleCartTap(on: self)

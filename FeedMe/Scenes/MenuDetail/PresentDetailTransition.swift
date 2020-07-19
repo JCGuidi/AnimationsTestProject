@@ -104,7 +104,6 @@ final class PresentDetailTransition: NSObject, UIViewControllerAnimatedTransitio
                                         transitionContext.completeTransition(true)
             })
         } else {
-            
             UIView.animateKeyframes(withDuration: duration,
                                     delay: 0,
                                     animations: {
@@ -130,7 +129,6 @@ final class PresentDetailTransition: NSObject, UIViewControllerAnimatedTransitio
                                         }
             },
                                     completion: { (completed) in
-                                        toViewController?.imageHeader.alpha = 1
                                         imageView.removeFromSuperview()
                                         backgroundView.removeFromSuperview()
                                         let finish = self.interactor?.shouldFinish ?? true

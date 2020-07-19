@@ -8,11 +8,15 @@
 
 import UIKit
 
+//MARK: - CoordinatorProtocol Declaration
+
 protocol CoordinatorProtocol: AnyObject {
     var childCoordinators: [CoordinatorProtocol] { get }
     func start()
     func childDidFinish(_ childCoordinator: CoordinatorProtocol)
 }
+
+//MARK: - MainCoordinator
 
 final class AppCoordinator: NSObject, CoordinatorProtocol {
 
@@ -24,7 +28,6 @@ final class AppCoordinator: NSObject, CoordinatorProtocol {
     }
     
     func start() {
-//        startMainFlow()
         let logInCoordinator = LogInCoordinator(router: router, parentCoordinator: self)
         childCoordinators.append(logInCoordinator)
         logInCoordinator.start()

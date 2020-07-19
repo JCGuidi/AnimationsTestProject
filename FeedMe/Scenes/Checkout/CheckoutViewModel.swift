@@ -37,6 +37,7 @@ final class CheckoutViewModel {
     }
     
     func handleRestartTap() {
+        cart.empty()
         coordinator?.restart()
     }
     

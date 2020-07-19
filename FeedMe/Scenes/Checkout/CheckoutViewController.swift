@@ -22,6 +22,8 @@ final class CheckoutViewController: UIViewController {
     
     var viewModel: CheckoutViewModel!
     
+    //MARK: ViewController LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -32,6 +34,8 @@ final class CheckoutViewController: UIViewController {
         updateUI(for: 0, direction: .forward, completeAnimation: false)
     }
     
+    //MARK: IBActions
+    
     @IBAction func dissmisButtonTap(_ sender: Any) {
         viewModel.handleDismissTap()
     }
@@ -40,6 +44,8 @@ final class CheckoutViewController: UIViewController {
         startOrderingAnimation()
     }
 }
+
+//MARK: - Private Methods
 
 private extension CheckoutViewController {
     
@@ -56,7 +62,6 @@ private extension CheckoutViewController {
     }
     
     func updateUI(for option: Int, direction: Direction, completeAnimation: Bool = true) {
-        
         let width: CGFloat = UIScreen.main.bounds.width
         let positionDiff: CGFloat = direction == .forward ? width : -width
         let currentInformation = viewModel.getInformationFor(option: option)
@@ -79,37 +84,38 @@ private extension CheckoutViewController {
         translucidView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.9)
         translucidView.alpha = 0
         view.addSubview(translucidView)
+        
         UIView.animate(withDuration: 0.4, animations: {
             self.translucidView.alpha = 1
         }, completion: { _ in
             self.setUpReplicator(in: self.translucidView)
-            self.doBoxAnimation()
+            self.setUpFinalAnimation()
         })
     }
     
-    func doBoxAnimation() {
+    func setUpFinalAnimation() {
         let boxBottom = UIView(frame: CGRect(x: view.bounds.width / 2 - 50, y: -100, width: 100, height: 100))
-        let boxLayer = CAShapeLayer()
+        let boxBottomLayer = CAShapeLayer()
         
-        boxLayer.path = UIBezierPath(roundedRect: boxBottom.bounds, cornerRadius: 4).cgPath
-        boxLayer.strokeColor = UIColor.darkGray.withAlphaComponent(0.5).cgColor
-        boxLayer.lineWidth = 3
-        boxLayer.fillColor = UIColor.white.cgColor
-        boxLayer.borderColor = UIColor.lightGray.cgColor
-        boxLayer.borderWidth = 1
-        boxBottom.layer.addSublayer(boxLayer)
+        boxBottomLayer.path = UIBezierPath(roundedRect: boxBottom.bounds, cornerRadius: 4).cgPath
+        boxBottomLayer.strokeColor = UIColor.darkGray.withAlphaComponent(0.5).cgColor
+        boxBottomLayer.lineWidth = 3
+        boxBottomLayer.fillColor = UIColor.white.cgColor
+        boxBottomLayer.borderColor = UIColor.lightGray.cgColor
+        boxBottomLayer.borderWidth = 1
+        boxBottom.layer.addSublayer(boxBottomLayer)
     
         let boxTop = UIView(frame: boxBottom.frame)
+        let boxTopLayer = CALayer()
         
-        let imageLayer = CALayer()
-        imageLayer.frame = boxTop.bounds
-        imageLayer.contents = UIImage(named: "smallIcon")?.cgImage
-        imageLayer.cornerRadius = 4
-        imageLayer.masksToBounds = true
-        imageLayer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
-        imageLayer.borderWidth = 1
+        boxTopLayer.frame = boxTop.bounds
+        boxTopLayer.contents = UIImage(named: "smallIcon")?.cgImage
+        boxTopLayer.cornerRadius = 4
+        boxTopLayer.masksToBounds = true
+        boxTopLayer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
+        boxTopLayer.borderWidth = 1
         
-        boxTop.layer.addSublayer(imageLayer)
+        boxTop.layer.addSublayer(boxTopLayer)
         boxTop.layer.shouldRasterize = true
         boxTop.layer.rasterizationScale = UIScreen.main.scale
         
@@ -124,6 +130,11 @@ private extension CheckoutViewController {
         let rotationTransform = CATransform3DRotate(identity, .pi / 3, 1, 0, 0)
         boxTop.layer.transform = rotationTransform
         
+        doFinalAnimation(WithBoxTop: boxTop, boxBottom: boxBottom)
+    }
+    
+    func doFinalAnimation(WithBoxTop boxTop: UIView, boxBottom: UIView) {
+        
         let label = thankYouLabel()
         label.center.x = view.center.x
         label.center.y = -100
@@ -137,7 +148,6 @@ private extension CheckoutViewController {
             boxBottom.center = self.view.center
             boxTop.center.y = self.view.center.y - 50
         })
-        
         UIView.animate(withDuration: 0.5, delay: 4, options: .curveEaseOut, animations: {
             boxTop.layer.transform = CATransform3DIdentity
         }) { _ in
@@ -153,6 +163,51 @@ private extension CheckoutViewController {
             boxTop.removeFromSuperview()
         }
     }
+    
+    @objc
+    func restartTap() {
+        viewModel.handleRestartTap()
+    }
+    
+    func setUpReplicator(in view: UIView) {
+        let duration = 0.5
+        let pizzaSlices = 7
+        let pizza = CALayer()
+        let replicator = CAReplicatorLayer()
+        
+        replicatorView = UIView(frame: CGRect(x: view.frame.width / 2 - 100,
+                                              y: view.frame.height / 2 - 100,
+                                              width: 200,
+                                              height: 200))
+        view.addSubview(replicatorView)
+        replicator.frame = replicatorView.bounds
+        replicatorView.layer.addSublayer(replicator)
+        
+        let width: CGFloat = 40
+        
+        pizza.frame = CGRect(
+            x: replicator.position.x - 4,
+            y: replicator.position.y - 20,
+            width: width,
+            height: width)
+        
+        pizza.transform = CATransform3DMakeRotation(.pi / 2, 0, 0, 1)
+        pizza.contents = UIImage(named: "pizza")?.cgImage
+        pizza.opacity = 0
+        
+        replicator.addSublayer(pizza)
+        replicator.instanceCount = pizzaSlices
+        replicator.instanceTransform = CATransform3DMakeRotation(.pi * 2 / CGFloat(pizzaSlices), 0, 0, 1)
+        replicator.instanceDelay = duration
+        
+        pizza.add(animationKeyPath: "transform.scale", fromValue: 0.5, toValue: 1, duration: duration)
+        pizza.add(animationKeyPath: "opacity", fromValue: 0, toValue: 1, duration: duration)
+    }
+}
+
+//MARK: - Private Helper Methods
+
+private extension CheckoutViewController {
     
     func thankYouLabel() -> UILabel {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
@@ -171,58 +226,6 @@ private extension CheckoutViewController {
         return button
     }
     
-    @objc
-    func restartTap() {
-        viewModel.handleRestartTap()
-    }
-    
-    func setUpReplicator(in view: UIView) {
-        let duration = 0.5
-        let pizza = CALayer()
-        let replicator = CAReplicatorLayer()
-        
-        replicatorView = UIView(frame: CGRect(x: view.frame.width / 2 - 100, y: view.frame.height / 2 - 100, width: 200, height: 200))
-        view.addSubview(replicatorView)
-        replicator.frame = replicatorView.bounds
-        replicatorView.layer.addSublayer(replicator)
-        
-        let width: CGFloat = 40
-        
-        pizza.frame = CGRect(
-            x: replicator.position.x - 4,
-            y: replicator.position.y - 20,
-            width: width,
-            height: width)
-        
-        pizza.transform = CATransform3DMakeRotation(.pi / 2, 0, 0, 1)
-        pizza.contents = UIImage(named: "pizza")?.cgImage
-        pizza.opacity = 0
-        replicator.addSublayer(pizza)
-        replicator.instanceCount = 7
-        replicator.instanceTransform = CATransform3DMakeRotation(.pi * 2 / 7, 0, 0, 1)
-        replicator.instanceDelay = 0.5
-        
-        pizza.add(animationKeyPath: "transform.scale", fromValue: 0.5, toValue: 1, duration: duration)
-        pizza.add(animationKeyPath: "opacity", fromValue: 0, toValue: 1, duration: duration)
-        
-    }
-    
-}
-
-extension CALayer {
-    func add(animationKeyPath: String, fromValue: Double, toValue: Double, duration: Double) {
-        let animation = CABasicAnimation(keyPath: animationKeyPath)
-        animation.fromValue = fromValue
-        animation.toValue = toValue
-        animation.duration = duration
-        animation.fillMode = .both
-        animation.isRemovedOnCompletion = false
-        animation.repeatCount = 1
-        self.add(animation, forKey: nil)
-    }
-}
-
-private extension CheckoutViewController {
     func animateLabel<T: UILabel>(label: T, newText: String, delay: Double, offset: CGFloat, withHelper: Bool = true) {
         if withHelper {
             let titleAuxLabel = T(frame: label.frame)

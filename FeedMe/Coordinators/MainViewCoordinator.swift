@@ -21,8 +21,7 @@ final class MainViewCoordinator: CoordinatorProtocol {
     
     func start() {
         let mainViewController: MainViewController = .instantiate()
-        let mainViewModel = MainViewModel()
-        mainViewModel.coordinator = self
+        let mainViewModel = MainViewModel(coordinator: self)
         mainViewController.viewModel = mainViewModel
         router.set(mainViewController, withAnimation: CircularTransitionToMain())
     }
@@ -40,10 +39,7 @@ final class MainViewCoordinator: CoordinatorProtocol {
                        withAnimation animation: PresentDetailTransition,
                        interactor: TransitionInteractor = TransitionInteractor()) {
         let detailViewController: MenuDetailViewController = .instantiate()
-        let detailViewModel = MenuDetailViewModel(selectedFoodCategory: foodCategory)
-        detailViewModel.coordinator = self
-        detailViewModel.interactor = interactor
-        detailViewModel.transition = animation
+        let detailViewModel = MenuDetailViewModel(coordinator: self, selectedFoodCategory: foodCategory, transition: animation, interactor: interactor)
         detailViewController.viewModel = detailViewModel
         animation.interactor = interactor
         self.animation = animation
@@ -53,7 +49,7 @@ final class MainViewCoordinator: CoordinatorProtocol {
     }
     
     func dismissDetail() {
-        guard let animation  = animation as? PresentDetailTransition else { return }
+        guard let animation = animation as? PresentDetailTransition else { return }
         animation.presenting = false
         router.dismiss()
     }

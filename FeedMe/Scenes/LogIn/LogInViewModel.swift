@@ -12,10 +12,9 @@ final class LogInViewModel {
     var coordinator: LogInCoordinator?
     var onLogInSuccess: (() -> Void)? = nil
     var onValidInputs: ((Bool) -> Void)? = nil
+    
     var validInputs: Bool = false {
-        didSet {
-            onValidInputs?(validInputs)
-        }
+        didSet { onValidInputs?(validInputs) }
     }
     
     func logIn() {

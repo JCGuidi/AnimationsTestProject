@@ -34,6 +34,8 @@ final class FoodTypeTableViewCell: UITableViewCell {
     }
 }
  
+//MARK: - Private Methods
+
 private extension FoodTypeTableViewCell {
     func setUpTitleBackground() {
         titleBackgroundView.layer.cornerRadius = Constants.minCornerRadius

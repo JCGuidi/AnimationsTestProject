@@ -30,6 +30,8 @@ final class MenuDetailViewController: UIViewController {
     
     var viewModel: MenuDetailViewModel!
     
+    //MARK: ViewController LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -44,9 +46,12 @@ final class MenuDetailViewController: UIViewController {
         })
     }
     
+    //MARK: IBActions
+    
     @IBAction func dismiss(_ sender: UIButton) {
         viewModel.interactor?.shouldFinish = true
         viewModel.transition?.finalFrame = headerView.frame
+        
         UIView.animate(withDuration: 0.15, animations: {
             self.headerBlurView.alpha = 0
             self.headerTitle.alpha = 0
@@ -54,9 +59,10 @@ final class MenuDetailViewController: UIViewController {
         }) { _ in
             self.viewModel.handleDismissTap()
         }
-        
     }
 }
+
+//MARK: - UITableViewDelegate & UITableViewDataSource
 
 extension MenuDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,6 +92,7 @@ private extension MenuDetailViewController {
         headerBlurView.alpha = 0.25
         headerTitle.alpha = 0
         dismissButton.alpha = 0
+        
         let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
         headerView.addGestureRecognizer(pan)
     }
@@ -127,6 +134,8 @@ private extension MenuDetailViewController {
             break
         }
     }
+    
+    //MARK: Header Animation
     
     func updateHeader(offset: CGFloat) {
         let currentSize = Constants.headerHeight - offset

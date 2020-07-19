@@ -22,4 +22,8 @@ final class Cart {
     func remove(order: String) {
         orders.remove(order)
     }
+    
+    func empty() {
+        orders.removeAll()
+    }
 }

@@ -9,20 +9,31 @@
 import Foundation
 
 final class MenuDetailViewModel {
+    private let coordinator: MainViewCoordinator
     private(set) var foodToDisplay: [DetailCellViewModel] = []
+    let transition: PresentDetailTransition?
+    let interactor: TransitionInteractor?
+    
     let title: String!
     let selectedFoodCategory: FoodCategory!
-    var coordinator: MainViewCoordinator?
-    var transition: PresentDetailTransition?
-    var interactor: TransitionInteractor?
     
     func handleDismissTap() {
-        coordinator?.dismissDetail()
+        coordinator.dismissDetail()
     }
     
-    init(selectedFoodCategory: FoodCategory, cart: Cart = Cart.shared) {
+    init(coordinator: MainViewCoordinator,
+         selectedFoodCategory: FoodCategory,
+         transition: PresentDetailTransition,
+         interactor: TransitionInteractor,
+         cart: Cart = Cart.shared) {
+        
+        self.coordinator = coordinator
+        self.transition = transition
+        self.interactor = interactor
         self.selectedFoodCategory = selectedFoodCategory
+        
         title = selectedFoodCategory.title
+        
         selectedFoodCategory.food.forEach { (plate) in
             foodToDisplay.append(DetailCellViewModel(name: plate.name,
                                                      imageName: plate.imageName,

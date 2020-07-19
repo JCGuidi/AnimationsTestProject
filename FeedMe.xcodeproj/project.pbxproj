@@ -50,6 +50,7 @@
 		67AC50D224C118DF005F34AA /* AddRemoveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC50D124C118DE005F34AA /* AddRemoveButton.swift */; };
 		67B6E47024BF9E6B005CD3E8 /* FoodTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B6E46E24BF9E6B005CD3E8 /* FoodTypeTableViewCell.swift */; };
 		67B6E47124BF9E6B005CD3E8 /* FoodTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67B6E46F24BF9E6B005CD3E8 /* FoodTypeTableViewCell.xib */; };
+		67E7AB4624C3D02900E5C4A9 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E7AB4524C3D02900E5C4A9 /* CALayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		67AC50D124C118DE005F34AA /* AddRemoveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemoveButton.swift; sourceTree = "<group>"; };
 		67B6E46E24BF9E6B005CD3E8 /* FoodTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTypeTableViewCell.swift; sourceTree = "<group>"; };
 		67B6E46F24BF9E6B005CD3E8 /* FoodTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodTypeTableViewCell.xib; sourceTree = "<group>"; };
+		67E7AB4524C3D02900E5C4A9 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,11 +164,11 @@
 				671A370B24BE15DE00A66FED /* SceneDelegate.swift */,
 				671A371724BE15E200A66FED /* Info.plist */,
 				67A492E024BF48B10049490D /* Router.swift */,
-				67A492CD24BF2F600049490D /* Extensions */,
 				67A492C824BF2E9D0049490D /* Coordinators */,
 				67A492D324BF347B0049490D /* Scenes */,
 				671A371D24BE71D000A66FED /* CustomElements */,
 				678F381524BFE3860069ADEC /* Models */,
+				67A492CD24BF2F600049490D /* Extensions */,
 				67A492D224BF2FBC0049490D /* Resources */,
 			);
 			path = FeedMe;
@@ -220,6 +222,7 @@
 				67A492CE24BF2F6F0049490D /* UIViewController.swift */,
 				67A492E224BF606C0049490D /* UIDevice.swift */,
 				671B1DF224BF8C5F009CF6E6 /* UIColor.swift */,
+				67E7AB4524C3D02900E5C4A9 /* CALayer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				6787278024C1C9FC00FE7C66 /* TransitionInteractor.swift in Sources */,
 				671A371F24BE724900A66FED /* FloatingTextField.swift in Sources */,
 				67A492DD24BF37AD0049490D /* MainViewModel.swift in Sources */,
+				67E7AB4624C3D02900E5C4A9 /* CALayer.swift in Sources */,
 				67AC50C424C09B21005F34AA /* MenuDetailViewModel.swift in Sources */,
 				67AC50CD24C0BAB3005F34AA /* DetailCellViewModel.swift in Sources */,
 			);

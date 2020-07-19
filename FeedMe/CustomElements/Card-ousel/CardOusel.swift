@@ -41,6 +41,8 @@ final class CardOusel: UIView {
     }
 }
 
+//MARK: - Private Methods
+
 private extension CardOusel {
     func commonInit() {
         Bundle(for: type(of: self)).loadNibNamed("CardOusel", owner: self, options: nil)

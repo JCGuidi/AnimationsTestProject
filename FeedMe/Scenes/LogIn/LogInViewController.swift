@@ -29,6 +29,8 @@ final class LogInViewController: UIViewController {
     
     var viewModel: LogInViewModel!
     
+    //MARK: ViewController Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -51,6 +53,8 @@ final class LogInViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .darkContent
     }
+    
+    //MARK: IBActions
     
     @IBAction func handleLogInTap(_ sender: UIButton) {
         view.endEditing(true)
