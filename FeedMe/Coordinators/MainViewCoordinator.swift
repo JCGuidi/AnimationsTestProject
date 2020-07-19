@@ -2,7 +2,7 @@
 //  MainViewCoordinator.swift
 //  FeedMe
 //
-//  Created by Juan Cruz Guidi on 15/07/2020.
+//  Created by Juan Cruz Guidi on 16/07/2020.
 //  Copyright © 2020 Juan Cruz Guidi. All rights reserved.
 //
 
@@ -30,7 +30,7 @@ final class MainViewCoordinator: CoordinatorProtocol {
         let checkoutViewController: CheckoutViewController = .instantiate()
         let checkoutViewModel = CheckoutViewModel()
         checkoutViewModel.coordinator = self
-        checkoutViewController.viewModel = checkoutViewModel
+        checkoutViewController.configure(for: checkoutViewModel)
         router.present(checkoutViewController, over: viewController)
     }
     
@@ -39,12 +39,18 @@ final class MainViewCoordinator: CoordinatorProtocol {
                        withAnimation animation: PresentDetailTransition,
                        interactor: TransitionInteractor = TransitionInteractor()) {
         let detailViewController: MenuDetailViewController = .instantiate()
-        let detailViewModel = MenuDetailViewModel(coordinator: self, selectedFoodCategory: foodCategory, transition: animation, interactor: interactor)
+        let detailViewModel = MenuDetailViewModel(coordinator: self,
+                                                  selectedFoodCategory: foodCategory,
+                                                  transition: animation,
+                                                  interactor: interactor)
         detailViewController.viewModel = detailViewModel
         animation.interactor = interactor
         self.animation = animation
         DispatchQueue.main.async {
-            self.router.present(detailViewController, over: viewController, withAnimation: animation, interactor: interactor)
+            self.router.present(detailViewController,
+                                over: viewController,
+                                withAnimation: animation,
+                                interactor: interactor)
         }
     }
     

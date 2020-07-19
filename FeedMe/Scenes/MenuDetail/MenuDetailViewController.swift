@@ -109,7 +109,7 @@ private extension MenuDetailViewController {
     func didPan(_ recognizer: UIPanGestureRecognizer) {
         let threshold: CGFloat = 0.4
         let translation = recognizer.translation(in: headerView)
-        let verticalMovement = translation.y / Constants.headerHeight
+        let verticalMovement = translation.y / (Constants.headerHeight * 2)
         let downwardMovement = max(verticalMovement, 0)
         let progress = min(downwardMovement, 0.99)
 

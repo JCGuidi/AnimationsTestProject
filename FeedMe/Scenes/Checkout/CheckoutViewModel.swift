@@ -19,17 +19,24 @@ final class CheckoutViewModel {
     private(set) var orderList: String
     
     var coordinator: MainViewCoordinator?
+    var onOrderSuccess: (() -> Void)? = nil
     
     private let paymentMethods = [
         PaymentInformation(information: "Cash is cash."),
         PaymentInformation(information: "5% Off paying with this method. \n#StayHome", discount: 0.05),
-        PaymentInformation(),
+        PaymentInformation(information: "Order again tomorrow to get a 10% Off with this payment method."),
         PaymentInformation(),
     ]
     
     init(cart: Cart = Cart.shared) {
         self.cart = cart
         orderList = "• " + cart.orders.joined(separator: "\n• ")
+    }
+    
+    func handleOrderNowTap() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.onOrderSuccess?()
+        }
     }
     
     func handleDismissTap() {

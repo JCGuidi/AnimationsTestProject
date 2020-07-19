@@ -22,6 +22,8 @@ final class LogInViewController: UIViewController {
         static let pathCornerRadius: CGFloat = 8
         static let buttonFinalCornerRadius: CGFloat = 20
         static let animationIdentifier = "kAnimationIdentifier"
+        static let enteringAnimationDuration = 0.5
+        static let yDiff: CGFloat = 40
     }
     
     private var animationFromHeader = true
@@ -43,7 +45,6 @@ final class LogInViewController: UIViewController {
                 self.logInButton.backgroundColor = valid ? .customYellow : .silver
             }
         }
-        view.layer.speed = 1
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -151,7 +152,7 @@ private extension LogInViewController {
         imageView.contentMode = .scaleAspectFill
         view.addSubview(imageView)
         
-        UIView.animate(withDuration: 0.75,
+        UIView.animate(withDuration: 0.7,
                        delay: 0.2,
                        usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0,
@@ -161,21 +162,15 @@ private extension LogInViewController {
                         self.animateEnterLine()
                         imageView.removeFromSuperview()
         })
-        let yDiff: CGFloat = 40.0
-        titleLabel.center.y += yDiff
-        userTextField.center.y += yDiff
-        passwordTextField.center.y += yDiff
-        logInButton.center.y += yDiff
         
-        animateY(view: titleLabel, delay: 0.25, yDiff: yDiff)
-        animateAlpha(view: titleLabel, delay: 0.25)
-        animateY(view: userTextField, delay: 0.35, yDiff: yDiff)
-        animateAlpha(view: userTextField, delay: 0.35)
-        animateY(view: passwordTextField, delay: 0.45, yDiff: yDiff)
-        animateAlpha(view: passwordTextField, delay: 0.45)
-        animateY(view: logInButton, delay: 0.55, yDiff: yDiff)
-        animateAlpha(view: logInButton, delay: 0.55)
-        
+        animateY(view: titleLabel, delay: 0.45, yDiff: Constants.yDiff)
+        titleLabel.animateAlpha(withDelay: 0.45, duration: Constants.enteringAnimationDuration)
+        animateY(view: userTextField, delay: 0.55, yDiff: Constants.yDiff)
+        userTextField.animateAlpha(withDelay: 0.55, duration: Constants.enteringAnimationDuration)
+        animateY(view: passwordTextField, delay: 0.65, yDiff: Constants.yDiff)
+        passwordTextField.animateAlpha(withDelay: 0.65, duration: Constants.enteringAnimationDuration)
+        animateY(view: logInButton, delay: 0.75, yDiff: Constants.yDiff)
+        logInButton.animateAlpha(withDelay: 0.75, duration: Constants.enteringAnimationDuration)
     }
     
     //MARK: Loader Configuration & Animations
@@ -228,7 +223,7 @@ private extension LogInViewController {
         let strokeEndAnimation = CABasicAnimation(keyPath: "strokeEnd")
         strokeEndAnimation.fromValue = 0.0
         strokeEndAnimation.toValue = 1.0
-        strokeEndAnimation.duration = 0.5
+        strokeEndAnimation.duration = 0.4
         strokeEndAnimation.delegate = self
         strokeEndAnimation.setValue("initial", forKey: Constants.animationIdentifier)
         
@@ -264,9 +259,11 @@ private extension LogInViewController {
         let strokeEndAnimation = CABasicAnimation(keyPath: "strokeEnd")
         strokeEndAnimation.fromValue = startValue
         strokeEndAnimation.toValue = 1.0
+        
         let strokeStartAnimation = CABasicAnimation(keyPath: "strokeStart")
         strokeStartAnimation.fromValue = -0.5
         strokeStartAnimation.toValue = endValue
+        
         let strokeAnimationGroup = CAAnimationGroup()
         strokeAnimationGroup.duration = 0.3
         strokeAnimationGroup.animations = [strokeEndAnimation, strokeStartAnimation]
@@ -291,18 +288,12 @@ private extension LogInViewController {
 
 extension LogInViewController {
     func animateY<T: UIView>(view: T, delay: Double, yDiff: CGFloat) {
-        UIView.animate(withDuration: 0.25,
+        view.center.y += Constants.yDiff
+        UIView.animate(withDuration: Constants.enteringAnimationDuration,
                        delay: delay,
                        usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0.1,
                        animations: { view.center.y -= yDiff },
-                       completion: nil)
-    }
-    
-    func animateAlpha<T: UIView>(view: T, delay: Double) {
-        UIView.animate(withDuration: 0.25,
-                       delay: delay,
-                       animations: { view.alpha = 1},
                        completion: nil)
     }
 }

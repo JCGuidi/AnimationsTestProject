@@ -63,54 +63,61 @@ private extension CardOusel {
         centralCard.layer.shadowOffset = CGSize(width: 0, height: 2)
     }
     
+    //MARK: UI Update Methods
+    
     func update(for option: Int, direction: Direction) {
         currentOption = option
         viewModel.onOptionChange?(option, direction)
+        
         let centerDifference = centralCard.center.x - leftCard.center.x
         let positionDiff: CGFloat = direction == .forward ? centerDifference : -centerDifference
         let selectedOption = viewModel.cardViewModels[option]
         
         centralCard.configure(for: selectedOption)
-        resetCard()
         animateView(view: centralCard, delay: 0, offset: positionDiff)
         
-        if option > 0 {
-            let previousOption = viewModel.cardViewModels[option - 1]
-            
-            if option - 1 > 0 && direction == .forward {
-                let aux = CardView(frame: leftCard.frame)
-                aux.configure(for: viewModel.cardViewModels[option - 2])
-                addSubview(aux)
-                animateX(view: aux, delay: 0.1, xDiff: positionDiff, completion: { _ in
-                    aux.removeFromSuperview()
-                })
-            }
-            leftCard.configure(for: previousOption)
-            leftCard.isHidden = false
-            animateView(view: leftCard, delay: 0, offset: positionDiff)
-        } else {
+        handleLeftCard(for: option, direction: direction, positionDiff: positionDiff)
+        handleRightCard(for: option, direction: direction, positionDiff: positionDiff)
+    }
+    
+    func handleLeftCard(for option: Int, direction: Direction, positionDiff: CGFloat) {
+        guard let previousOption = viewModel.cardViewModels[safe: option - 1] else {
             leftCard.isHidden = true
+            return
         }
+        leftCard.configure(for: previousOption)
+        leftCard.isHidden = false
+        animateView(view: leftCard, delay: 0, offset: positionDiff)
         
-        if option < viewModel.cardViewModels.count - 1 {
-            
-            if option + 1 < viewModel.cardViewModels.count - 1 && direction == .backward {
-                let aux = CardView(frame: rightCard.frame)
-                aux.configure(for: viewModel.cardViewModels[option + 2])
-                addSubview(aux)
-                animateX(view: aux, delay: 0.1, xDiff: positionDiff, completion: { _ in
-                    aux.removeFromSuperview()
-                })
-            }
-            
-            let nextOption = viewModel.cardViewModels[option + 1]
-            rightCard.configure(for: nextOption)
-            rightCard.isHidden = false
-            animateView(view: rightCard, delay: 0, offset: positionDiff)
-        } else {
-            rightCard.isHidden = true
+        if direction == .forward, let auxOption = viewModel.cardViewModels[safe: option - 2] {
+            setAuxiliarCard(for: leftCard, withViewModel: auxOption, positionDiff: positionDiff)
         }
     }
+    
+    func handleRightCard(for option: Int, direction: Direction, positionDiff: CGFloat) {
+        guard let nextOption = viewModel.cardViewModels[safe: option + 1] else {
+            rightCard.isHidden = true
+            return
+        }
+        rightCard.configure(for: nextOption)
+        rightCard.isHidden = false
+        animateView(view: rightCard, delay: 0, offset: positionDiff)
+        
+        if direction == .backward, let auxOption = viewModel.cardViewModels[safe: option + 2] {
+            setAuxiliarCard(for: rightCard, withViewModel: auxOption, positionDiff: positionDiff)
+        }
+    }
+    
+    func setAuxiliarCard(for cardView: CardView, withViewModel viewModel: CardViewModel, positionDiff: CGFloat) {
+        let aux = CardView(frame: cardView.frame)
+        aux.configure(for: viewModel)
+        addSubview(aux)
+        aux.animateX(withDelay: 0.1, xDiff: positionDiff, completion: { _ in
+            aux.removeFromSuperview()
+        })
+    }
+    
+    //MARK: Change Options Logic
     
     @objc
     func didPan(_ recognizer: UIPanGestureRecognizer) {
@@ -124,9 +131,7 @@ private extension CardOusel {
         case .began:
             centralCard.layer.shouldRasterize = true
             centralCard.layer.rasterizationScale = UIScreen.main.scale
-            if !shouldRotate {
-                centralCard.layer.shadowOpacity = 0
-            }
+            if !shouldRotate { centralCard.layer.shadowOpacity = 0 }
         case .changed:
             if shouldRotate {
                 var identity = CATransform3DIdentity
@@ -150,11 +155,21 @@ private extension CardOusel {
         }
     }
     
+    //MARK: Animation Methods
+    
+    func show(card: CardView) {
+        let offset = centralCard.center.x - leftCard.center.x
+        card.center.x += offset
+        card.animateX(withDelay: 0.1, xDiff: offset)
+        animateAlpha(view: card, delay: 0)
+    }
+    
     func resetCard() {
         let animation = CABasicAnimation(keyPath: "transform")
         animation.fromValue = centralCard.layer.transform
         animation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
         animation.duration = 0.3
+        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
         centralCard.layer.add(animation, forKey: nil)
         centralCard.layer.transform = CATransform3DIdentity
     }
@@ -170,25 +185,7 @@ private extension CardOusel {
     
     func animateView<T: UIView>(view: T, delay: Double, offset: CGFloat) {
         view.center.x += offset
-        animateX(view: view, delay: delay + 0.1, xDiff: offset)
-    }
-    
-    func show(card: CardView) {
-        let offset = centralCard.center.x - leftCard.center.x
-        card.center.x += offset
-        animateX(view: card, delay: 0.1, xDiff: offset)
-        animateAlpha(view: card, delay: 0)
-    }
-    
-    func animateX<T: UIView>(view: T, delay: Double, xDiff: CGFloat, completion:((Bool) -> Void)? = nil) {
-        UIView.animate(withDuration: 0.5,
-                       delay: delay,
-                       usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 0.1,
-                       options: [],
-                       animations: {
-                        view.center.x -= xDiff
-        }, completion: completion)
+        view.animateX(withDelay: delay + 0.1, xDiff: offset)
     }
     
     func animateAlpha<T: UIView>(view: T, delay: Double, finalValue: CGFloat = 1, completion:((Bool) -> Void)? = nil) {

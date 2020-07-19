@@ -16,11 +16,30 @@ final class CheckoutViewController: UIViewController {
     @IBOutlet private weak var cardOusel: CardOusel!
     @IBOutlet private weak var orderNowButton: UIButton!
     @IBOutlet private var paymentMethodViewHeight: NSLayoutConstraint!
-
+    
     private var translucidView = UIView()
     private var replicatorView = UIView()
     
-    var viewModel: CheckoutViewModel!
+    enum Constants {
+        enum Box {
+            static let height: CGFloat = 100
+            static let cornerRadius: CGFloat = 4
+            static let borderWidth: CGFloat = 1
+            static let zPerspective: CGFloat = 1400
+        }
+        enum Replicator {
+            static let height: CGFloat = 200
+        }
+    }
+    
+    private(set) var viewModel: CheckoutViewModel!
+    
+    func configure(for viewModel: CheckoutViewModel) {
+        self.viewModel = viewModel
+        viewModel.onOrderSuccess = { [unowned self] in
+            self.setUpFinalAnimation()
+        }
+    }
     
     //MARK: ViewController LifeCycle
     
@@ -89,44 +108,51 @@ private extension CheckoutViewController {
             self.translucidView.alpha = 1
         }, completion: { _ in
             self.setUpReplicator(in: self.translucidView)
-            self.setUpFinalAnimation()
+            self.viewModel.handleOrderNowTap()
         })
     }
     
+    //MARK: Box Animation Methods
+    
     func setUpFinalAnimation() {
-        let boxBottom = UIView(frame: CGRect(x: view.bounds.width / 2 - 50, y: -100, width: 100, height: 100))
+        let boxBottom = UIView(frame: CGRect(x: view.center.x - Constants.Box.height / 2,
+                                             y: -Constants.Box.height * 1.1,
+                                             width: Constants.Box.height,
+                                             height: Constants.Box.height))
         let boxBottomLayer = CAShapeLayer()
-        
-        boxBottomLayer.path = UIBezierPath(roundedRect: boxBottom.bounds, cornerRadius: 4).cgPath
+        boxBottomLayer.path = UIBezierPath(
+            roundedRect: boxBottom.bounds,
+            cornerRadius: Constants.Box.cornerRadius
+        ).cgPath
         boxBottomLayer.strokeColor = UIColor.darkGray.withAlphaComponent(0.5).cgColor
         boxBottomLayer.lineWidth = 3
         boxBottomLayer.fillColor = UIColor.white.cgColor
         boxBottomLayer.borderColor = UIColor.lightGray.cgColor
-        boxBottomLayer.borderWidth = 1
+        boxBottomLayer.borderWidth = Constants.Box.borderWidth
         boxBottom.layer.addSublayer(boxBottomLayer)
     
+        translucidView.addSubview(boxBottom)
+        translucidView.sendSubviewToBack(boxBottom)
+        
         let boxTop = UIView(frame: boxBottom.frame)
         let boxTopLayer = CALayer()
-        
         boxTopLayer.frame = boxTop.bounds
         boxTopLayer.contents = UIImage(named: "smallIcon")?.cgImage
-        boxTopLayer.cornerRadius = 4
+        boxTopLayer.cornerRadius = Constants.Box.cornerRadius
         boxTopLayer.masksToBounds = true
         boxTopLayer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
-        boxTopLayer.borderWidth = 1
+        boxTopLayer.borderWidth = Constants.Box.borderWidth
         
         boxTop.layer.addSublayer(boxTopLayer)
         boxTop.layer.shouldRasterize = true
         boxTop.layer.rasterizationScale = UIScreen.main.scale
         
-        translucidView.addSubview(boxBottom)
         translucidView.addSubview(boxTop)
-        translucidView.sendSubviewToBack(boxBottom)
         
-        boxTop.center.y -= 50
+        boxTop.center.y -= Constants.Box.height / 2
         boxTop.layer.anchorPoint.y = 0
         var identity = CATransform3DIdentity
-        identity.m34 = -1.0/1400
+        identity.m34 = -1.0/Constants.Box.zPerspective
         let rotationTransform = CATransform3DRotate(identity, .pi / 3, 1, 0, 0)
         boxTop.layer.transform = rotationTransform
         
@@ -137,23 +163,22 @@ private extension CheckoutViewController {
         
         let label = thankYouLabel()
         label.center.x = view.center.x
-        label.center.y = -100
         translucidView.addSubview(label)
         
         let button = restartButton()
         button.alpha = 0
         translucidView.addSubview(button)
         
-        UIView.animate(withDuration: 1, delay: 3, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
             boxBottom.center = self.view.center
             boxTop.center.y = self.view.center.y - 50
         })
-        UIView.animate(withDuration: 0.5, delay: 4, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.5, delay: 1, options: .curveEaseOut, animations: {
             boxTop.layer.transform = CATransform3DIdentity
         }) { _ in
             self.replicatorView.removeFromSuperview()
         }
-        UIView.animate(withDuration: 1, delay: 4.5, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 1, delay: 1.5, options: .curveEaseInOut, animations: {
             boxBottom.center.y += self.view.bounds.height
             boxTop.center.y += self.view.bounds.height
             label.center.y = self.view.center.y
@@ -169,16 +194,18 @@ private extension CheckoutViewController {
         viewModel.handleRestartTap()
     }
     
+    //MARK: Replicator
+    
     func setUpReplicator(in view: UIView) {
         let duration = 0.5
         let pizzaSlices = 7
         let pizza = CALayer()
         let replicator = CAReplicatorLayer()
         
-        replicatorView = UIView(frame: CGRect(x: view.frame.width / 2 - 100,
-                                              y: view.frame.height / 2 - 100,
-                                              width: 200,
-                                              height: 200))
+        replicatorView = UIView(frame: CGRect(x: view.center.x - Constants.Replicator.height / 2,
+                                              y: view.center.y - Constants.Replicator.height / 2,
+                                              width: Constants.Replicator.height,
+                                              height: Constants.Replicator.height))
         view.addSubview(replicatorView)
         replicator.frame = replicatorView.bounds
         replicatorView.layer.addSublayer(replicator)
@@ -200,7 +227,7 @@ private extension CheckoutViewController {
         replicator.instanceTransform = CATransform3DMakeRotation(.pi * 2 / CGFloat(pizzaSlices), 0, 0, 1)
         replicator.instanceDelay = duration
         
-        pizza.add(animationKeyPath: "transform.scale", fromValue: 0.5, toValue: 1, duration: duration)
+        pizza.addSpring(animationKeyPath: "transform.scale", fromValue: 0.4, toValue: 1, duration: duration)
         pizza.add(animationKeyPath: "opacity", fromValue: 0, toValue: 1, duration: duration)
     }
 }
@@ -210,7 +237,7 @@ private extension CheckoutViewController {
 private extension CheckoutViewController {
     
     func thankYouLabel() -> UILabel {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+        let label = UILabel(frame: CGRect(x: 0, y: -200, width: 200, height: 200))
         label.numberOfLines = 2
         label.textAlignment = .center
         label.textColor = .white
@@ -235,8 +262,8 @@ private extension CheckoutViewController {
             titleAuxLabel.numberOfLines = label.numberOfLines
             
             view.addSubview(titleAuxLabel)
-            animateAlpha(view: titleAuxLabel, delay: delay, finalValue: 0)
-            animateX(view: titleAuxLabel, delay: delay + 0.1, xDiff: offset, completion: { _ in
+            titleAuxLabel.animateAlpha(withDelay: delay, duration: 0.5, finalValue: 0)
+            titleAuxLabel.animateX(withDelay: delay + 0.1, xDiff: offset, completion: { _ in
                 titleAuxLabel.removeFromSuperview()
             })
         }
@@ -245,27 +272,7 @@ private extension CheckoutViewController {
         label.center.x += offset
         label.text = newText
         
-        animateAlpha(view: label, delay: delay)
-        animateX(view: label, delay: delay + 0.1, xDiff: offset)
-    }
-    
-    func animateX<T: UIView>(view: T, delay: Double, xDiff: CGFloat, completion:((Bool) -> Void)? = nil) {
-        UIView.animate(withDuration: 0.5,
-                       delay: delay,
-                       usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 0.1,
-                       options: [],
-                       animations: {
-                        view.center.x -= xDiff
-        }, completion: completion)
-    }
-    
-    func animateAlpha<T: UIView>(view: T, delay: Double, finalValue: CGFloat = 1, completion:((Bool) -> Void)? = nil) {
-        UIView.animate(withDuration: 0.5,
-                       delay: delay,
-                       options: [],
-                       animations: {
-                        view.alpha = finalValue
-        }, completion: completion)
+        label.animateAlpha(withDelay: delay, duration: 0.5)
+        label.animateX(withDelay: delay + 0.1, xDiff: offset)
     }
 }

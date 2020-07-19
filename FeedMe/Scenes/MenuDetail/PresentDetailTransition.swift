@@ -2,7 +2,7 @@
 //  PresentDetailTransition.swift
 //  FeedMe
 //
-//  Created by Juan Cruz Guidi on 16/07/2020.
+//  Created by Juan Cruz Guidi on 17/07/2020.
 //  Copyright © 2020 Juan Cruz Guidi. All rights reserved.
 //
 
@@ -56,7 +56,7 @@ final class PresentDetailTransition: NSObject, UIViewControllerAnimatedTransitio
         let imageView = UIImageView(frame: frame)
         imageView.image = image
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = originalCornerRadius
+        imageView.layer.cornerRadius = presenting ? originalCornerRadius : 0
         imageView.clipsToBounds = true
         imageView.alpha = 0
         containerView.addSubview(imageView)

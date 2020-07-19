@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 final class FloatingTextField: UITextField {
     
     var floatingLabel: UILabel = UILabel(frame: CGRect.zero)
@@ -43,8 +44,8 @@ private extension FloatingTextField {
     func commonInit() {
         floatingLabel = UILabel(frame: CGRect.zero)
         borderStyle = .none
-        addTarget(self, action: #selector(self.addFloatingLabel), for: .editingDidBegin)
-        addTarget(self, action: #selector(self.removeFloatingLabel), for: .editingDidEnd)
+        addTarget(self, action: #selector(setFloatingLabel), for: .editingDidBegin)
+        addTarget(self, action: #selector(setLabelAsPlaceholder), for: .editingDidEnd)
         placeholderString = placeholder
         placeholder = ""
         addAuxiliaryLabel()
@@ -80,7 +81,7 @@ private extension FloatingTextField {
     }
     
     @objc
-    func addFloatingLabel() {
+    func setFloatingLabel() {
         guard (text ?? "").isEmpty else { return }
         floatingLabel.textColor = floatingLabelColor
         centerConstraint?.constant = -24
@@ -92,7 +93,7 @@ private extension FloatingTextField {
     }
     
     @objc
-    func removeFloatingLabel() {
+    func setLabelAsPlaceholder() {
         guard (text ?? "").isEmpty else { return }
         setPlaceholder()
         centerConstraint?.constant = 0
