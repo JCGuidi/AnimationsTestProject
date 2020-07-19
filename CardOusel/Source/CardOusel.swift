@@ -56,6 +56,12 @@ private extension CardOusel {
         let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
         self.addGestureRecognizer(pan)
         
+        let leftTap = UITapGestureRecognizer(target: self, action: #selector(selectLeft))
+        leftCard.addGestureRecognizer(leftTap)
+        
+        let rightTap = UITapGestureRecognizer(target: self, action: #selector(selectRight))
+        rightCard.addGestureRecognizer(rightTap)
+        
         leftCard.alpha = 0
         centralCard.alpha = 0
         rightCard.alpha = 0
@@ -122,6 +128,16 @@ private extension CardOusel {
     }
     
     //MARK: Change Options Logic
+    
+    @objc
+    func selectLeft() {
+        update(for: currentOption - 1, direction: .backward)
+    }
+    
+    @objc
+    func selectRight() {
+        update(for: currentOption + 1, direction: .forward)
+    }
     
     @objc
     func didPan(_ recognizer: UIPanGestureRecognizer) {
