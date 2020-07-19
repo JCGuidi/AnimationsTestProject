@@ -70,6 +70,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let auxFrame = cell.convert(cell.titleImageView.frame, to: contentTableView.superview!)
         viewModel.handleRowTapFor(cell: cell, on: self, withImageFrame: auxFrame)
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
 }
 
 //MARK: - Private Methods

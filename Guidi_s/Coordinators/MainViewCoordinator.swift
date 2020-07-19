@@ -38,14 +38,17 @@ final class MainViewCoordinator: CoordinatorProtocol {
                        over viewController: UIViewController,
                        withAnimation animation: PresentDetailTransition,
                        interactor: TransitionInteractor = TransitionInteractor()) {
+        
         let detailViewController: MenuDetailViewController = .instantiate()
         let detailViewModel = MenuDetailViewModel(coordinator: self,
                                                   selectedFoodCategory: foodCategory,
                                                   transition: animation,
                                                   interactor: interactor)
+        
         detailViewController.viewModel = detailViewModel
         animation.interactor = interactor
         self.animation = animation
+        
         DispatchQueue.main.async {
             self.router.present(detailViewController,
                                 over: viewController,

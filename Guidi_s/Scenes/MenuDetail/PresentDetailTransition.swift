@@ -47,7 +47,7 @@ final class PresentDetailTransition: NSObject, UIViewControllerAnimatedTransitio
         toView.transform = presenting ?
             CGAffineTransform(scaleX: 0.4, y: 0.4) :
             CGAffineTransform(scaleX: 0.4 * finalFrame.height / 200, y: 0.4 * finalFrame.height / 200)
-        
+        toView.layer.cornerRadius = originalCornerRadius
         containerView.addSubview(toView)
         
         let cornerRadius = presenting ? 0 : originalCornerRadius
@@ -79,6 +79,7 @@ final class PresentDetailTransition: NSObject, UIViewControllerAnimatedTransitio
                                         UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.9) {
                                             imageView.frame = endFrame
                                             blurView.frame = endFrame
+                                            toView.layer.cornerRadius = 0
                                         }
                                         UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.75) {
                                             blurView.alpha = 0.25
@@ -112,6 +113,7 @@ final class PresentDetailTransition: NSObject, UIViewControllerAnimatedTransitio
                                         }
                                         UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.8) {
                                             imageView.frame = endFrame
+                                            toView.layer.cornerRadius = 0
                                         }
                                         UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.3) {
                                             backgroundView.alpha = 1

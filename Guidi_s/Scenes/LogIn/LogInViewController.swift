@@ -20,10 +20,12 @@ final class LogInViewController: UIViewController {
     
     private enum Constants {
         static let pathCornerRadius: CGFloat = 8
+        static let quarterLenght: CGFloat = .pi * pathCornerRadius / 2
         static let buttonFinalCornerRadius: CGFloat = 20
         static let animationIdentifier = "kAnimationIdentifier"
         static let enteringAnimationDuration = 0.5
         static let yDiff: CGFloat = 40
+        static let initialPizzaWidth: CGFloat = 128
     }
     
     private var animationFromHeader = true
@@ -61,38 +63,9 @@ final class LogInViewController: UIViewController {
         view.endEditing(true)
         view.isUserInteractionEnabled = false
         
-        let markerPath = UIBezierPath()
-        markerPath.move(to: CGPoint(x: passwordTextField.frame.minX, y: passwordTextField.frame.minY))
-        markerPath.addLine(to: CGPoint(x: passwordTextField.frame.minX, y: sender.frame.maxY - Constants.pathCornerRadius))
-        markerPath.addArc(withCenter: CGPoint(x: passwordTextField.frame.minX + Constants.pathCornerRadius,
-                                              y: sender.frame.maxY - Constants.pathCornerRadius),
-                          radius: Constants.pathCornerRadius,
-                          startAngle: -.pi,
-                          endAngle: .pi / 2,
-                          clockwise: false)
-        markerPath.addLine(to: CGPoint(x: sender.frame.midX, y: sender.frame.maxY))
-        
-        let lenght = passwordTextField.frame.height + 12.56 + sender.frame.maxY - passwordTextField.frame.maxY + sender.frame.midX - passwordTextField.frame.minX
-        let startValue = passwordTextField.frame.height / lenght
-        
-        let strokeEndAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        strokeEndAnimation.fromValue = startValue
-        strokeEndAnimation.toValue = 1
-        let strokeStartAnimation = CABasicAnimation(keyPath: "strokeStart")
-        strokeStartAnimation.fromValue = -0.5
-        strokeStartAnimation.toValue = 1
-        let strokeAnimationGroup = CAAnimationGroup()
-        strokeAnimationGroup.duration = 0.3
-        strokeAnimationGroup.animations = [strokeEndAnimation, strokeStartAnimation]
-        strokeAnimationGroup.delegate = self
-        strokeAnimationGroup.setValue("button", forKey: Constants.animationIdentifier)
-        strokeAnimationGroup.fillMode = .forwards
-        strokeAnimationGroup.isRemovedOnCompletion = false
-        markerShapeLayer.add(strokeAnimationGroup, forKey: nil)
-        animationFromHeader = false
-        markerShapeLayer.path = markerPath.cgPath
-        
+        animateLineForLogIn()
         setUpLoader()
+        
         logInWidthConstraint.constant = 40
         UIView.animate(withDuration: 0.4, delay: 0.15, animations: {
             sender.setTitle("", for: .normal)
@@ -101,6 +74,7 @@ final class LogInViewController: UIViewController {
             self.logInButton.layer.cornerRadius = Constants.buttonFinalCornerRadius
             self.view.layoutSubviews()
         })
+        
         viewModel.logIn()
     }
     
@@ -146,14 +120,17 @@ private extension LogInViewController {
     //MARK: Enter Animations
     
     func initialAnimation() {
-        let imageView = UIImageView.init(frame: CGRect(x: 0, y: 0, width: 128, height: 128))
+        let imageView = UIImageView.init(frame: CGRect(x: 0,
+                                                       y: 0,
+                                                       width: Constants.initialPizzaWidth,
+                                                       height: Constants.initialPizzaWidth))
         imageView.image = UIImage(named: "pizza")
         imageView.center = view.center
         imageView.contentMode = .scaleAspectFill
         view.addSubview(imageView)
         
         UIView.animate(withDuration: 0.7,
-                       delay: 0.2,
+                       delay: 0.3,
                        usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0,
                        animations: { imageView.frame = self.topImage.frame },
@@ -282,6 +259,48 @@ private extension LogInViewController {
         markerPath.move(to: CGPoint(x: textField.frame.minX, y: textField.frame.minY))
         markerPath.addLine(to: CGPoint(x: textField.frame.minX, y: textField.frame.maxY))
         animateStroke(to: markerPath)
+        markerShapeLayer.path = markerPath.cgPath
+    }
+    
+    func animateLineForLogIn() {
+        let markerPath = UIBezierPath()
+        markerPath.move(to: CGPoint(x: passwordTextField.frame.minX, y: passwordTextField.frame.minY))
+        markerPath.addLine(to: CGPoint(x: passwordTextField.frame.minX, y: logInButton.frame.maxY - Constants.pathCornerRadius))
+        markerPath.addArc(withCenter: CGPoint(x: passwordTextField.frame.minX + Constants.pathCornerRadius,
+                                              y: logInButton.frame.maxY - Constants.pathCornerRadius),
+                          radius: Constants.pathCornerRadius,
+                          startAngle: -.pi,
+                          endAngle: .pi / 2,
+                          clockwise: false)
+        markerPath.addLine(to: CGPoint(x: logInButton.frame.midX, y: logInButton.frame.maxY))
+        
+        let pathLenght = passwordTextField.frame.height +
+            Constants.quarterLenght +
+            logInButton.frame.maxY -
+            passwordTextField.frame.maxY +
+            logInButton.frame.midX -
+            passwordTextField.frame.minX
+        
+        let startValue = passwordTextField.frame.height / pathLenght
+        
+        let strokeEndAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        strokeEndAnimation.fromValue = startValue
+        strokeEndAnimation.toValue = 1
+        
+        let strokeStartAnimation = CABasicAnimation(keyPath: "strokeStart")
+        strokeStartAnimation.fromValue = -0.5
+        strokeStartAnimation.toValue = 1
+        
+        let strokeAnimationGroup = CAAnimationGroup()
+        strokeAnimationGroup.duration = 0.3
+        strokeAnimationGroup.animations = [strokeEndAnimation, strokeStartAnimation]
+        strokeAnimationGroup.delegate = self
+        strokeAnimationGroup.setValue("button", forKey: Constants.animationIdentifier)
+        strokeAnimationGroup.fillMode = .forwards
+        strokeAnimationGroup.isRemovedOnCompletion = false
+        
+        markerShapeLayer.add(strokeAnimationGroup, forKey: nil)
+        animationFromHeader = false
         markerShapeLayer.path = markerPath.cgPath
     }
 }

@@ -100,7 +100,7 @@ private extension MenuDetailViewController {
     func configureTableView() {
         detailTableView.delegate = self
         detailTableView.dataSource = self
-        detailTableView.contentInset = UIEdgeInsets(top: 200, left: 0, bottom: 40, right: 0)
+        detailTableView.contentInset = UIEdgeInsets(top: Constants.headerHeight, left: 0, bottom: 40, right: 0)
         detailTableView.register(UINib(nibName: "DetailTableViewCell", bundle: Bundle.main),
                                  forCellReuseIdentifier: "DetailTableViewCell")
     }
@@ -109,7 +109,7 @@ private extension MenuDetailViewController {
     func didPan(_ recognizer: UIPanGestureRecognizer) {
         let threshold: CGFloat = 0.4
         let translation = recognizer.translation(in: headerView)
-        let verticalMovement = translation.y / (Constants.headerHeight * 2)
+        let verticalMovement = translation.y / (Constants.headerHeight * 2.5)
         let downwardMovement = max(verticalMovement, 0)
         let progress = min(downwardMovement, 0.99)
 
