@@ -1,0 +1,982 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		670C28F124C20177000368C5 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C28F024C20177000368C5 /* CheckoutViewController.swift */; };
+		670C28F724C22991000368C5 /* CheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C28F624C22991000368C5 /* CheckoutViewModel.swift */; };
+		671A370A24BE15DE00A66FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671A370924BE15DE00A66FED /* AppDelegate.swift */; };
+		671A370C24BE15DE00A66FED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671A370B24BE15DE00A66FED /* SceneDelegate.swift */; };
+		671A370E24BE15DE00A66FED /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671A370D24BE15DE00A66FED /* LogInViewController.swift */; };
+		671A371124BE15DF00A66FED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 671A370F24BE15DF00A66FED /* Main.storyboard */; };
+		671A371324BE15E200A66FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 671A371224BE15E200A66FED /* Assets.xcassets */; };
+		671A371624BE15E200A66FED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 671A371424BE15E200A66FED /* LaunchScreen.storyboard */; };
+		671B1DF324BF8C5F009CF6E6 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671B1DF224BF8C5F009CF6E6 /* UIColor.swift */; };
+		671B1DF524BF946A009CF6E6 /* BadgedButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671B1DF424BF946A009CF6E6 /* BadgedButton.xib */; };
+		671B1DF724BF9482009CF6E6 /* BadgedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671B1DF624BF9482009CF6E6 /* BadgedButton.swift */; };
+		6787278024C1C9FC00FE7C66 /* TransitionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6787277F24C1C9FC00FE7C66 /* TransitionInteractor.swift */; };
+		678849C424C4A7E400853694 /* CardOusel.h in Headers */ = {isa = PBXBuildFile; fileRef = 678849C224C4A7E400853694 /* CardOusel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		678849C724C4A7E400853694 /* CardOusel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 678849C024C4A7E400853694 /* CardOusel.framework */; };
+		678849C824C4A7E400853694 /* CardOusel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 678849C024C4A7E400853694 /* CardOusel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		678849CE24C4A82700853694 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A3E4DA24C335CB00EED458 /* Direction.swift */; };
+		678849CF24C4A82E00853694 /* CardOusel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 670C28FE24C32C16000368C5 /* CardOusel.xib */; };
+		678849D024C4A83200853694 /* CardOusel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C290024C32D9A000368C5 /* CardOusel.swift */; };
+		678849D124C4A83200853694 /* CardOuselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C290224C32F63000368C5 /* CardOuselViewModel.swift */; };
+		678849D224C4A88600853694 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 670C28F824C23E22000368C5 /* CardView.xib */; };
+		678849D324C4A88600853694 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C28FA24C241B5000368C5 /* CardView.swift */; };
+		678849D624C4A91200853694 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C290424C33014000368C5 /* PaymentMethod.swift */; };
+		678849D824C4A92A00853694 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678849D724C4A92A00853694 /* UIColor.swift */; };
+		678849D924C4A96A00853694 /* Array+SafeIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678849B924C4945900853694 /* Array+SafeIndex.swift */; };
+		678849DE24C4ADF200853694 /* CardOuselDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678849DD24C4ADF200853694 /* CardOuselDelegate.swift */; };
+		678849E824C4B4C100853694 /* FloatingLabelTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 678849E624C4B4C100853694 /* FloatingLabelTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		678849EB24C4B4C100853694 /* FloatingLabelTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 678849E424C4B4C100853694 /* FloatingLabelTextField.framework */; };
+		678849EC24C4B4C100853694 /* FloatingLabelTextField.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 678849E424C4B4C100853694 /* FloatingLabelTextField.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		678849F024C4B4CD00853694 /* FloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671A371E24BE724900A66FED /* FloatingTextField.swift */; };
+		678F381424BFE3810069ADEC /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F381324BFE3810069ADEC /* Food.swift */; };
+		67A492CA24BF2EAB0049490D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492C924BF2EAB0049490D /* AppCoordinator.swift */; };
+		67A492CC24BF2F210049490D /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492CB24BF2F210049490D /* LogInCoordinator.swift */; };
+		67A492CF24BF2F6F0049490D /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492CE24BF2F6F0049490D /* UIViewController.swift */; };
+		67A492D124BF2F8F0049490D /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492D024BF2F8F0049490D /* AppConstants.swift */; };
+		67A492D624BF34C80049490D /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492D524BF34C80049490D /* LogInViewModel.swift */; };
+		67A492D824BF376E0049490D /* MainViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492D724BF376E0049490D /* MainViewCoordinator.swift */; };
+		67A492DA24BF37880049490D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492D924BF37880049490D /* MainViewController.swift */; };
+		67A492DD24BF37AD0049490D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492DC24BF37AD0049490D /* MainViewModel.swift */; };
+		67A492DF24BF3F980049490D /* CircularTransitionToMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492DE24BF3F980049490D /* CircularTransitionToMain.swift */; };
+		67A492E124BF48B10049490D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492E024BF48B10049490D /* Router.swift */; };
+		67A492E324BF606C0049490D /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A492E224BF606C0049490D /* UIDevice.swift */; };
+		67AC50BE24C07B24005F34AA /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC50BD24C07B24005F34AA /* MenuDetailViewController.swift */; };
+		67AC50C024C0831E005F34AA /* PresentDetailTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC50BF24C0831E005F34AA /* PresentDetailTransition.swift */; };
+		67AC50C224C08AB7005F34AA /* FoodCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC50C124C08AB7005F34AA /* FoodCellViewModel.swift */; };
+		67AC50C424C09B21005F34AA /* MenuDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC50C324C09B21005F34AA /* MenuDetailViewModel.swift */; };
+		67AC50C824C0B164005F34AA /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC50C624C0B164005F34AA /* DetailTableViewCell.swift */; };
+		67AC50C924C0B164005F34AA /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67AC50C724C0B164005F34AA /* DetailTableViewCell.xib */; };
+		67AC50CD24C0BAB3005F34AA /* DetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC50CC24C0BAB3005F34AA /* DetailCellViewModel.swift */; };
+		67AC50D024C111AB005F34AA /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC50CF24C111AB005F34AA /* Cart.swift */; };
+		67AC50D224C118DF005F34AA /* AddRemoveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC50D124C118DE005F34AA /* AddRemoveButton.swift */; };
+		67B6E47024BF9E6B005CD3E8 /* FoodTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B6E46E24BF9E6B005CD3E8 /* FoodTypeTableViewCell.swift */; };
+		67B6E47124BF9E6B005CD3E8 /* FoodTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67B6E46F24BF9E6B005CD3E8 /* FoodTypeTableViewCell.xib */; };
+		67E7AB4624C3D02900E5C4A9 /* CALayer+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E7AB4524C3D02900E5C4A9 /* CALayer+Animations.swift */; };
+		67E7AB4824C48A3F00E5C4A9 /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E7AB4724C48A3F00E5C4A9 /* UIView+Animations.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		678849C524C4A7E400853694 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 671A36FE24BE15DE00A66FED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 678849BF24C4A7E400853694;
+			remoteInfo = CardOusel;
+		};
+		678849E924C4B4C100853694 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 671A36FE24BE15DE00A66FED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 678849E324C4B4C100853694;
+			remoteInfo = FloatingLabelTextField;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		678849CC24C4A7E400853694 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				678849EC24C4B4C100853694 /* FloatingLabelTextField.framework in Embed Frameworks */,
+				678849C824C4A7E400853694 /* CardOusel.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		670C28F024C20177000368C5 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		670C28F624C22991000368C5 /* CheckoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewModel.swift; sourceTree = "<group>"; };
+		670C28F824C23E22000368C5 /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		670C28FA24C241B5000368C5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		670C28FE24C32C16000368C5 /* CardOusel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardOusel.xib; sourceTree = "<group>"; };
+		670C290024C32D9A000368C5 /* CardOusel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOusel.swift; sourceTree = "<group>"; };
+		670C290224C32F63000368C5 /* CardOuselViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOuselViewModel.swift; sourceTree = "<group>"; };
+		670C290424C33014000368C5 /* PaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
+		671A370624BE15DE00A66FED /* Guidi's.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Guidi's.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		671A370924BE15DE00A66FED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		671A370B24BE15DE00A66FED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		671A370D24BE15DE00A66FED /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		671A371024BE15DF00A66FED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		671A371224BE15E200A66FED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		671A371524BE15E200A66FED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		671A371724BE15E200A66FED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		671A371E24BE724900A66FED /* FloatingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingTextField.swift; sourceTree = "<group>"; };
+		671B1DF224BF8C5F009CF6E6 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		671B1DF424BF946A009CF6E6 /* BadgedButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgedButton.xib; sourceTree = "<group>"; };
+		671B1DF624BF9482009CF6E6 /* BadgedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgedButton.swift; sourceTree = "<group>"; };
+		6787277F24C1C9FC00FE7C66 /* TransitionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionInteractor.swift; sourceTree = "<group>"; };
+		678849B924C4945900853694 /* Array+SafeIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SafeIndex.swift"; sourceTree = "<group>"; };
+		678849C024C4A7E400853694 /* CardOusel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CardOusel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		678849C224C4A7E400853694 /* CardOusel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardOusel.h; sourceTree = "<group>"; };
+		678849C324C4A7E400853694 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		678849D724C4A92A00853694 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		678849DD24C4ADF200853694 /* CardOuselDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOuselDelegate.swift; sourceTree = "<group>"; };
+		678849E424C4B4C100853694 /* FloatingLabelTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FloatingLabelTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		678849E624C4B4C100853694 /* FloatingLabelTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FloatingLabelTextField.h; sourceTree = "<group>"; };
+		678849E724C4B4C100853694 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		678F381324BFE3810069ADEC /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		67A3E4DA24C335CB00EED458 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		67A492C924BF2EAB0049490D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		67A492CB24BF2F210049490D /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
+		67A492CE24BF2F6F0049490D /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		67A492D024BF2F8F0049490D /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		67A492D524BF34C80049490D /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
+		67A492D724BF376E0049490D /* MainViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCoordinator.swift; sourceTree = "<group>"; };
+		67A492D924BF37880049490D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		67A492DC24BF37AD0049490D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		67A492DE24BF3F980049490D /* CircularTransitionToMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransitionToMain.swift; sourceTree = "<group>"; };
+		67A492E024BF48B10049490D /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		67A492E224BF606C0049490D /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		67AC50BD24C07B24005F34AA /* MenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailViewController.swift; sourceTree = "<group>"; };
+		67AC50BF24C0831E005F34AA /* PresentDetailTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentDetailTransition.swift; sourceTree = "<group>"; };
+		67AC50C124C08AB7005F34AA /* FoodCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCellViewModel.swift; sourceTree = "<group>"; };
+		67AC50C324C09B21005F34AA /* MenuDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailViewModel.swift; sourceTree = "<group>"; };
+		67AC50C624C0B164005F34AA /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		67AC50C724C0B164005F34AA /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
+		67AC50CC24C0BAB3005F34AA /* DetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCellViewModel.swift; sourceTree = "<group>"; };
+		67AC50CF24C111AB005F34AA /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		67AC50D124C118DE005F34AA /* AddRemoveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemoveButton.swift; sourceTree = "<group>"; };
+		67B6E46E24BF9E6B005CD3E8 /* FoodTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTypeTableViewCell.swift; sourceTree = "<group>"; };
+		67B6E46F24BF9E6B005CD3E8 /* FoodTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodTypeTableViewCell.xib; sourceTree = "<group>"; };
+		67E7AB4524C3D02900E5C4A9 /* CALayer+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Animations.swift"; sourceTree = "<group>"; };
+		67E7AB4724C48A3F00E5C4A9 /* UIView+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animations.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		671A370324BE15DE00A66FED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				678849EB24C4B4C100853694 /* FloatingLabelTextField.framework in Frameworks */,
+				678849C724C4A7E400853694 /* CardOusel.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		678849BD24C4A7E400853694 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		678849E124C4B4C100853694 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		670C28EF24C20145000368C5 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				670C28F024C20177000368C5 /* CheckoutViewController.swift */,
+				670C28F624C22991000368C5 /* CheckoutViewModel.swift */,
+			);
+			path = Checkout;
+			sourceTree = "<group>";
+		};
+		670C28FC24C244E6000368C5 /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				670C28F824C23E22000368C5 /* CardView.xib */,
+				670C28FA24C241B5000368C5 /* CardView.swift */,
+			);
+			path = CardView;
+			sourceTree = "<group>";
+		};
+		671A36FD24BE15DE00A66FED = {
+			isa = PBXGroup;
+			children = (
+				671A370824BE15DE00A66FED /* Guidi_s */,
+				678849C124C4A7E400853694 /* CardOusel */,
+				678849E524C4B4C100853694 /* FloatingLabelTextField */,
+				671A370724BE15DE00A66FED /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		671A370724BE15DE00A66FED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				671A370624BE15DE00A66FED /* Guidi's.app */,
+				678849C024C4A7E400853694 /* CardOusel.framework */,
+				678849E424C4B4C100853694 /* FloatingLabelTextField.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		671A370824BE15DE00A66FED /* Guidi_s */ = {
+			isa = PBXGroup;
+			children = (
+				671A370924BE15DE00A66FED /* AppDelegate.swift */,
+				671A370B24BE15DE00A66FED /* SceneDelegate.swift */,
+				671A371724BE15E200A66FED /* Info.plist */,
+				67A492E024BF48B10049490D /* Router.swift */,
+				67A492C824BF2E9D0049490D /* Coordinators */,
+				67A492D324BF347B0049490D /* Scenes */,
+				671A371D24BE71D000A66FED /* CustomElements */,
+				678F381524BFE3860069ADEC /* Models */,
+				67A492CD24BF2F600049490D /* Extensions */,
+				67A492D224BF2FBC0049490D /* Resources */,
+			);
+			path = Guidi_s;
+			sourceTree = "<group>";
+		};
+		671A371D24BE71D000A66FED /* CustomElements */ = {
+			isa = PBXGroup;
+			children = (
+				67A3E4DC24C3675800EED458 /* BadgedButton */,
+				67AC50D124C118DE005F34AA /* AddRemoveButton.swift */,
+			);
+			path = CustomElements;
+			sourceTree = "<group>";
+		};
+		678849C124C4A7E400853694 /* CardOusel */ = {
+			isa = PBXGroup;
+			children = (
+				678849DC24C4ADE000853694 /* Protocols */,
+				678849DB24C4ADD100853694 /* Extensions */,
+				678849DA24C4AD0700853694 /* Models */,
+				678849CD24C4A7F000853694 /* Source */,
+				678849C224C4A7E400853694 /* CardOusel.h */,
+				678849C324C4A7E400853694 /* Info.plist */,
+			);
+			path = CardOusel;
+			sourceTree = "<group>";
+		};
+		678849CD24C4A7F000853694 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				670C28FC24C244E6000368C5 /* CardView */,
+				670C28FE24C32C16000368C5 /* CardOusel.xib */,
+				670C290024C32D9A000368C5 /* CardOusel.swift */,
+				670C290224C32F63000368C5 /* CardOuselViewModel.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		678849DA24C4AD0700853694 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				670C290424C33014000368C5 /* PaymentMethod.swift */,
+				67A3E4DA24C335CB00EED458 /* Direction.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		678849DB24C4ADD100853694 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				678849B924C4945900853694 /* Array+SafeIndex.swift */,
+				678849D724C4A92A00853694 /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		678849DC24C4ADE000853694 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				678849DD24C4ADF200853694 /* CardOuselDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		678849E524C4B4C100853694 /* FloatingLabelTextField */ = {
+			isa = PBXGroup;
+			children = (
+				671A371E24BE724900A66FED /* FloatingTextField.swift */,
+				678849E624C4B4C100853694 /* FloatingLabelTextField.h */,
+				678849E724C4B4C100853694 /* Info.plist */,
+			);
+			path = FloatingLabelTextField;
+			sourceTree = "<group>";
+		};
+		678F381524BFE3860069ADEC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				678F381324BFE3810069ADEC /* Food.swift */,
+				67AC50CF24C111AB005F34AA /* Cart.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		67A3E4DC24C3675800EED458 /* BadgedButton */ = {
+			isa = PBXGroup;
+			children = (
+				671B1DF424BF946A009CF6E6 /* BadgedButton.xib */,
+				671B1DF624BF9482009CF6E6 /* BadgedButton.swift */,
+			);
+			path = BadgedButton;
+			sourceTree = "<group>";
+		};
+		67A492C824BF2E9D0049490D /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				67A492C924BF2EAB0049490D /* AppCoordinator.swift */,
+				67A492CB24BF2F210049490D /* LogInCoordinator.swift */,
+				67A492D724BF376E0049490D /* MainViewCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		67A492CD24BF2F600049490D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				67A492CE24BF2F6F0049490D /* UIViewController.swift */,
+				67E7AB4724C48A3F00E5C4A9 /* UIView+Animations.swift */,
+				67A492E224BF606C0049490D /* UIDevice.swift */,
+				671B1DF224BF8C5F009CF6E6 /* UIColor.swift */,
+				67E7AB4524C3D02900E5C4A9 /* CALayer+Animations.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		67A492D224BF2FBC0049490D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				671A371224BE15E200A66FED /* Assets.xcassets */,
+				67A492D024BF2F8F0049490D /* AppConstants.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		67A492D324BF347B0049490D /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				671A371424BE15E200A66FED /* LaunchScreen.storyboard */,
+				671A370F24BE15DF00A66FED /* Main.storyboard */,
+				67A492D424BF34940049490D /* LogIn */,
+				67A492DB24BF378D0049490D /* MainScreen */,
+				67AC50BC24C07AF0005F34AA /* MenuDetail */,
+				670C28EF24C20145000368C5 /* Checkout */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		67A492D424BF34940049490D /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				671A370D24BE15DE00A66FED /* LogInViewController.swift */,
+				67A492D524BF34C80049490D /* LogInViewModel.swift */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		67A492DB24BF378D0049490D /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				67A492DE24BF3F980049490D /* CircularTransitionToMain.swift */,
+				67A492D924BF37880049490D /* MainViewController.swift */,
+				67A492DC24BF37AD0049490D /* MainViewModel.swift */,
+				67B6E47224BFC91C005CD3E8 /* Cells */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		67AC50BC24C07AF0005F34AA /* MenuDetail */ = {
+			isa = PBXGroup;
+			children = (
+				67AC50BF24C0831E005F34AA /* PresentDetailTransition.swift */,
+				6787277F24C1C9FC00FE7C66 /* TransitionInteractor.swift */,
+				67AC50C324C09B21005F34AA /* MenuDetailViewModel.swift */,
+				67AC50BD24C07B24005F34AA /* MenuDetailViewController.swift */,
+				67AC50C524C0B150005F34AA /* Cells */,
+			);
+			path = MenuDetail;
+			sourceTree = "<group>";
+		};
+		67AC50C524C0B150005F34AA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				67AC50CC24C0BAB3005F34AA /* DetailCellViewModel.swift */,
+				67AC50C624C0B164005F34AA /* DetailTableViewCell.swift */,
+				67AC50C724C0B164005F34AA /* DetailTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		67B6E47224BFC91C005CD3E8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				67AC50C124C08AB7005F34AA /* FoodCellViewModel.swift */,
+				67B6E46E24BF9E6B005CD3E8 /* FoodTypeTableViewCell.swift */,
+				67B6E46F24BF9E6B005CD3E8 /* FoodTypeTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		678849BB24C4A7E400853694 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				678849C424C4A7E400853694 /* CardOusel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		678849DF24C4B4C100853694 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				678849E824C4B4C100853694 /* FloatingLabelTextField.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		671A370524BE15DE00A66FED /* Guidi_s */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 671A371A24BE15E200A66FED /* Build configuration list for PBXNativeTarget "Guidi_s" */;
+			buildPhases = (
+				671A370224BE15DE00A66FED /* Sources */,
+				671A370324BE15DE00A66FED /* Frameworks */,
+				671A370424BE15DE00A66FED /* Resources */,
+				678849CC24C4A7E400853694 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				678849C624C4A7E400853694 /* PBXTargetDependency */,
+				678849EA24C4B4C100853694 /* PBXTargetDependency */,
+			);
+			name = Guidi_s;
+			productName = FeedMe;
+			productReference = 671A370624BE15DE00A66FED /* Guidi's.app */;
+			productType = "com.apple.product-type.application";
+		};
+		678849BF24C4A7E400853694 /* CardOusel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 678849C924C4A7E400853694 /* Build configuration list for PBXNativeTarget "CardOusel" */;
+			buildPhases = (
+				678849BB24C4A7E400853694 /* Headers */,
+				678849BC24C4A7E400853694 /* Sources */,
+				678849BD24C4A7E400853694 /* Frameworks */,
+				678849BE24C4A7E400853694 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CardOusel;
+			productName = CardOusel;
+			productReference = 678849C024C4A7E400853694 /* CardOusel.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		678849E324C4B4C100853694 /* FloatingLabelTextField */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 678849ED24C4B4C100853694 /* Build configuration list for PBXNativeTarget "FloatingLabelTextField" */;
+			buildPhases = (
+				678849DF24C4B4C100853694 /* Headers */,
+				678849E024C4B4C100853694 /* Sources */,
+				678849E124C4B4C100853694 /* Frameworks */,
+				678849E224C4B4C100853694 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FloatingLabelTextField;
+			productName = FloatingLabelTextField;
+			productReference = 678849E424C4B4C100853694 /* FloatingLabelTextField.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		671A36FE24BE15DE00A66FED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Juan Cruz Guidi";
+				TargetAttributes = {
+					671A370524BE15DE00A66FED = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					678849BF24C4A7E400853694 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					678849E324C4B4C100853694 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = 671A370124BE15DE00A66FED /* Build configuration list for PBXProject "Guidi_s" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 671A36FD24BE15DE00A66FED;
+			productRefGroup = 671A370724BE15DE00A66FED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				671A370524BE15DE00A66FED /* Guidi_s */,
+				678849BF24C4A7E400853694 /* CardOusel */,
+				678849E324C4B4C100853694 /* FloatingLabelTextField */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		671A370424BE15DE00A66FED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				671B1DF524BF946A009CF6E6 /* BadgedButton.xib in Resources */,
+				671A371624BE15E200A66FED /* LaunchScreen.storyboard in Resources */,
+				67B6E47124BF9E6B005CD3E8 /* FoodTypeTableViewCell.xib in Resources */,
+				671A371324BE15E200A66FED /* Assets.xcassets in Resources */,
+				67AC50C924C0B164005F34AA /* DetailTableViewCell.xib in Resources */,
+				671A371124BE15DF00A66FED /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		678849BE24C4A7E400853694 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				678849D224C4A88600853694 /* CardView.xib in Resources */,
+				678849CF24C4A82E00853694 /* CardOusel.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		678849E224C4B4C100853694 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		671A370224BE15DE00A66FED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67A492CF24BF2F6F0049490D /* UIViewController.swift in Sources */,
+				67A492DF24BF3F980049490D /* CircularTransitionToMain.swift in Sources */,
+				67A492DA24BF37880049490D /* MainViewController.swift in Sources */,
+				67AC50D024C111AB005F34AA /* Cart.swift in Sources */,
+				671A370E24BE15DE00A66FED /* LogInViewController.swift in Sources */,
+				678F381424BFE3810069ADEC /* Food.swift in Sources */,
+				67AC50C024C0831E005F34AA /* PresentDetailTransition.swift in Sources */,
+				67A492D824BF376E0049490D /* MainViewCoordinator.swift in Sources */,
+				671B1DF324BF8C5F009CF6E6 /* UIColor.swift in Sources */,
+				671A370A24BE15DE00A66FED /* AppDelegate.swift in Sources */,
+				67A492D124BF2F8F0049490D /* AppConstants.swift in Sources */,
+				670C28F124C20177000368C5 /* CheckoutViewController.swift in Sources */,
+				67A492D624BF34C80049490D /* LogInViewModel.swift in Sources */,
+				67A492CC24BF2F210049490D /* LogInCoordinator.swift in Sources */,
+				67AC50D224C118DF005F34AA /* AddRemoveButton.swift in Sources */,
+				67A492CA24BF2EAB0049490D /* AppCoordinator.swift in Sources */,
+				67A492E324BF606C0049490D /* UIDevice.swift in Sources */,
+				67AC50C224C08AB7005F34AA /* FoodCellViewModel.swift in Sources */,
+				67A492E124BF48B10049490D /* Router.swift in Sources */,
+				67B6E47024BF9E6B005CD3E8 /* FoodTypeTableViewCell.swift in Sources */,
+				670C28F724C22991000368C5 /* CheckoutViewModel.swift in Sources */,
+				671A370C24BE15DE00A66FED /* SceneDelegate.swift in Sources */,
+				67AC50C824C0B164005F34AA /* DetailTableViewCell.swift in Sources */,
+				67AC50BE24C07B24005F34AA /* MenuDetailViewController.swift in Sources */,
+				671B1DF724BF9482009CF6E6 /* BadgedButton.swift in Sources */,
+				6787278024C1C9FC00FE7C66 /* TransitionInteractor.swift in Sources */,
+				67E7AB4824C48A3F00E5C4A9 /* UIView+Animations.swift in Sources */,
+				67A492DD24BF37AD0049490D /* MainViewModel.swift in Sources */,
+				67E7AB4624C3D02900E5C4A9 /* CALayer+Animations.swift in Sources */,
+				67AC50C424C09B21005F34AA /* MenuDetailViewModel.swift in Sources */,
+				67AC50CD24C0BAB3005F34AA /* DetailCellViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		678849BC24C4A7E400853694 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				678849D924C4A96A00853694 /* Array+SafeIndex.swift in Sources */,
+				678849D024C4A83200853694 /* CardOusel.swift in Sources */,
+				678849D824C4A92A00853694 /* UIColor.swift in Sources */,
+				678849D124C4A83200853694 /* CardOuselViewModel.swift in Sources */,
+				678849D324C4A88600853694 /* CardView.swift in Sources */,
+				678849CE24C4A82700853694 /* Direction.swift in Sources */,
+				678849D624C4A91200853694 /* PaymentMethod.swift in Sources */,
+				678849DE24C4ADF200853694 /* CardOuselDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		678849E024C4B4C100853694 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				678849F024C4B4CD00853694 /* FloatingTextField.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		678849C624C4A7E400853694 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 678849BF24C4A7E400853694 /* CardOusel */;
+			targetProxy = 678849C524C4A7E400853694 /* PBXContainerItemProxy */;
+		};
+		678849EA24C4B4C100853694 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 678849E324C4B4C100853694 /* FloatingLabelTextField */;
+			targetProxy = 678849E924C4B4C100853694 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		671A370F24BE15DF00A66FED /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				671A371024BE15DF00A66FED /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		671A371424BE15E200A66FED /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				671A371524BE15E200A66FED /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		671A371824BE15E200A66FED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		671A371924BE15E200A66FED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		671A371B24BE15E200A66FED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7KM58CYLUC;
+				INFOPLIST_FILE = "$(SRCROOT)/Guidi_s/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jcguidi.Guidi-s";
+				PRODUCT_NAME = "Guidi's";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		671A371C24BE15E200A66FED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7KM58CYLUC;
+				INFOPLIST_FILE = "$(SRCROOT)/Guidi_s/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jcguidi.Guidi-s";
+				PRODUCT_NAME = "Guidi's";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		678849CA24C4A7E400853694 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7KM58CYLUC;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CardOusel/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jcguidi.CardOusel;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		678849CB24C4A7E400853694 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7KM58CYLUC;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CardOusel/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jcguidi.CardOusel;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		678849EE24C4B4C100853694 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7KM58CYLUC;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FloatingLabelTextField/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jcguidi.FloatingLabelTextField;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		678849EF24C4B4C100853694 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7KM58CYLUC;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FloatingLabelTextField/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jcguidi.FloatingLabelTextField;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		671A370124BE15DE00A66FED /* Build configuration list for PBXProject "Guidi_s" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				671A371824BE15E200A66FED /* Debug */,
+				671A371924BE15E200A66FED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		671A371A24BE15E200A66FED /* Build configuration list for PBXNativeTarget "Guidi_s" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				671A371B24BE15E200A66FED /* Debug */,
+				671A371C24BE15E200A66FED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		678849C924C4A7E400853694 /* Build configuration list for PBXNativeTarget "CardOusel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				678849CA24C4A7E400853694 /* Debug */,
+				678849CB24C4A7E400853694 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		678849ED24C4B4C100853694 /* Build configuration list for PBXNativeTarget "FloatingLabelTextField" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				678849EE24C4B4C100853694 /* Debug */,
+				678849EF24C4B4C100853694 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 671A36FE24BE15DE00A66FED /* Project object */;
+}
