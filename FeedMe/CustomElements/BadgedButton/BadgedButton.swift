@@ -17,7 +17,7 @@ final class BadgedButton: UIButton {
     
     var badgetNumber: Int = 0 {
         didSet {
-            updateBadget(number: badgetNumber, animated: oldValue == 0)
+            updateBadget(number: badgetNumber, animated: oldValue != badgetNumber)
         }
     }
     
