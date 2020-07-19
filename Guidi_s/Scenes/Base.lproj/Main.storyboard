@@ -144,12 +144,17 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FE9-HY-tYY" customClass="BadgedButton" customModule="Guidi_s" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FE9-HY-tYY" customClass="BadgedButton" customModule="BadgedButton">
                                         <rect key="frame" x="358" y="48" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="yLi-57-2zg"/>
                                             <constraint firstAttribute="width" constant="40" id="yLj-tx-qfn"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="badgetNumber">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="handleCartTap:" destination="uIX-Dj-Jd9" eventType="touchUpInside" id="S0G-yh-zRC"/>
                                         </connections>

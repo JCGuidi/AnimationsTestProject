@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BadgedButton
 
 final class MainViewController: UIViewController {
 

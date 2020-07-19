@@ -8,42 +8,44 @@
 
 import UIKit
 
-final class BadgedButton: UIButton {
+@IBDesignable
+public final class BadgedButton: UIButton {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet private weak var badgetLabel: UILabel!
     @IBOutlet private weak var badgetView: UIView!
     @IBOutlet private weak var buttonImageView: UIImageView!
     
-    var badgetNumber: Int = 0 {
+    @IBInspectable
+    public var badgetNumber: Int = 0 {
         didSet {
             updateBadget(number: badgetNumber, animated: oldValue != badgetNumber)
         }
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }
     
-    override var isHighlighted: Bool {
+    public override var isHighlighted: Bool {
         didSet {
             if oldValue != isHighlighted { updateAppearance() }
         }
     }
     
-    override var isEnabled: Bool {
+    public override var isEnabled: Bool {
         didSet {
             if oldValue != isEnabled { updateAppearance() }
         }
     }
     
-    override var isSelected: Bool {
+    public override var isSelected: Bool {
         didSet {
             if oldValue != isSelected { updateAppearance() }
         }
@@ -52,13 +54,11 @@ final class BadgedButton: UIButton {
 
 private extension BadgedButton {
     func commonInit() {
-        Bundle.main.loadNibNamed("BadgedButton", owner: self, options: nil)
+        Bundle(for: type(of: self)).loadNibNamed("BadgedButton", owner: self, options: nil)
         addSubview(contentView)
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         contentView.isUserInteractionEnabled = false
         contentView.frame = bounds
-        badgetView.isHidden = true
-        isEnabled = false
         badgetView.layer.cornerRadius = 8
     }
     
@@ -66,12 +66,12 @@ private extension BadgedButton {
         guard number > 0 else {
             badgetView.isHidden = true
             isEnabled = false
-            buttonImageView.image = UIImage(named: "plate")
+            buttonImageView.image = UIImage(named: "plate", in: Bundle(for: type(of: self)), compatibleWith: nil)
             return
         }
         
         if animated {
-            buttonImageView.image = UIImage(named: "plate.full")
+            buttonImageView.image = UIImage(named: "plate.full", in: Bundle(for: type(of: self)), compatibleWith: nil)
             badgetView.isHidden = false
             badgetView.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001)
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseIn, animations: {
