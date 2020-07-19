@@ -9,32 +9,34 @@
 import UIKit
 
 @IBDesignable
-final class CardOusel: UIView {
+public final class CardOusel: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var leftCard: CardView!
     @IBOutlet weak var centralCard: CardView!
     @IBOutlet weak var rightCard: CardView!
     
+    public var delegate: CardOuselDelegate?
+    
     private var currentOption = 0
     
     var viewModel: CardOuselViewModel!
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }
     
-    func configure(for viewModel: CardOuselViewModel) {
+    public func configure(for viewModel: CardOuselViewModel) {
         self.viewModel = viewModel
         update(for: 0, direction: .forward)
     }
     
-    func show() {
+    public func show() {
         show(card: centralCard)
         show(card: leftCard)
         show(card: rightCard)
@@ -67,7 +69,7 @@ private extension CardOusel {
     
     func update(for option: Int, direction: Direction) {
         currentOption = option
-        viewModel.onOptionChange?(option, direction)
+        delegate?.cardOusel(self, didChangeTo: option, withDirection: direction)
         
         let centerDifference = centralCard.center.x - leftCard.center.x
         let positionDiff: CGFloat = direction == .forward ? centerDifference : -centerDifference
@@ -112,7 +114,7 @@ private extension CardOusel {
         let aux = CardView(frame: cardView.frame)
         aux.configure(for: viewModel)
         addSubview(aux)
-        aux.animateX(withDelay: 0.1, xDiff: positionDiff, completion: { _ in
+        animateX(view: aux, delay: 0.1, xDiff: positionDiff, completion: { _ in
             aux.removeFromSuperview()
         })
     }
@@ -160,7 +162,7 @@ private extension CardOusel {
     func show(card: CardView) {
         let offset = centralCard.center.x - leftCard.center.x
         card.center.x += offset
-        card.animateX(withDelay: 0.1, xDiff: offset)
+        animateX(view: card, delay: 0.1, xDiff: offset)
         animateAlpha(view: card, delay: 0)
     }
     
@@ -185,7 +187,7 @@ private extension CardOusel {
     
     func animateView<T: UIView>(view: T, delay: Double, offset: CGFloat) {
         view.center.x += offset
-        view.animateX(withDelay: delay + 0.1, xDiff: offset)
+        animateX(view: view, delay: delay + 0.1, xDiff: offset)
     }
     
     func animateAlpha<T: UIView>(view: T, delay: Double, finalValue: CGFloat = 1, completion:((Bool) -> Void)? = nil) {
@@ -194,6 +196,18 @@ private extension CardOusel {
                        options: [],
                        animations: {
                         view.alpha = finalValue
+        }, completion: completion)
+    }
+    
+    func animateX<T: UIView>(view: T, delay: Double, xDiff: CGFloat, completion:((Bool) -> Void)? = nil) {
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: delay,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 0.1,
+                       options: [],
+                       animations: {
+                        view.center.x -= xDiff
         }, completion: completion)
     }
 }

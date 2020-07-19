@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct CardOuselViewModel {
-    let cardViewModels: [CardViewModel] = [
+public struct CardOuselViewModel {
+    var cardViewModels: [CardViewModel] = [
         CardViewModel(type: .cash, startColor: .cashStart, endColor: .cashEnd, textColor: .white),
         CardViewModel(type: .card(CardModel(name: "VISA", holder: "Card Holder", number: "1234 **** **** 4321")),
                       startColor: .visaStart,
@@ -25,5 +25,9 @@ struct CardOuselViewModel {
                       textColor: .customBlack)
     ]
     
-    var onOptionChange: ((Int, Direction)->())?
+    public init(viewModels: [CardViewModel]? = nil) {
+        if let viewModels = viewModels {
+            cardViewModels = viewModels
+        }
+    }
 }

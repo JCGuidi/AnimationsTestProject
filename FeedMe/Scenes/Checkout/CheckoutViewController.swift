@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CardOusel
 
 final class CheckoutViewController: UIViewController {
 
@@ -64,21 +65,26 @@ final class CheckoutViewController: UIViewController {
     }
 }
 
+//MARK: - CardOuselDelegate
+
+extension CheckoutViewController: CardOuselDelegate {
+    func cardOusel(_ cardOusel: CardOusel, didChangeTo option: Int, withDirection direction: Direction) {
+        updateUI(for: option, direction: direction)
+    }
+}
+
 //MARK: - Private Methods
 
 private extension CheckoutViewController {
     
     func configureUI() {
-        let cardOuselViewModel = CardOuselViewModel(onOptionChange: { [unowned self] (option, direction) in
-            self.updateUI(for: option, direction: direction)
-        })
+        let cardOuselViewModel = CardOuselViewModel()
         cardOusel.configure(for: cardOuselViewModel)
+        cardOusel.delegate = self
         
         infoTitle.alpha = 0
         infoDescription.alpha = 0
-        
         orderList.text = viewModel.orderList
-        
         orderNowButton.layer.cornerRadius = 8
     }
     

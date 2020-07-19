@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum PaymentMethod {
+public enum PaymentMethod {
     case cash
     case card(CardModel)
 }
 
-struct CardModel {
+public struct CardModel {
     let name: String
     let holder: String
     let number: String

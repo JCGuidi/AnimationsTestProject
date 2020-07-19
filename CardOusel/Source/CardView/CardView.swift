@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct CardViewModel {
+public struct CardViewModel {
     let type: PaymentMethod
     let startColor: UIColor
     let endColor: UIColor
@@ -16,7 +16,7 @@ struct CardViewModel {
 }
 
 @IBDesignable
-final class CardView: UIView {
+public final class CardView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet private weak var cardBackgroundView: UIView!
     @IBOutlet private weak var cardTitle: UILabel!

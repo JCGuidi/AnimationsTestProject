@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Direction {
+public enum Direction {
     case forward
     case backward
 }
