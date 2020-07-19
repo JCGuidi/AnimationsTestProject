@@ -225,7 +225,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTW-Tm-y24">
-                                <rect key="frame" x="169.5" y="824" width="75" height="30"/>
+                                <rect key="frame" x="147" y="806" width="120" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="eaP-8z-oll"/>
+                                    <constraint firstAttribute="height" constant="40" id="ytI-3g-tcw"/>
+                                </constraints>
+                                <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Order Now"/>
                                 <connections>
                                     <action selector="handleOrderNow:" destination="KyF-EH-I0f" eventType="touchUpInside" id="U5L-I8-saQ"/>
@@ -275,7 +281,7 @@
                             <constraint firstItem="y4F-O7-re3" firstAttribute="top" secondItem="Lcd-pD-yxl" secondAttribute="top" constant="5" id="02A-DK-Qb6"/>
                             <constraint firstItem="XJ8-lC-PpV" firstAttribute="leading" secondItem="Lcd-pD-yxl" secondAttribute="leading" id="8xW-JL-ZUH"/>
                             <constraint firstItem="Lcd-pD-yxl" firstAttribute="trailing" secondItem="sgv-mZ-kvu" secondAttribute="trailing" constant="20" id="DqM-SB-2ZP"/>
-                            <constraint firstItem="Lcd-pD-yxl" firstAttribute="bottom" secondItem="CTW-Tm-y24" secondAttribute="bottom" constant="8" id="Eit-ay-Khc"/>
+                            <constraint firstItem="Lcd-pD-yxl" firstAttribute="bottom" secondItem="CTW-Tm-y24" secondAttribute="bottom" constant="16" id="Eit-ay-Khc"/>
                             <constraint firstItem="pMd-tT-WQf" firstAttribute="leading" secondItem="MGg-ya-nHZ" secondAttribute="leading" constant="4" id="I97-mU-vnb"/>
                             <constraint firstItem="BBv-EX-6Dx" firstAttribute="top" secondItem="hd2-JG-z6j" secondAttribute="bottom" id="JTD-8M-Da5"/>
                             <constraint firstItem="MGg-ya-nHZ" firstAttribute="leading" secondItem="Lcd-pD-yxl" secondAttribute="leading" constant="50" id="Lpz-cV-t93"/>

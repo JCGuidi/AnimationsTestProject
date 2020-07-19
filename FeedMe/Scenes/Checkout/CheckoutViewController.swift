@@ -78,6 +78,8 @@ private extension CheckoutViewController {
         infoDescription.alpha = 0
         
         orderList.text = viewModel.orderList
+        
+        orderNowButton.layer.cornerRadius = 8
     }
     
     func updateUI(for option: Int, direction: Direction, completeAnimation: Bool = true) {
