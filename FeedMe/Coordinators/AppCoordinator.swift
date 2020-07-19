@@ -24,14 +24,14 @@ final class AppCoordinator: NSObject, CoordinatorProtocol {
     }
     
     func start() {
-        startMainFlow()
-//        let logInCoordinator = LogInCoordinator(router: router, parentCoordinator: self)
-//        childCoordinators.append(logInCoordinator)
-//        logInCoordinator.start()
+//        startMainFlow()
+        let logInCoordinator = LogInCoordinator(router: router, parentCoordinator: self)
+        childCoordinators.append(logInCoordinator)
+        logInCoordinator.start()
     }
     
     func startMainFlow() {
-        let mainViewCoordinator = MainViewCoordinator(router: router)
+        let mainViewCoordinator = MainViewCoordinator(router: router, parentCoordinator: self)
         childCoordinators.append(mainViewCoordinator)
         mainViewCoordinator.start()
     }

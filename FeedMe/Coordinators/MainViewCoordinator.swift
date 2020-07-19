@@ -12,9 +12,11 @@ final class MainViewCoordinator: CoordinatorProtocol {
     private(set) var childCoordinators: [CoordinatorProtocol] = []
     private let router: Router
     private var animation: UIViewControllerAnimatedTransitioning!
+    private let parentCoordinator: AppCoordinator
     
-    init(router: Router) {
+    init(router: Router, parentCoordinator: AppCoordinator) {
         self.router = router
+        self.parentCoordinator = parentCoordinator
     }
     
     func start() {
@@ -58,6 +60,12 @@ final class MainViewCoordinator: CoordinatorProtocol {
     
     func dismiss() {
         router.dismiss()
+    }
+    
+    func restart() {
+        router.dismiss()
+        parentCoordinator.childDidFinish(self)
+        parentCoordinator.start()
     }
     
     func childDidFinish(_ childCoordinator: CoordinatorProtocol) {

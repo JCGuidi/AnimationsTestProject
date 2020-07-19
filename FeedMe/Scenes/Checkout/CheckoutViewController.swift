@@ -76,10 +76,10 @@ private extension CheckoutViewController {
     
     func startOrderingAnimation() {
         translucidView = UIView(frame: view.bounds)
-        translucidView.backgroundColor = UIColor.customBlack.withAlphaComponent(0.9)
+        translucidView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.9)
         translucidView.alpha = 0
         view.addSubview(translucidView)
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: 0.4, animations: {
             self.translucidView.alpha = 1
         }, completion: { _ in
             self.setUpReplicator(in: self.translucidView)
@@ -124,6 +124,14 @@ private extension CheckoutViewController {
         let rotationTransform = CATransform3DRotate(identity, .pi / 3, 1, 0, 0)
         boxTop.layer.transform = rotationTransform
         
+        let label = thankYouLabel()
+        label.center.x = view.center.x
+        label.center.y = -100
+        translucidView.addSubview(label)
+        
+        let button = restartButton()
+        button.alpha = 0
+        translucidView.addSubview(button)
         
         UIView.animate(withDuration: 1, delay: 3, options: .curveEaseInOut, animations: {
             boxBottom.center = self.view.center
@@ -135,13 +143,37 @@ private extension CheckoutViewController {
         }) { _ in
             self.replicatorView.removeFromSuperview()
         }
-        UIView.animate(withDuration: 1, delay: 4.5, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 1, delay: 4.5, options: .curveEaseInOut, animations: {
             boxBottom.center.y += self.view.bounds.height
             boxTop.center.y += self.view.bounds.height
+            label.center.y = self.view.center.y
         }) { _ in
+            button.alpha = 1
             boxBottom.removeFromSuperview()
             boxTop.removeFromSuperview()
         }
+    }
+    
+    func thankYouLabel() -> UILabel {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        label.textColor = .white
+        label.text = "Thank you!"
+        label.font = UIFont(name: "Rockwell-Bold", size: 50)
+        return label
+    }
+    
+    func restartButton() -> UIButton {
+        let button = UIButton(frame: CGRect(x: view.center.x - 50, y: view.center.y + 200, width: 100, height: 50))
+        button.setTitle("Restart", for: .normal)
+        button.addTarget(self, action: #selector(restartTap), for: .touchUpInside)
+        return button
+    }
+    
+    @objc
+    func restartTap() {
+        viewModel.handleRestartTap()
     }
     
     func setUpReplicator(in view: UIView) {
@@ -170,7 +202,7 @@ private extension CheckoutViewController {
         replicator.instanceTransform = CATransform3DMakeRotation(.pi * 2 / 7, 0, 0, 1)
         replicator.instanceDelay = 0.5
         
-        pizza.add(animationKeyPath: "transform.scale", fromValue: 0.01, toValue: 1, duration: duration)
+        pizza.add(animationKeyPath: "transform.scale", fromValue: 0.5, toValue: 1, duration: duration)
         pizza.add(animationKeyPath: "opacity", fromValue: 0, toValue: 1, duration: duration)
         
     }

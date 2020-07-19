@@ -27,13 +27,17 @@ final class CheckoutViewModel {
         PaymentInformation(),
     ]
     
+    init(cart: Cart = Cart.shared) {
+        self.cart = cart
+        orderList = "• " + cart.orders.joined(separator: "\n• ")
+    }
+    
     func handleDismissTap() {
         coordinator?.dismiss()
     }
     
-    init(cart: Cart = Cart.shared) {
-        self.cart = cart
-        orderList = "• " + cart.orders.joined(separator: "\n• ")
+    func handleRestartTap() {
+        coordinator?.restart()
     }
     
     func getInformationFor(option: Int) -> (title: String, subtitle: String) {

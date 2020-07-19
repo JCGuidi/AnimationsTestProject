@@ -25,10 +25,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kJC-D1-Okx" customClass="FloatingTextField" customModule="Guidi_s" customModuleProvider="target">
-                                <rect key="frame" x="97" y="236" width="220" height="34"/>
+                                <rect key="frame" x="107" y="236" width="200" height="34"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="2mw-8V-jS8"/>
                                     <constraint firstAttribute="height" constant="34" id="9wT-sd-LkQ"/>
-                                    <constraint firstAttribute="width" constant="220" id="Nfj-LM-zFl"/>
                                 </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
@@ -44,7 +44,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4qG-CU-TPn" customClass="FloatingTextField" customModule="Guidi_s" customModuleProvider="target">
-                                <rect key="frame" x="97" y="310" width="220" height="34"/>
+                                <rect key="frame" x="107" y="310" width="200" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="8uT-l8-02d"/>
                                 </constraints>
@@ -219,7 +219,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pot-98-feD">
-                                <rect key="frame" x="20" y="263.5" width="112" height="25"/>
+                                <rect key="frame" x="20" y="263.5" width="374" height="25"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="18"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -283,6 +283,7 @@
                             <constraint firstItem="hd2-JG-z6j" firstAttribute="centerX" secondItem="Lcd-pD-yxl" secondAttribute="centerX" id="QH1-mb-JbA"/>
                             <constraint firstItem="pot-98-feD" firstAttribute="leading" secondItem="Lcd-pD-yxl" secondAttribute="leading" constant="20" id="V97-fw-v9x"/>
                             <constraint firstItem="BBv-EX-6Dx" firstAttribute="centerX" secondItem="hd2-JG-z6j" secondAttribute="centerX" id="WYc-dq-UDu"/>
+                            <constraint firstItem="Lcd-pD-yxl" firstAttribute="trailing" secondItem="pot-98-feD" secondAttribute="trailing" constant="20" id="fam-F8-900"/>
                             <constraint firstItem="XJ8-lC-PpV" firstAttribute="trailing" secondItem="Lcd-pD-yxl" secondAttribute="trailing" id="hg1-Nb-EaG"/>
                             <constraint firstItem="CTW-Tm-y24" firstAttribute="centerX" secondItem="Lcd-pD-yxl" secondAttribute="centerX" id="iln-La-uMi"/>
                             <constraint firstItem="Lcd-pD-yxl" firstAttribute="trailing" secondItem="MGg-ya-nHZ" secondAttribute="trailing" constant="20" id="j1Q-uq-mw4"/>

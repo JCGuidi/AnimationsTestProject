@@ -50,7 +50,7 @@
                 <constraint firstItem="TMP-sX-dlH" firstAttribute="height" secondItem="mso-Y7-9bM" secondAttribute="height" id="wRF-2C-SmR"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-551" y="232"/>
+            <point key="canvasLocation" x="-43" y="170"/>
         </view>
     </objects>
 </document>
