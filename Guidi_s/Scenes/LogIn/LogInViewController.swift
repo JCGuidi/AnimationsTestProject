@@ -50,7 +50,13 @@ final class LogInViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        initialAnimation()
+        if viewModel.animated {
+            initialAnimation()
+        } else {
+            topImage.alpha = 1
+            animateEnterLine()
+            animateLogInObjects()
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -114,7 +120,9 @@ private extension LogInViewController {
         userTextField.alpha = 0
         passwordTextField.alpha = 0
         logInButton.alpha = 0
-        topImage.alpha = 0
+        if viewModel.animated {
+            topImage.alpha = 0
+        }
     }
     
     //MARK: Enter Animations
@@ -140,14 +148,18 @@ private extension LogInViewController {
                         imageView.removeFromSuperview()
         })
         
-        animateY(view: titleLabel, delay: 0.45, yDiff: Constants.yDiff)
-        titleLabel.animateAlpha(withDelay: 0.45, duration: Constants.enteringAnimationDuration)
-        animateY(view: userTextField, delay: 0.55, yDiff: Constants.yDiff)
-        userTextField.animateAlpha(withDelay: 0.55, duration: Constants.enteringAnimationDuration)
-        animateY(view: passwordTextField, delay: 0.65, yDiff: Constants.yDiff)
-        passwordTextField.animateAlpha(withDelay: 0.65, duration: Constants.enteringAnimationDuration)
-        animateY(view: logInButton, delay: 0.75, yDiff: Constants.yDiff)
-        logInButton.animateAlpha(withDelay: 0.75, duration: Constants.enteringAnimationDuration)
+        animateLogInObjects(withDelay: 0.4)
+    }
+    
+    func animateLogInObjects(withDelay delay: Double = 0) {
+        animateY(view: titleLabel, delay: delay + 0.05, yDiff: Constants.yDiff)
+        titleLabel.animateAlpha(withDelay: delay + 0.05, duration: Constants.enteringAnimationDuration)
+        animateY(view: userTextField, delay: delay + 0.15, yDiff: Constants.yDiff)
+        userTextField.animateAlpha(withDelay: delay + 0.15, duration: Constants.enteringAnimationDuration)
+        animateY(view: passwordTextField, delay: delay + 0.25, yDiff: Constants.yDiff)
+        passwordTextField.animateAlpha(withDelay: delay + 0.25, duration: Constants.enteringAnimationDuration)
+        animateY(view: logInButton, delay: delay + 0.35, yDiff: Constants.yDiff)
+        logInButton.animateAlpha(withDelay: delay + 0.35, duration: Constants.enteringAnimationDuration)
     }
     
     //MARK: Loader Configuration & Animations

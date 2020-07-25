@@ -16,6 +16,7 @@ final class Router: NSObject {
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         super.init()
+        navigationController.navigationBar.isHidden = true
         navigationController.delegate = self
     }
     

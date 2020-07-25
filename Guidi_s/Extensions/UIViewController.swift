@@ -9,8 +9,8 @@
 import UIKit
 
 extension UIViewController {
-    static func instantiate<T>() -> T {
-        let storyboard = UIStoryboard(name: AppConstants.mainStoryboard, bundle: .main)
+    static func instantiate<T>(from storyboard: String = AppConstants.mainStoryboard) -> T {
+        let storyboard = UIStoryboard(name: storyboard, bundle: .main)
         let controller = storyboard.instantiateViewController(identifier: "\(T.self)") as! T
         return controller
     }

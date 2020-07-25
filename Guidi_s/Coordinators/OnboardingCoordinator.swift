@@ -1,15 +1,15 @@
 //
-//  LogInCoordinator.swift
+//  OnboardingCoordinator.swift
 //  Guidi_s
 //
-//  Created by Juan Cruz Guidi on 15/07/2020.
+//  Created by Juan Cruz Guidi on 24/07/2020.
 //  Copyright © 2020 Juan Cruz Guidi. All rights reserved.
 //
 
 import UIKit
 import AlphaTransitioning
 
-final class LogInCoordinator: CoordinatorProtocol {
+final class OnboardingCoordinator: CoordinatorProtocol {
     private(set) var childCoordinators: [CoordinatorProtocol] = []
     private let parentCoordinator: AppCoordinator
     private let router: Router
@@ -20,28 +20,16 @@ final class LogInCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        start(animating: true)
-    }
-    
-    func start(animating: Bool) {
-        let logInViewController: LogInViewController = .instantiate()
-        let logInViewModel = LogInViewModel()
-        logInViewModel.coordinator = self
-        logInViewModel.animated = animating
-        logInViewController.viewModel = logInViewModel
-        
-        if animating {
-            router.set(logInViewController)
-        } else {
-            let transition = TabBarAlphaTransition()
-            router.set(logInViewController, withAnimation: transition)
-        }
-        
+        let onboardingViewController: OnboardingViewController = .instantiate(from: AppConstants.onboardingStoryboard)
+        let onboardingViewModel = OnboardingViewModel()
+        onboardingViewModel.coordinator = self
+        onboardingViewController.viewModel = onboardingViewModel
+        router.set(onboardingViewController)
     }
 
-    func startMain() {
+    func startLogin() {
         parentCoordinator.childDidFinish(self)
-        parentCoordinator.startMainFlow()
+        parentCoordinator.startLogInFlow(animating: false)
     }
     
     func childDidFinish(_ childCoordinator: CoordinatorProtocol) {

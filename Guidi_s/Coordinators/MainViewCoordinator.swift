@@ -70,7 +70,7 @@ final class MainViewCoordinator: CoordinatorProtocol {
     func restart() {
         router.dismiss()
         parentCoordinator.childDidFinish(self)
-        parentCoordinator.start()
+        parentCoordinator.startLogInFlow()
     }
     
     func childDidFinish(_ childCoordinator: CoordinatorProtocol) {

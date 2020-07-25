@@ -10,6 +10,7 @@ import Foundation
 
 final class LogInViewModel {
     var coordinator: LogInCoordinator?
+    var animated: Bool = false
     var onLogInSuccess: (() -> Void)? = nil
     var onValidInputs: ((Bool) -> Void)? = nil
     

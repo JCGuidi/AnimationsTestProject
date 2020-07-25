@@ -28,9 +28,15 @@ final class AppCoordinator: NSObject, CoordinatorProtocol {
     }
     
     func start() {
+        let onboardingCoordinator = OnboardingCoordinator(router: router, parentCoordinator: self)
+        childCoordinators.append(onboardingCoordinator)
+        onboardingCoordinator.start()
+    }
+    
+    func startLogInFlow(animating: Bool = true) {
         let logInCoordinator = LogInCoordinator(router: router, parentCoordinator: self)
         childCoordinators.append(logInCoordinator)
-        logInCoordinator.start()
+        logInCoordinator.start(animating: animating)
     }
     
     func startMainFlow() {

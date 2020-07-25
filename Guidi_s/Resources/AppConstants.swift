@@ -10,4 +10,5 @@ import Foundation
 
 enum AppConstants {
     static let mainStoryboard = "Main"
+    static let onboardingStoryboard = "Onboarding"
 }
