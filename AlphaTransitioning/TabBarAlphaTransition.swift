@@ -14,7 +14,7 @@ public final class TabBarAlphaTransition: UIPercentDrivenInteractiveTransition, 
     private let animationDuration: Double = 0.5
     private var pausedTime: CFTimeInterval = 0
     private weak var storedContext: UIViewControllerContextTransitioning?
-
+    
     var isTransitioning = false
     var initialLocation = CGPoint(x: UIScreen.main.bounds.width, y: UIScreen.main.bounds.height / 2)
     var interactive = false
@@ -24,9 +24,8 @@ public final class TabBarAlphaTransition: UIPercentDrivenInteractiveTransition, 
     public override func update(_ percentComplete: CGFloat) {
         super.update(percentComplete)
         maskLayer.path = MaskCreator.createPathFor(bounds: UIScreen.main.bounds,
-                                                   waveCenterY: initialLocation.y,
-                                                   waveHorRadius: 200 * percentComplete * (1 + percentComplete),
-                                                   sideWidth: 0,
+                                                   centerY: initialLocation.y,
+                                                   controlPointX: 200 * percentComplete * (1 + percentComplete),
                                                    reversed: direction == .right)
         let animationProgress = TimeInterval(animationDuration) * TimeInterval(percentComplete)
         storedContext?.containerView.layer.timeOffset = pausedTime + animationProgress
@@ -68,10 +67,9 @@ public final class TabBarAlphaTransition: UIPercentDrivenInteractiveTransition, 
         transitionContext.containerView.insertSubview(toView, belowSubview: fromView)
         
         maskLayer.path = MaskCreator.createPathFor(bounds: fromView.bounds,
-                                                     waveCenterY: initialLocation.y,
-                                                     waveHorRadius: 0,
-                                                     sideWidth: 0,
-                                                     reversed: direction == .right)
+                                                   centerY: initialLocation.y,
+                                                   controlPointX: 0,
+                                                   reversed: direction == .right)
         maskLayer.strokeColor = UIColor.white.cgColor
         maskLayer.lineWidth = 1
         maskLayer.fillColor = UIColor.white.cgColor
@@ -92,9 +90,8 @@ public final class TabBarAlphaTransition: UIPercentDrivenInteractiveTransition, 
         
         let pathAnimation = CABasicAnimation(keyPath: "path")
         pathAnimation.toValue = MaskCreator.createPathFor(bounds: fromView.bounds,
-                                                          waveCenterY: initialLocation.y,
-                                                          waveHorRadius: 200,
-                                                          sideWidth: 0,
+                                                          centerY: initialLocation.y,
+                                                          controlPointX: 200,
                                                           reversed: direction == .right)
         pathAnimation.duration = animationDuration
         pathAnimation.timingFunction = CAMediaTimingFunction(name: .easeIn)

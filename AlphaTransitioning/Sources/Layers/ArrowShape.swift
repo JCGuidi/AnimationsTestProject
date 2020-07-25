@@ -2,7 +2,7 @@
 //  ArrowShape.swift
 //  AlphaTransition
 //
-//  Created by Juan Cruz Guidi on 23/07/2020.
+//  Created by Juan Cruz Guidi on 25/07/2020.
 //  Copyright © 2020 Juan Cruz Guidi. All rights reserved.
 //
 

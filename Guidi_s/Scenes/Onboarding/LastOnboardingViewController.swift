@@ -13,7 +13,7 @@ final class LastOnboardingViewController: UIViewController {
     @IBOutlet private weak var topImage: UIImageView!
     
     private let rightGesture = UIScreenEdgePanGestureRecognizer()
-    private var tossing: TossingBehavior!
+    private var tossing: TossingBehavior?
     private var animator: UIDynamicAnimator!
     
     //MARK: ViewController Lifecycle
@@ -25,12 +25,9 @@ final class LastOnboardingViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        animator.removeAllBehaviors()
         tossing = TossingBehavior(item: topImage, snapTo: topImage.center)
-        animator.addBehavior(tossing)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        animator.removeBehavior(tossing)
+        animator.addBehavior(tossing!)
     }
     
     //MARK: IBActions
@@ -57,7 +54,7 @@ private extension LastOnboardingViewController {
     func animatorPanned(recognizer: UIPanGestureRecognizer) {
         switch recognizer.state {
         case .began:
-            tossing.isEnabled = false
+            tossing?.isEnabled = false
         case .changed:
             let translation = recognizer.translation(in: view)
             topImage.center = CGPoint(x: topImage.center.x + translation.x,
@@ -65,7 +62,7 @@ private extension LastOnboardingViewController {
             recognizer.setTranslation(.zero, in: view)
             
         case .ended, .cancelled, .failed:
-            tossing.isEnabled = true
+            tossing?.isEnabled = true
         default:
             break
         }

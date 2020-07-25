@@ -2,7 +2,7 @@
 //  TabBarViewController.swift
 //  AlphaTransition
 //
-//  Created by Juan Cruz Guidi on 21/07/2020.
+//  Created by Juan Cruz Guidi on 24/07/2020.
 //  Copyright © 2020 Juan Cruz Guidi. All rights reserved.
 //
 
@@ -21,7 +21,7 @@ open class AlphaTransitioningTabBarViewController: UITabBarController {
     private var leftGesture = UIScreenEdgePanGestureRecognizer()
     
     private var buttonNext: UIButton = {
-        let rect = CGRect(x: 0, y: 0, width: 40, height: 40)
+        let rect = CGRect(x: 0, y: 0, width: 50, height: 50)
         let button = UIButton(frame: rect)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .clear
@@ -30,7 +30,7 @@ open class AlphaTransitioningTabBarViewController: UITabBarController {
     }()
     
     private var buttonPrevious: UIButton = {
-        let rect = CGRect(x: 0, y: 0, width: 40, height: 40)
+        let rect = CGRect(x: 0, y: 0, width: 50, height: 50)
         let button = UIButton(frame: rect)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .clear
@@ -129,18 +129,18 @@ private extension AlphaTransitioningTabBarViewController {
     func configureButtons() {
         view.addSubview(buttonNext)
         buttonNext.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
-        buttonNext.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-        buttonNext.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        buttonNext.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        buttonNext.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5).isActive = true
+        buttonNext.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        buttonNext.heightAnchor.constraint(equalToConstant: 50).isActive = true
         buttonNext.addTarget(self, action: #selector(nextTapped(_:)), for: .touchUpInside)
         buttonNext.alpha = 0.2
         animateNextButton()
         
         view.addSubview(buttonPrevious)
-        buttonPrevious.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        buttonPrevious.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5).isActive = true
         buttonPrevious.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
-        buttonPrevious.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        buttonPrevious.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        buttonPrevious.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        buttonPrevious.heightAnchor.constraint(equalToConstant: 50).isActive = true
         buttonPrevious.addTarget(self, action: #selector(previousTapped(_:)), for: .touchUpInside)
         buttonPrevious.alpha = 0.2
     }
