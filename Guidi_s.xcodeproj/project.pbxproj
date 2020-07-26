@@ -79,6 +79,7 @@
 		67E7AB4824C48A3F00E5C4A9 /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E7AB4724C48A3F00E5C4A9 /* UIView+Animations.swift */; };
 		67FA4D5224CCA9B500947905 /* TossingBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA4D5124CCA9B500947905 /* TossingBehavior.swift */; };
 		67FA4D5424CCB1CB00947905 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA4D5324CCB1CB00947905 /* OnboardingViewModel.swift */; };
+		67FA4D5824CD169200947905 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA4D5724CD169200947905 /* Direction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,6 +205,7 @@
 		67E7AB4724C48A3F00E5C4A9 /* UIView+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animations.swift"; sourceTree = "<group>"; };
 		67FA4D5124CCA9B500947905 /* TossingBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossingBehavior.swift; sourceTree = "<group>"; };
 		67FA4D5324CCB1CB00947905 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		67FA4D5724CD169200947905 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,8 +323,6 @@
 			isa = PBXGroup;
 			children = (
 				6766CB9024CB816400D2CEE0 /* Sources */,
-				6766CB9624CB81DB00D2CEE0 /* TabBarViewController.swift */,
-				6766CB9824CB823800D2CEE0 /* TabBarAlphaTransition.swift */,
 				6766CB8624CB814A00D2CEE0 /* AlphaTransitioning.h */,
 				6766CB8724CB814A00D2CEE0 /* Info.plist */,
 			);
@@ -332,6 +332,9 @@
 		6766CB9024CB816400D2CEE0 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				67FA4D5924CD16D600947905 /* Transition */,
+				67FA4D5624CD168600947905 /* Model */,
+				67FA4D5524CD157200947905 /* Controller */,
 				6766CB9124CB816D00D2CEE0 /* Layers */,
 			);
 			path = Sources;
@@ -535,6 +538,30 @@
 				67B6E46F24BF9E6B005CD3E8 /* FoodTypeTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		67FA4D5524CD157200947905 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6766CB9624CB81DB00D2CEE0 /* TabBarViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		67FA4D5624CD168600947905 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67FA4D5724CD169200947905 /* Direction.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		67FA4D5924CD16D600947905 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				6766CB9824CB823800D2CEE0 /* TabBarAlphaTransition.swift */,
+			);
+			path = Transition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -818,6 +845,7 @@
 				6766CB9424CB818300D2CEE0 /* MaskLayer.swift in Sources */,
 				6766CB9724CB81DB00D2CEE0 /* TabBarViewController.swift in Sources */,
 				6766CB9524CB818300D2CEE0 /* ArrowShape.swift in Sources */,
+				67FA4D5824CD169200947905 /* Direction.swift in Sources */,
 				6766CB9924CB823800D2CEE0 /* TabBarAlphaTransition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

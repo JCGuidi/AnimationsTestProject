@@ -21,6 +21,8 @@ public final class TabBarAlphaTransition: UIPercentDrivenInteractiveTransition, 
     var direction: Direction = .left
     var completion: (() -> Void)?
     
+    //MARK: UIPercentDrivenInteractiveTransition Methods
+    
     public override func update(_ percentComplete: CGFloat) {
         super.update(percentComplete)
         maskLayer.path = MaskCreator.createPathFor(bounds: UIScreen.main.bounds,
@@ -46,6 +48,8 @@ public final class TabBarAlphaTransition: UIPercentDrivenInteractiveTransition, 
         transitionLayer?.beginTime = CACurrentMediaTime()
         transitionLayer?.speed = forFinishing ? 1 : -1
     }
+    
+    //MARK: UIViewControllerAnimatedTransitioning Methods
     
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         animationDuration
@@ -101,6 +105,8 @@ public final class TabBarAlphaTransition: UIPercentDrivenInteractiveTransition, 
         maskLayer.add(pathAnimation, forKey: nil)
     }
     
+    //MARK: CAAnimationDelegate Methods
+    
     public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if let context = storedContext {
             context.completeTransition(!context.transitionWasCancelled)
@@ -113,6 +119,8 @@ public final class TabBarAlphaTransition: UIPercentDrivenInteractiveTransition, 
         isTransitioning = false
         storedContext = nil
     }
+    
+    //MARK: Handle Pan Gesture
     
     func handlePan(_ recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: recognizer.view!.superview!)

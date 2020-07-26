@@ -8,11 +8,6 @@
 
 import UIKit
 
-enum Direction {
-    case right
-    case left
-}
-
 open class AlphaTransitioningTabBarViewController: UITabBarController {
 
     private let transition = TabBarAlphaTransition()
