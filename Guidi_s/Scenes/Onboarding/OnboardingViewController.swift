@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import AlphaTransitioning
+import MaskedTransitioning
 
-final class OnboardingViewController: AlphaTransitioningTabBarViewController {
+final class OnboardingViewController: MaskedTransitioningTabBarViewController {
     
     var viewModel: OnboardingViewModel!
     

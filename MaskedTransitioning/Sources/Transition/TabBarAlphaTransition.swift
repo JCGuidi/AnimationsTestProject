@@ -1,6 +1,6 @@
 //
-//  TabBarAlphaTransition.swift
-//  AlphaTransitioning
+//  TabBarMaskedTransition.swift
+//  MaskedTransitioning
 //
 //  Created by Juan Cruz Guidi on 24/07/2020.
 //  Copyright © 2020 Juan Cruz Guidi. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public final class TabBarAlphaTransition: UIPercentDrivenInteractiveTransition, UIViewControllerAnimatedTransitioning, CAAnimationDelegate {
+public final class TabBarMaskedTransition: UIPercentDrivenInteractiveTransition, UIViewControllerAnimatedTransitioning, CAAnimationDelegate {
     
     private var maskLayer = CAShapeLayer()
     private let animationDuration: Double = 0.5

@@ -1,6 +1,6 @@
 //
 //  MaskLayer.swift
-//  AlphaTransition
+//  MaskedTransitioning
 //
 //  Created by Juan Cruz Guidi on 24/07/2020.
 //  Copyright © 2020 Juan Cruz Guidi. All rights reserved.

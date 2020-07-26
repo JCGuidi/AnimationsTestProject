@@ -1,6 +1,6 @@
 //
-//  TabBarViewController.swift
-//  AlphaTransition
+//  MaskedTransitioningTabBarViewController.swift
+//  MaskedTransitioning
 //
 //  Created by Juan Cruz Guidi on 24/07/2020.
 //  Copyright © 2020 Juan Cruz Guidi. All rights reserved.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-open class AlphaTransitioningTabBarViewController: UITabBarController {
+open class MaskedTransitioningTabBarViewController: UITabBarController {
 
-    private let transition = TabBarAlphaTransition()
+    private let transition = TabBarMaskedTransition()
 
     private var rightGesture = UIScreenEdgePanGestureRecognizer()
     private var leftGesture = UIScreenEdgePanGestureRecognizer()
@@ -48,7 +48,7 @@ open class AlphaTransitioningTabBarViewController: UITabBarController {
 
 //MARK: - UITabBarControllerDelegate
 
-extension AlphaTransitioningTabBarViewController: UITabBarControllerDelegate {
+extension MaskedTransitioningTabBarViewController: UITabBarControllerDelegate {
     public func tabBarController(_ tabBarController: UITabBarController,
                           interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         guard transition.interactive else { return nil }
@@ -64,7 +64,7 @@ extension AlphaTransitioningTabBarViewController: UITabBarControllerDelegate {
 
 //MARK: - Private Methods
 
-private extension AlphaTransitioningTabBarViewController {
+private extension MaskedTransitioningTabBarViewController {
     
     func configureUI() {
         configureButtons()

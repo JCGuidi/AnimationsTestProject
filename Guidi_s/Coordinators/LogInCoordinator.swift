@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AlphaTransitioning
+import MaskedTransitioning
 
 final class LogInCoordinator: CoordinatorProtocol {
     private(set) var childCoordinators: [CoordinatorProtocol] = []
@@ -33,7 +33,7 @@ final class LogInCoordinator: CoordinatorProtocol {
         if animating {
             router.set(logInViewController)
         } else {
-            let transition = TabBarAlphaTransition()
+            let transition = TabBarMaskedTransition()
             router.set(logInViewController, withAnimation: transition)
         }
         

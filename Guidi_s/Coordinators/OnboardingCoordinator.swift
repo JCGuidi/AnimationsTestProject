@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AlphaTransitioning
+import MaskedTransitioning
 
 final class OnboardingCoordinator: CoordinatorProtocol {
     private(set) var childCoordinators: [CoordinatorProtocol] = []
