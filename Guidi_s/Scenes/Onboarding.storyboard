@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,7 +31,7 @@
                                 <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTT-jk-mWc">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTT-jk-mWc">
                                 <rect key="frame" x="28.000000000000007" y="667" width="91.666666666666686" height="40"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="20"/>
                                 <state key="normal" title="Skip">
@@ -56,6 +57,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="YRM-Og-Pmk"/>
                         <color key="backgroundColor" red="1" green="0.98431372549999996" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zRf-y6-Bfp" firstAttribute="top" secondItem="Qkz-96-pLa" secondAttribute="bottom" constant="50" id="6JW-fV-Kdj"/>
@@ -70,7 +72,6 @@
                             <constraint firstItem="Qkz-96-pLa" firstAttribute="centerX" secondItem="YRM-Og-Pmk" secondAttribute="centerX" id="r7l-8p-xtR"/>
                             <constraint firstItem="gKa-lk-Ofd" firstAttribute="leading" secondItem="zRf-y6-Bfp" secondAttribute="leading" id="sTa-Nn-q9h"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="YRM-Og-Pmk"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="QYd-Ty-4DJ"/>
                     <connections>
@@ -79,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xPc-r6-OwA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325" y="-139"/>
+            <point key="canvasLocation" x="468" y="211"/>
         </scene>
         <!--Item 3-->
         <scene sceneID="Eeh-tY-ggG">
@@ -111,7 +112,7 @@
                                     <constraint firstAttribute="width" constant="278" id="vWU-CB-vI8"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaN-pK-8YE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaN-pK-8YE">
                                 <rect key="frame" x="18.000000000000007" y="667" width="111.66666666666669" height="40"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="20"/>
                                 <state key="normal" title="I'm Ready!">
@@ -130,6 +131,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="LYd-E8-wek"/>
                         <color key="backgroundColor" red="0.61614631220000005" green="0.070804830829999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="L04-I0-906" firstAttribute="leading" secondItem="bTP-gN-z2F" secondAttribute="leading" id="8BO-im-jqF"/>
@@ -144,7 +146,6 @@
                             <constraint firstItem="L04-I0-906" firstAttribute="top" secondItem="bTP-gN-z2F" secondAttribute="bottom" constant="-6" id="xm5-11-HRt"/>
                             <constraint firstItem="ThE-pM-aeq" firstAttribute="top" secondItem="LYd-E8-wek" secondAttribute="centerY" constant="10" id="yI6-B5-yDm"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="LYd-E8-wek"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 3" id="GIw-66-V87"/>
                     <connections>
@@ -153,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2gh-WE-bAB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1040.5797101449275" y="-139.28571428571428"/>
+            <point key="canvasLocation" x="1225" y="211"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="pXe-J8-cah">
@@ -178,7 +179,7 @@
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frP-UQ-goB">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frP-UQ-goB">
                                 <rect key="frame" x="28.000000000000007" y="667" width="91.666666666666686" height="40"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="20"/>
                                 <state key="normal" title="Skip">
@@ -204,6 +205,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="3jL-9V-5Cf"/>
                         <color key="backgroundColor" red="0.43511202929999998" green="0.5618229508" blue="0.2809114754" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cCN-XJ-CYJ" firstAttribute="leading" secondItem="8fX-VX-Qw5" secondAttribute="leading" id="1S2-Ea-UHm"/>
@@ -218,7 +220,6 @@
                             <constraint firstItem="jxa-DR-wK1" firstAttribute="top" secondItem="2RO-ST-NBw" secondAttribute="top" constant="50" id="wwF-T2-xS7"/>
                             <constraint firstItem="8fX-VX-Qw5" firstAttribute="leading" secondItem="3jL-9V-5Cf" secondAttribute="leading" constant="44" id="xT9-94-rZc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="3jL-9V-5Cf"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="hox-ne-gH0"/>
                     <connections>
@@ -227,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZUf-ux-jjc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-394.20289855072468" y="-139.28571428571428"/>
+            <point key="canvasLocation" x="-372" y="211"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="DsS-rb-6BV">
@@ -247,7 +248,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pra-cG-Ci5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1113" y="-139"/>
+            <point key="canvasLocation" x="-1239" y="211"/>
         </scene>
     </scenes>
     <resources>

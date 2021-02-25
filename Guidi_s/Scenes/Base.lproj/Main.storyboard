@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -69,7 +70,7 @@
                                     <constraint firstAttribute="height" constant="90" id="Qw0-Za-Fvx"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ip-3b-UJF">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ip-3b-UJF">
                                 <rect key="frame" x="137" y="384" width="140" height="40"/>
                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -92,6 +93,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="0.98431372549019602" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4qG-CU-TPn" firstAttribute="width" secondItem="kJC-D1-Okx" secondAttribute="width" id="6Dd-wF-2FP"/>
@@ -108,7 +110,6 @@
                             <constraint firstItem="kJC-D1-Okx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="uHI-TG-jia"/>
                             <constraint firstItem="kJC-D1-Okx" firstAttribute="top" secondItem="aC6-1G-irN" secondAttribute="bottom" constant="50" id="xh1-AP-sl8"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="loaderImageView" destination="jRK-rg-q2o" id="wS6-N0-bzp"/>
@@ -144,7 +145,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FE9-HY-tYY" customClass="BadgedButton" customModule="BadgedButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FE9-HY-tYY" customClass="BadgedButton" customModule="BadgedButton">
                                         <rect key="frame" x="358" y="48" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="yLi-57-2zg"/>
@@ -174,6 +175,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="D1t-7U-Ac3"/>
                         <color key="backgroundColor" red="1" green="0.98477333779999998" blue="0.95295101400000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="XmG-cv-Hwg" firstAttribute="top" secondItem="3aJ-XW-4xm" secondAttribute="bottom" id="0Ea-w3-eXw"/>
@@ -184,7 +186,6 @@
                             <constraint firstItem="3aJ-XW-4xm" firstAttribute="leading" secondItem="D1t-7U-Ac3" secondAttribute="leading" id="piJ-IH-9zq"/>
                             <constraint firstItem="3aJ-XW-4xm" firstAttribute="top" secondItem="Qjw-L7-y8c" secondAttribute="top" id="y2E-l5-zQ9"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="D1t-7U-Ac3"/>
                     </view>
                     <connections>
                         <outlet property="badgedButton" destination="FE9-HY-tYY" id="Jxi-5P-hZb"/>
@@ -229,7 +230,7 @@
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTW-Tm-y24">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTW-Tm-y24">
                                 <rect key="frame" x="127" y="796" width="160" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -282,6 +283,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Lcd-pD-yxl"/>
                         <color key="backgroundColor" red="1" green="0.98431372549999996" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="y4F-O7-re3" firstAttribute="top" secondItem="Lcd-pD-yxl" secondAttribute="top" constant="5" id="02A-DK-Qb6"/>
@@ -308,7 +310,6 @@
                             <constraint firstItem="Lcd-pD-yxl" firstAttribute="trailing" secondItem="pMd-tT-WQf" secondAttribute="trailing" constant="20" id="wIZ-ap-DGV"/>
                             <constraint firstItem="sgv-mZ-kvu" firstAttribute="top" secondItem="BBv-EX-6Dx" secondAttribute="bottom" id="y6X-my-i98"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Lcd-pD-yxl"/>
                     </view>
                     <connections>
                         <outlet property="cardOusel" destination="XJ8-lC-PpV" id="VfU-bv-59X"/>
@@ -384,6 +385,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="H15-li-leb"/>
                         <color key="backgroundColor" red="1" green="0.98431372549019602" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jsC-Lc-foF" firstAttribute="top" secondItem="iG6-yO-HnT" secondAttribute="top" id="3HH-B0-lug"/>
@@ -396,7 +398,6 @@
                             <constraint firstItem="jsC-Lc-foF" firstAttribute="leading" secondItem="H15-li-leb" secondAttribute="leading" id="Yu1-02-5dw"/>
                             <constraint firstItem="c8X-p7-0uk" firstAttribute="top" secondItem="iG6-yO-HnT" secondAttribute="top" id="klJ-wB-lGe"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="H15-li-leb"/>
                     </view>
                     <connections>
                         <outlet property="detailTableView" destination="c8X-p7-0uk" id="lMP-M5-VZg"/>
@@ -414,6 +415,17 @@
             <point key="canvasLocation" x="1492.753623188406" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="4qG-CU-TPn">
+            <size key="intrinsicContentSize" width="79.5" height="34"/>
+        </designable>
+        <designable name="FE9-HY-tYY">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="kJC-D1-Okx">
+            <size key="intrinsicContentSize" width="85.5" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <image name="pizza" width="128" height="128"/>
         <image name="spaghetti" width="128" height="128"/>
